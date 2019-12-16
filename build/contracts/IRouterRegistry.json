@@ -1,0 +1,514 @@
+{
+  "contractName": "IRouterRegistry",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "enum IRouterRegistry.RouterOperation",
+          "name": "op",
+          "type": "uint8"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "routerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "RouterUpdated",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "registerRouter",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "deregisterRouter",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "refreshRouter",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"enum IRouterRegistry.RouterOperation\",\"name\":\"op\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"routerAddress\",\"type\":\"address\"}],\"name\":\"RouterUpdated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"deregisterRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"refreshRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"registerRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"RouterRegistry interface for routing\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol\":\"IRouterRegistry\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol\":{\"keccak256\":\"0x5dc772f70178c5a5c60f6ffb1fec085e650a338bca01952636f5eb784e00642d\",\"urls\":[\"bzz-raw://aefdf2db68cad76bc51e4acd39e6cc12c6d3387859b7b9c596f7a0fb2a91bb6b\",\"dweb:/ipfs/QmbE4xTVuKTVkX5Ln7NxVAbDQ7BuBjQEWTye7HMGEGivJX\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.5;\n\n\n/**\n * @title RouterRegistry interface for routing\n */\ninterface IRouterRegistry {\n    enum RouterOperation { Add, Remove, Refresh }\n\n    function registerRouter() external;\n\n    function deregisterRouter() external;\n\n    function refreshRouter() external;\n\n    event RouterUpdated(RouterOperation indexed op, address indexed routerAddress);\n}",
+  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol",
+  "ast": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol",
+    "exportedSymbols": {
+      "IRouterRegistry": [
+        9859
+      ]
+    },
+    "id": 9860,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9839,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:22"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title RouterRegistry interface for routing",
+        "fullyImplemented": false,
+        "id": 9859,
+        "linearizedBaseContracts": [
+          9859
+        ],
+        "name": "IRouterRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IRouterRegistry.RouterOperation",
+            "id": 9843,
+            "members": [
+              {
+                "id": 9840,
+                "name": "Add",
+                "nodeType": "EnumValue",
+                "src": "136:3:22"
+              },
+              {
+                "id": 9841,
+                "name": "Remove",
+                "nodeType": "EnumValue",
+                "src": "141:6:22"
+              },
+              {
+                "id": 9842,
+                "name": "Refresh",
+                "nodeType": "EnumValue",
+                "src": "149:7:22"
+              }
+            ],
+            "name": "RouterOperation",
+            "nodeType": "EnumDefinition",
+            "src": "113:45:22"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9846,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerRouter",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9844,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "187:2:22"
+            },
+            "returnParameters": {
+              "id": 9845,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "198:0:22"
+            },
+            "scope": 9859,
+            "src": "164:35:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9849,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deregisterRouter",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9847,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "230:2:22"
+            },
+            "returnParameters": {
+              "id": 9848,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "241:0:22"
+            },
+            "scope": 9859,
+            "src": "205:37:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9852,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "refreshRouter",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9850,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "270:2:22"
+            },
+            "returnParameters": {
+              "id": 9851,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "281:0:22"
+            },
+            "scope": 9859,
+            "src": "248:34:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9858,
+            "name": "RouterUpdated",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9857,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9854,
+                  "indexed": true,
+                  "name": "op",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9858,
+                  "src": "308:26:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_RouterOperation_$9843",
+                    "typeString": "enum IRouterRegistry.RouterOperation"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9853,
+                    "name": "RouterOperation",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 9843,
+                    "src": "308:15:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_RouterOperation_$9843",
+                      "typeString": "enum IRouterRegistry.RouterOperation"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9856,
+                  "indexed": true,
+                  "name": "routerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9858,
+                  "src": "336:29:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 9855,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "336:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "307:59:22"
+            },
+            "src": "288:79:22"
+          }
+        ],
+        "scope": 9860,
+        "src": "81:288:22"
+      }
+    ],
+    "src": "0:369:22"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol",
+    "exportedSymbols": {
+      "IRouterRegistry": [
+        9859
+      ]
+    },
+    "id": 9860,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9839,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:22"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title RouterRegistry interface for routing",
+        "fullyImplemented": false,
+        "id": 9859,
+        "linearizedBaseContracts": [
+          9859
+        ],
+        "name": "IRouterRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IRouterRegistry.RouterOperation",
+            "id": 9843,
+            "members": [
+              {
+                "id": 9840,
+                "name": "Add",
+                "nodeType": "EnumValue",
+                "src": "136:3:22"
+              },
+              {
+                "id": 9841,
+                "name": "Remove",
+                "nodeType": "EnumValue",
+                "src": "141:6:22"
+              },
+              {
+                "id": 9842,
+                "name": "Refresh",
+                "nodeType": "EnumValue",
+                "src": "149:7:22"
+              }
+            ],
+            "name": "RouterOperation",
+            "nodeType": "EnumDefinition",
+            "src": "113:45:22"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9846,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registerRouter",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9844,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "187:2:22"
+            },
+            "returnParameters": {
+              "id": 9845,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "198:0:22"
+            },
+            "scope": 9859,
+            "src": "164:35:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9849,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deregisterRouter",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9847,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "230:2:22"
+            },
+            "returnParameters": {
+              "id": 9848,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "241:0:22"
+            },
+            "scope": 9859,
+            "src": "205:37:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9852,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "refreshRouter",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9850,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "270:2:22"
+            },
+            "returnParameters": {
+              "id": 9851,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "281:0:22"
+            },
+            "scope": 9859,
+            "src": "248:34:22",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9858,
+            "name": "RouterUpdated",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9857,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9854,
+                  "indexed": true,
+                  "name": "op",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9858,
+                  "src": "308:26:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_RouterOperation_$9843",
+                    "typeString": "enum IRouterRegistry.RouterOperation"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 9853,
+                    "name": "RouterOperation",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 9843,
+                    "src": "308:15:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_RouterOperation_$9843",
+                      "typeString": "enum IRouterRegistry.RouterOperation"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9856,
+                  "indexed": true,
+                  "name": "routerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9858,
+                  "src": "336:29:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 9855,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "336:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "307:59:22"
+            },
+            "src": "288:79:22"
+          }
+        ],
+        "scope": 9860,
+        "src": "81:288:22"
+      }
+    ],
+    "src": "0:369:22"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-15T12:23:50.572Z",
+  "devdoc": {
+    "methods": {},
+    "title": "RouterRegistry interface for routing"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

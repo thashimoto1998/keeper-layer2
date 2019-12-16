@@ -1,0 +1,773 @@
+{
+  "contractName": "ISingleSession",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "seq",
+          "type": "uint256"
+        }
+      ],
+      "name": "IntendSettle",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_stateProof",
+          "type": "bytes"
+        }
+      ],
+      "name": "intendSettle",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSettleFinalizedTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getStatus",
+      "outputs": [
+        {
+          "internalType": "enum ISingleSession.AppStatus",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSeqNum",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"seq\",\"type\":\"uint256\"}],\"name\":\"IntendSettle\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSeqNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSettleFinalizedTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enum ISingleSession.AppStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_stateProof\",\"type\":\"bytes\"}],\"name\":\"intendSettle\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{\"getSeqNum()\":{\"notice\":\"get app sequence number\"},\"getSettleFinalizedTime()\":{\"notice\":\"get app state settle finalize time\"},\"getStatus()\":{\"notice\":\"get app status\"},\"intendSettle(bytes)\":{\"notice\":\"Submit off-chain state and start to dispute\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol\":\"ISingleSession\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol\":{\"keccak256\":\"0x711af0253a66cbab9a9b96e3c8840bd796afa38ba896240920eed2d40f598444\",\"urls\":[\"bzz-raw://9ed2dcaaec405543a93fffad6cbc982611ebb3d20468509eb178977498e4985d\",\"dweb:/ipfs/QmXBNgtZ33EWYu3t53ByXhKrDBmXZA5EK5pivWnaX9XhYE\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity >=0.5.0 < 0.6.0;\n\ninterface ISingleSession {\n\n    enum AppStatus {IDLE, SETTLE, FINALIZED}\n\n    event IntendSettle(uint seq);\n\n    /**\n     * @notice Submit off-chain state and start to dispute\n     */\n    function intendSettle(bytes calldata _stateProof) external;\n\n    /**\n     *  @notice get app state settle finalize time\n     */\n    function getSettleFinalizedTime() external view returns (uint);\n\n    /**\n     * @notice get app status\n     */\n    function getStatus() external view returns (AppStatus);\n\n    /**\n     * @notice get app sequence number\n     */\n    function getSeqNum() external view returns (uint);\n\n}",
+  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol",
+  "ast": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol",
+    "exportedSymbols": {
+      "ISingleSession": [
+        16496
+      ]
+    },
+    "id": 16497,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 16467,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:38"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 16496,
+        "linearizedBaseContracts": [
+          16496
+        ],
+        "name": "ISingleSession",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ISingleSession.AppStatus",
+            "id": 16471,
+            "members": [
+              {
+                "id": 16468,
+                "name": "IDLE",
+                "nodeType": "EnumValue",
+                "src": "82:4:38"
+              },
+              {
+                "id": 16469,
+                "name": "SETTLE",
+                "nodeType": "EnumValue",
+                "src": "88:6:38"
+              },
+              {
+                "id": 16470,
+                "name": "FINALIZED",
+                "nodeType": "EnumValue",
+                "src": "96:9:38"
+              }
+            ],
+            "name": "AppStatus",
+            "nodeType": "EnumDefinition",
+            "src": "66:40:38"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 16475,
+            "name": "IntendSettle",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 16474,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16473,
+                  "indexed": false,
+                  "name": "seq",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16475,
+                  "src": "131:8:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16472,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "131:4:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "130:10:38"
+            },
+            "src": "112:29:38"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Submit off-chain state and start to dispute",
+            "id": 16480,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "intendSettle",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16478,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16477,
+                  "name": "_stateProof",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16480,
+                  "src": "244:26:38",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 16476,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "244:5:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "243:28:38"
+            },
+            "returnParameters": {
+              "id": 16479,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "280:0:38"
+            },
+            "scope": 16496,
+            "src": "222:59:38",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": " @notice get app state settle finalize time",
+            "id": 16485,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSettleFinalizedTime",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16481,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "385:2:38"
+            },
+            "returnParameters": {
+              "id": 16484,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16483,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16485,
+                  "src": "411:4:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16482,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "411:4:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "410:6:38"
+            },
+            "scope": 16496,
+            "src": "354:63:38",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice get app status",
+            "id": 16490,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStatus",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16486,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "487:2:38"
+            },
+            "returnParameters": {
+              "id": 16489,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16488,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16490,
+                  "src": "513:9:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AppStatus_$16471",
+                    "typeString": "enum ISingleSession.AppStatus"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 16487,
+                    "name": "AppStatus",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 16471,
+                    "src": "513:9:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_AppStatus_$16471",
+                      "typeString": "enum ISingleSession.AppStatus"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "512:11:38"
+            },
+            "scope": 16496,
+            "src": "469:55:38",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice get app sequence number",
+            "id": 16495,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSeqNum",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16491,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "603:2:38"
+            },
+            "returnParameters": {
+              "id": 16494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16493,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16495,
+                  "src": "629:4:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16492,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "629:4:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "628:6:38"
+            },
+            "scope": 16496,
+            "src": "585:50:38",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 16497,
+        "src": "34:604:38"
+      }
+    ],
+    "src": "0:638:38"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol",
+    "exportedSymbols": {
+      "ISingleSession": [
+        16496
+      ]
+    },
+    "id": 16497,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 16467,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:38"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 16496,
+        "linearizedBaseContracts": [
+          16496
+        ],
+        "name": "ISingleSession",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ISingleSession.AppStatus",
+            "id": 16471,
+            "members": [
+              {
+                "id": 16468,
+                "name": "IDLE",
+                "nodeType": "EnumValue",
+                "src": "82:4:38"
+              },
+              {
+                "id": 16469,
+                "name": "SETTLE",
+                "nodeType": "EnumValue",
+                "src": "88:6:38"
+              },
+              {
+                "id": 16470,
+                "name": "FINALIZED",
+                "nodeType": "EnumValue",
+                "src": "96:9:38"
+              }
+            ],
+            "name": "AppStatus",
+            "nodeType": "EnumDefinition",
+            "src": "66:40:38"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 16475,
+            "name": "IntendSettle",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 16474,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16473,
+                  "indexed": false,
+                  "name": "seq",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16475,
+                  "src": "131:8:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16472,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "131:4:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "130:10:38"
+            },
+            "src": "112:29:38"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Submit off-chain state and start to dispute",
+            "id": 16480,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "intendSettle",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16478,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16477,
+                  "name": "_stateProof",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16480,
+                  "src": "244:26:38",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 16476,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "244:5:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "243:28:38"
+            },
+            "returnParameters": {
+              "id": 16479,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "280:0:38"
+            },
+            "scope": 16496,
+            "src": "222:59:38",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": " @notice get app state settle finalize time",
+            "id": 16485,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSettleFinalizedTime",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16481,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "385:2:38"
+            },
+            "returnParameters": {
+              "id": 16484,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16483,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16485,
+                  "src": "411:4:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16482,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "411:4:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "410:6:38"
+            },
+            "scope": 16496,
+            "src": "354:63:38",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice get app status",
+            "id": 16490,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStatus",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16486,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "487:2:38"
+            },
+            "returnParameters": {
+              "id": 16489,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16488,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16490,
+                  "src": "513:9:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_AppStatus_$16471",
+                    "typeString": "enum ISingleSession.AppStatus"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 16487,
+                    "name": "AppStatus",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 16471,
+                    "src": "513:9:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_AppStatus_$16471",
+                      "typeString": "enum ISingleSession.AppStatus"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "512:11:38"
+            },
+            "scope": 16496,
+            "src": "469:55:38",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": "@notice get app sequence number",
+            "id": 16495,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getSeqNum",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16491,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "603:2:38"
+            },
+            "returnParameters": {
+              "id": 16494,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16493,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16495,
+                  "src": "629:4:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16492,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "629:4:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "628:6:38"
+            },
+            "scope": 16496,
+            "src": "585:50:38",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 16497,
+        "src": "34:604:38"
+      }
+    ],
+    "src": "0:638:38"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-16T08:07:42.394Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {
+      "getSeqNum()": {
+        "notice": "get app sequence number"
+      },
+      "getSettleFinalizedTime()": {
+        "notice": "get app state settle finalize time"
+      },
+      "getStatus()": {
+        "notice": "get app status"
+      },
+      "intendSettle(bytes)": {
+        "notice": "Submit off-chain state and start to dispute"
+      }
+    }
+  }
+}

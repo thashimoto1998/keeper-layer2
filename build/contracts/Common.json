@@ -1,0 +1,789 @@
+{
+  "contractName": "Common",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getCurrentBlockNumber",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "isContract",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"getCurrentBlockNumber\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"isContract\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ocean Protocol Team\",\"methods\":{\"getCurrentBlockNumber()\":{\"return\":\"the current block number\"},\"isContract(address)\":{\"details\":\"isContract detect whether the address is          is a contract address or externally owned account\",\"return\":\"true if it is a contract address\"}},\"title\":\"Common functions\"},\"userdoc\":{\"methods\":{\"getCurrentBlockNumber()\":{\"notice\":\"getCurrentBlockNumber get block number\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/Common.sol\":\"Common\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/Common.sol\":{\"keccak256\":\"0xf0c2cf23f3f003cbbbca7695efa530c06903784ce5f994a902745e3a37dcc4f9\",\"urls\":[\"bzz-raw://78bc12a5d551957b2f6e13f037f5b6f78dcde52480085a1b9029c4d75df1f553\",\"dweb:/ipfs/Qmek5vHW2MjvJqoXouD6dG9XJNi7H7UjRpmKW213HYRbJN\"]},\"zos-lib/contracts/Initializable.sol\":{\"keccak256\":\"0xf79d9851c085aa8412e87d7a26d3485488fe12538ecb4e317ce41fc1f2c3a16a\",\"urls\":[\"bzz-raw://6af1a35ad6aed2169ce9f44095438b3192cd6066903908f769d5c49a06a0caf8\",\"dweb:/ipfs/QmaH41CwJ7WrMQwSnbfCKuL2pd8bxF7sbGSLPZb6JaHBFF\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060c58061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063162790551460375780636fd902e114606e575b600080fd5b605a60048036036020811015604b57600080fd5b50356001600160a01b03166086565b604080519115158252519081900360200190f35b6074608c565b60408051918252519081900360200190f35b3b151590565b439056fea265627a7a72315820098975e807d8eb8b454d04116e35dfe98ebb1844d754d6dc35669025a6f8fb1a64736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063162790551460375780636fd902e114606e575b600080fd5b605a60048036036020811015604b57600080fd5b50356001600160a01b03166086565b604080519115158252519081900360200190f35b6074608c565b60408051918252519081900360200190f35b3b151590565b439056fea265627a7a72315820098975e807d8eb8b454d04116e35dfe98ebb1844d754d6dc35669025a6f8fb1a64736f6c634300050c0032",
+  "sourceMap": "307:700:29:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;307:700:29;;;;;;;",
+  "deployedSourceMap": "307:700:29:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;307:700:29;;;;;;;;;;;;;;;;;;;;;;;;751:254;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;751:254:29;-1:-1:-1;;;;;751:254:29;;:::i;:::-;;;;;;;;;;;;;;;;;;435:126;;;:::i;:::-;;;;;;;;;;;;;;;;751:254;955:17;990:8;;;751:254::o;435:126::-;542:12;435:126;:::o",
+  "source": "pragma solidity >=0.5.0 <0.6.0;\n// Copyright BigchainDB GmbH and Ocean Protocol contributors\n// SPDX-License-Identifier: (Apache-2.0 AND CC-BY-4.0)\n// Code is Apache-2.0 and docs are CC-BY-4.0\n\nimport 'zos-lib/contracts/Initializable.sol';\n\n/**\n * @title Common functions\n * @author Ocean Protocol Team\n */\ncontract Common {\n   /**\n    * @notice getCurrentBlockNumber get block number\n    * @return the current block number\n    */\n    function getCurrentBlockNumber()\n        external\n        view\n        returns (uint)\n    {\n        return block.number;\n    }\n\n    /**\n     * @dev isContract detect whether the address is \n     *          is a contract address or externally owned account\n     * @return true if it is a contract address\n     */\n    function isContract(address addr)\n        public\n        view\n        returns (bool)\n    {\n        uint size;\n        /* solium-disable-next-line security/no-inline-assembly */\n        assembly { size := extcodesize(addr) }\n        return size > 0;\n    }\n}",
+  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/Common.sol",
+  "ast": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/Common.sol",
+    "exportedSymbols": {
+      "Common": [
+        14334
+      ]
+    },
+    "id": 14335,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14307,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:29"
+      },
+      {
+        "absolutePath": "zos-lib/contracts/Initializable.sol",
+        "file": "zos-lib/contracts/Initializable.sol",
+        "id": 14308,
+        "nodeType": "ImportDirective",
+        "scope": 14335,
+        "sourceUnit": 18865,
+        "src": "194:45:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Common functions\n@author Ocean Protocol Team",
+        "fullyImplemented": true,
+        "id": 14334,
+        "linearizedBaseContracts": [
+          14334
+        ],
+        "name": "Common",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 14316,
+              "nodeType": "Block",
+              "src": "525:36:29",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 14313,
+                      "name": "block",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 18869,
+                      "src": "542:5:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_block",
+                        "typeString": "block"
+                      }
+                    },
+                    "id": 14314,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "number",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "542:12:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 14312,
+                  "id": 14315,
+                  "nodeType": "Return",
+                  "src": "535:19:29"
+                }
+              ]
+            },
+            "documentation": "@notice getCurrentBlockNumber get block number\n@return the current block number",
+            "id": 14317,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrentBlockNumber",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14309,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "465:2:29"
+            },
+            "returnParameters": {
+              "id": 14312,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14311,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14317,
+                  "src": "515:4:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14310,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "515:4:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "514:6:29"
+            },
+            "scope": 14334,
+            "src": "435:126:29",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 14332,
+              "nodeType": "Block",
+              "src": "840:165:29",
+              "statements": [
+                {
+                  "assignments": [
+                    14325
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 14325,
+                      "name": "size",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 14332,
+                      "src": "850:9:29",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 14324,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "850:4:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 14326,
+                  "initialValue": null,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "850:9:29"
+                },
+                {
+                  "externalReferences": [
+                    {
+                      "size": {
+                        "declaration": 14325,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "947:4:29",
+                        "valueSize": 1
+                      }
+                    },
+                    {
+                      "addr": {
+                        "declaration": 14319,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "967:4:29",
+                        "valueSize": 1
+                      }
+                    }
+                  ],
+                  "id": 14327,
+                  "nodeType": "InlineAssembly",
+                  "operations": "{ size := extcodesize(addr) }",
+                  "src": "936:38:29"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 14330,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 14328,
+                      "name": "size",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14325,
+                      "src": "990:4:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 14329,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "997:1:29",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "990:8:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 14323,
+                  "id": 14331,
+                  "nodeType": "Return",
+                  "src": "983:15:29"
+                }
+              ]
+            },
+            "documentation": "@dev isContract detect whether the address is \n         is a contract address or externally owned account\n@return true if it is a contract address",
+            "id": 14333,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14320,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14319,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14333,
+                  "src": "771:12:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14318,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "771:7:29",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "770:14:29"
+            },
+            "returnParameters": {
+              "id": 14323,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14322,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14333,
+                  "src": "830:4:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 14321,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "830:4:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "829:6:29"
+            },
+            "scope": 14334,
+            "src": "751:254:29",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 14335,
+        "src": "307:700:29"
+      }
+    ],
+    "src": "0:1007:29"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/Common.sol",
+    "exportedSymbols": {
+      "Common": [
+        14334
+      ]
+    },
+    "id": 14335,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14307,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:29"
+      },
+      {
+        "absolutePath": "zos-lib/contracts/Initializable.sol",
+        "file": "zos-lib/contracts/Initializable.sol",
+        "id": 14308,
+        "nodeType": "ImportDirective",
+        "scope": 14335,
+        "sourceUnit": 18865,
+        "src": "194:45:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Common functions\n@author Ocean Protocol Team",
+        "fullyImplemented": true,
+        "id": 14334,
+        "linearizedBaseContracts": [
+          14334
+        ],
+        "name": "Common",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 14316,
+              "nodeType": "Block",
+              "src": "525:36:29",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 14313,
+                      "name": "block",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 18869,
+                      "src": "542:5:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_block",
+                        "typeString": "block"
+                      }
+                    },
+                    "id": 14314,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "number",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "542:12:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 14312,
+                  "id": 14315,
+                  "nodeType": "Return",
+                  "src": "535:19:29"
+                }
+              ]
+            },
+            "documentation": "@notice getCurrentBlockNumber get block number\n@return the current block number",
+            "id": 14317,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCurrentBlockNumber",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14309,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "465:2:29"
+            },
+            "returnParameters": {
+              "id": 14312,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14311,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14317,
+                  "src": "515:4:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14310,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "515:4:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "514:6:29"
+            },
+            "scope": 14334,
+            "src": "435:126:29",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 14332,
+              "nodeType": "Block",
+              "src": "840:165:29",
+              "statements": [
+                {
+                  "assignments": [
+                    14325
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 14325,
+                      "name": "size",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 14332,
+                      "src": "850:9:29",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 14324,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "850:4:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 14326,
+                  "initialValue": null,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "850:9:29"
+                },
+                {
+                  "externalReferences": [
+                    {
+                      "size": {
+                        "declaration": 14325,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "947:4:29",
+                        "valueSize": 1
+                      }
+                    },
+                    {
+                      "addr": {
+                        "declaration": 14319,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "967:4:29",
+                        "valueSize": 1
+                      }
+                    }
+                  ],
+                  "id": 14327,
+                  "nodeType": "InlineAssembly",
+                  "operations": "{ size := extcodesize(addr) }",
+                  "src": "936:38:29"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 14330,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 14328,
+                      "name": "size",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14325,
+                      "src": "990:4:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 14329,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "997:1:29",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "990:8:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 14323,
+                  "id": 14331,
+                  "nodeType": "Return",
+                  "src": "983:15:29"
+                }
+              ]
+            },
+            "documentation": "@dev isContract detect whether the address is \n         is a contract address or externally owned account\n@return true if it is a contract address",
+            "id": 14333,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14320,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14319,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14333,
+                  "src": "771:12:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 14318,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "771:7:29",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "770:14:29"
+            },
+            "returnParameters": {
+              "id": 14323,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14322,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14333,
+                  "src": "830:4:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 14321,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "830:4:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "829:6:29"
+            },
+            "scope": 14334,
+            "src": "751:254:29",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 14335,
+        "src": "307:700:29"
+      }
+    ],
+    "src": "0:1007:29"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-15T12:23:50.681Z",
+  "devdoc": {
+    "author": "Ocean Protocol Team",
+    "methods": {
+      "getCurrentBlockNumber()": {
+        "return": "the current block number"
+      },
+      "isContract(address)": {
+        "details": "isContract detect whether the address is          is a contract address or externally owned account",
+        "return": "true if it is a contract address"
+      }
+    },
+    "title": "Common functions"
+  },
+  "userdoc": {
+    "methods": {
+      "getCurrentBlockNumber()": {
+        "notice": "getCurrentBlockNumber get block number"
+      }
+    }
+  }
+}

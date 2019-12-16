@@ -1,0 +1,571 @@
+{
+  "contractName": "IPayResolver",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "payId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "resolveDeadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "ResolvePayment",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_resolvePayRequest",
+          "type": "bytes"
+        }
+      ],
+      "name": "resolvePaymentByConditions",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_vouchedPayResult",
+          "type": "bytes"
+        }
+      ],
+      "name": "resolvePaymentByVouchedResult",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"payId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"resolveDeadline\",\"type\":\"uint256\"}],\"name\":\"ResolvePayment\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_resolvePayRequest\",\"type\":\"bytes\"}],\"name\":\"resolvePaymentByConditions\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_vouchedPayResult\",\"type\":\"bytes\"}],\"name\":\"resolvePaymentByVouchedResult\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"PayResolver interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol\":\"IPayResolver\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol\":{\"keccak256\":\"0xcccb8335769f8bb3026a243ccfa97e5e5c7202c28e120c8ef9a62767d7ab6ed5\",\"urls\":[\"bzz-raw://fd17eac8197743b5cf6977b8580cc85867fa66806ab3ea3d9cbc0c4784ea1bf9\",\"dweb:/ipfs/QmWU26HQmAtHKNBji9SjWicV74H5VEvzKwrC57t7kjGEw5\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.1;\n\n/**\n * @title PayResolver interface\n */\ninterface IPayResolver {\n    function resolvePaymentByConditions(bytes calldata _resolvePayRequest) external;\n\n    function resolvePaymentByVouchedResult(bytes calldata _vouchedPayResult) external;\n\n    event ResolvePayment(bytes32 indexed payId, uint amount, uint resolveDeadline);\n}\n",
+  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
+  "ast": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
+    "exportedSymbols": {
+      "IPayResolver": [
+        9837
+      ]
+    },
+    "id": 9838,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9818,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".1"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:21"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title PayResolver interface",
+        "fullyImplemented": false,
+        "id": 9837,
+        "linearizedBaseContracts": [
+          9837
+        ],
+        "name": "IPayResolver",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9823,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "resolvePaymentByConditions",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9821,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9820,
+                  "name": "_resolvePayRequest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9823,
+                  "src": "130:33:21",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 9819,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "130:5:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "129:35:21"
+            },
+            "returnParameters": {
+              "id": 9822,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "173:0:21"
+            },
+            "scope": 9837,
+            "src": "94:80:21",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9828,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "resolvePaymentByVouchedResult",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9826,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9825,
+                  "name": "_vouchedPayResult",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9828,
+                  "src": "219:32:21",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 9824,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "219:5:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "218:34:21"
+            },
+            "returnParameters": {
+              "id": 9827,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "261:0:21"
+            },
+            "scope": 9837,
+            "src": "180:82:21",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9836,
+            "name": "ResolvePayment",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9835,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9830,
+                  "indexed": true,
+                  "name": "payId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9836,
+                  "src": "289:21:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 9829,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "289:7:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9832,
+                  "indexed": false,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9836,
+                  "src": "312:11:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9831,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:4:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9834,
+                  "indexed": false,
+                  "name": "resolveDeadline",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9836,
+                  "src": "325:20:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9833,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:4:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "288:58:21"
+            },
+            "src": "268:79:21"
+          }
+        ],
+        "scope": 9838,
+        "src": "65:284:21"
+      }
+    ],
+    "src": "0:350:21"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
+    "exportedSymbols": {
+      "IPayResolver": [
+        9837
+      ]
+    },
+    "id": 9838,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 9818,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".1"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:21"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": "@title PayResolver interface",
+        "fullyImplemented": false,
+        "id": 9837,
+        "linearizedBaseContracts": [
+          9837
+        ],
+        "name": "IPayResolver",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9823,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "resolvePaymentByConditions",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9821,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9820,
+                  "name": "_resolvePayRequest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9823,
+                  "src": "130:33:21",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 9819,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "130:5:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "129:35:21"
+            },
+            "returnParameters": {
+              "id": 9822,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "173:0:21"
+            },
+            "scope": 9837,
+            "src": "94:80:21",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 9828,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "resolvePaymentByVouchedResult",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 9826,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9825,
+                  "name": "_vouchedPayResult",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9828,
+                  "src": "219:32:21",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 9824,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "219:5:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "218:34:21"
+            },
+            "returnParameters": {
+              "id": 9827,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "261:0:21"
+            },
+            "scope": 9837,
+            "src": "180:82:21",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 9836,
+            "name": "ResolvePayment",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 9835,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 9830,
+                  "indexed": true,
+                  "name": "payId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9836,
+                  "src": "289:21:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 9829,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "289:7:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9832,
+                  "indexed": false,
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9836,
+                  "src": "312:11:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9831,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:4:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 9834,
+                  "indexed": false,
+                  "name": "resolveDeadline",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 9836,
+                  "src": "325:20:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 9833,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:4:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "288:58:21"
+            },
+            "src": "268:79:21"
+          }
+        ],
+        "scope": 9838,
+        "src": "65:284:21"
+      }
+    ],
+    "src": "0:350:21"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-15T12:23:50.571Z",
+  "devdoc": {
+    "methods": {},
+    "title": "PayResolver interface"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

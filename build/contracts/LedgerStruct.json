@@ -1,0 +1,2050 @@
+{
+  "contractName": "LedgerStruct",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{},\"title\":\"Ledger Struct Library\"},\"userdoc\":{\"methods\":{},\"notice\":\"CelerLedger library defining all used structs\"}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol\":\"LedgerStruct\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/Pb.sol\":{\"keccak256\":\"0x24e00dc31bf511f0cd73ec39d8b1a49e16d72a740ca70bf283e496c2e09ad3a5\",\"urls\":[\"bzz-raw://39a4880e4be07fce40173de9901f16b166daac838f099b85d010212724aca3b5\",\"dweb:/ipfs/QmeV7ffztvntcb71TcjdgCQbu1Drq5hm5M4LZuSCFtksLP\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/PbEntity.sol\":{\"keccak256\":\"0xe84fdb2100a2c37cb448b5bf516ce92271a4c3e431a76b555e80c1f82b91dbc3\",\"urls\":[\"bzz-raw://54e9e5fbc7840ae225ba37560b5e970c8774a4fbfe3c0bb1361818d6d1764f0f\",\"dweb:/ipfs/QmbhWLQWQumpEzHNLHjCqayktNhqkEdHniBLXxMUNUQjdu\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol\":{\"keccak256\":\"0xf8fdbfc0ae959e0a78c52829b3658f99469a274724d22c1fd2bdef155cd33523\",\"urls\":[\"bzz-raw://10b2ce8241db028343357ca2146f42179b1c10bb63f768d6155c0c15367c2644\",\"dweb:/ipfs/Qmf9Hq4JHo6KmBcerYCLs1huiMkgyH7stMZcuG7UFCLnfj\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IEthPool.sol\":{\"keccak256\":\"0x5d08b71c0d1352980ef51c1fba95e40e38eaf49ad68282c5d36baef3d4bc23e1\",\"urls\":[\"bzz-raw://f754f90968ea44488f3fa01cd1a5b930669ce5796db3543d95401ba61d7a3f75\",\"dweb:/ipfs/QmTG7A2ULCsN4CxhvediT6BwAnKUQDUtQgrjBHTnUsusbh\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayRegistry.sol\":{\"keccak256\":\"0xed80be757851c5830b3794160e17c50c083fa9e557b6a2e68fd27b2ca23c7c6b\",\"urls\":[\"bzz-raw://2d4f491f65788dd6ef00ffbfd9ad574872a5716da09ce31625a588c10fd9b63a\",\"dweb:/ipfs/QmXMe1sYjkGhya4aLDshXhbNkvQ3UwM5NufJEATdpXsWez\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol\":{\"keccak256\":\"0x46b1cd7480268346d3072bf63b79d3576e02eedd96bd14449f5d7da28aca1d69\",\"urls\":[\"bzz-raw://cbd22eb6ce82dc890661995e5799e48723ef2312a1023dbad98f824412482030\",\"dweb:/ipfs/QmQ12Q61UUARB3vHN9RJXjgTa4cG8AuXJCXGc7KJ67Faax\"]}},\"version\":1}",
+  "bytecode": "0x60556023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820daf443e0541a512bb9cecc03d72b6f56089bea3c8b8781fa3f8037bf03277ed764736f6c634300050c0032",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820daf443e0541a512bb9cecc03d72b6f56089bea3c8b8781fa3f8037bf03277ed764736f6c634300050c0032",
+  "sourceMap": "270:2226:28:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
+  "deployedSourceMap": "270:2226:28:-;;;;;;;;",
+  "source": "pragma solidity ^0.5.1;\n\nimport \"../interface/ICelerWallet.sol\";\nimport \"../interface/IEthPool.sol\";\nimport \"../interface/IPayRegistry.sol\";\nimport \"../data/PbEntity.sol\";\n\n/**\n * @title Ledger Struct Library\n * @notice CelerLedger library defining all used structs\n */\nlibrary LedgerStruct {\n    enum ChannelStatus { Uninitialized, Operable, Settling, Closed, Migrated }\n\n    struct PeerState {\n        uint seqNum;\n        // balance sent out to the other peer of the channel, no need to record amtIn\n        uint transferOut;\n        bytes32 nextPayIdListHash;\n        uint lastPayResolveDeadline;\n        uint pendingPayOut;\n    }\n\n    struct PeerProfile {\n        address peerAddr;\n        // the (monotone increasing) amount that this peer deposit into this channel\n        uint deposit;\n        // the (monotone increasing) amount that this peer withdraw from this channel\n        uint withdrawal;\n        PeerState state;\n    }\n\n    struct WithdrawIntent {\n        address receiver;\n        uint amount;\n        uint requestTime;\n        bytes32 recipientChannelId;\n    }\n\n    // Channel is a representation of the state channel between peers which puts the funds\n    // in CelerWallet and is hosted by a CelerLedger. The status of a state channel can\n    // be migrated from one CelerLedger instance to another CelerLedger instance with probably\n    // different operation logic.\n    struct Channel {\n        // the time after which peers can confirmSettle and before which peers can intendSettle\n        uint settleFinalizedTime;\n        uint disputeTimeout;\n        PbEntity.TokenInfo token;\n        ChannelStatus status;\n        // record the new CelerLedger address after channel migration\n        address migratedTo;\n        // only support 2-peer channel for now\n        PeerProfile[2] peerProfiles;\n        uint cooperativeWithdrawSeqNum;\n        WithdrawIntent withdrawIntent;\n    }\n\n    // Ledger is a host to record and operate the activities of many state\n    // channels with specific operation logic.\n    struct Ledger {\n        // ChannelStatus => number of channels\n        mapping(uint => uint) channelStatusNums;\n        IEthPool ethPool;\n        IPayRegistry payRegistry;\n        ICelerWallet celerWallet;\n        // per-channel balance limits for different tokens\n        mapping(address => uint) balanceLimits;\n        // whether balance limits of all tokens have been enabled\n        bool balanceLimitsEnabled;\n        mapping(bytes32 => Channel) channelMap;\n    }\n}\n",
+  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
+  "ast": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
+    "exportedSymbols": {
+      "LedgerStruct": [
+        14305
+      ]
+    },
+    "id": 14306,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14225,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".1"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:28"
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
+        "file": "../interface/ICelerWallet.sol",
+        "id": 14226,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 9605,
+        "src": "25:39:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IEthPool.sol",
+        "file": "../interface/IEthPool.sol",
+        "id": 14227,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 9707,
+        "src": "65:35:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayRegistry.sol",
+        "file": "../interface/IPayRegistry.sol",
+        "id": 14228,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 9817,
+        "src": "101:39:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/PbEntity.sol",
+        "file": "../data/PbEntity.sol",
+        "id": 14229,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 8929,
+        "src": "141:30:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": "@title Ledger Struct Library\n@notice CelerLedger library defining all used structs",
+        "fullyImplemented": true,
+        "id": 14305,
+        "linearizedBaseContracts": [
+          14305
+        ],
+        "name": "LedgerStruct",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "LedgerStruct.ChannelStatus",
+            "id": 14235,
+            "members": [
+              {
+                "id": 14230,
+                "name": "Uninitialized",
+                "nodeType": "EnumValue",
+                "src": "318:13:28"
+              },
+              {
+                "id": 14231,
+                "name": "Operable",
+                "nodeType": "EnumValue",
+                "src": "333:8:28"
+              },
+              {
+                "id": 14232,
+                "name": "Settling",
+                "nodeType": "EnumValue",
+                "src": "343:8:28"
+              },
+              {
+                "id": 14233,
+                "name": "Closed",
+                "nodeType": "EnumValue",
+                "src": "353:6:28"
+              },
+              {
+                "id": 14234,
+                "name": "Migrated",
+                "nodeType": "EnumValue",
+                "src": "361:8:28"
+              }
+            ],
+            "name": "ChannelStatus",
+            "nodeType": "EnumDefinition",
+            "src": "297:74:28"
+          },
+          {
+            "canonicalName": "LedgerStruct.PeerState",
+            "id": 14246,
+            "members": [
+              {
+                "constant": false,
+                "id": 14237,
+                "name": "seqNum",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "404:11:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14236,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "404:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14239,
+                "name": "transferOut",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "511:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14238,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "511:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14241,
+                "name": "nextPayIdListHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "537:25:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14240,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "537:7:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14243,
+                "name": "lastPayResolveDeadline",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "572:27:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14242,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "572:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14245,
+                "name": "pendingPayOut",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "609:18:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14244,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "609:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "PeerState",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "377:257:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.PeerProfile",
+            "id": 14255,
+            "members": [
+              {
+                "constant": false,
+                "id": 14248,
+                "name": "peerAddr",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "669:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14247,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "669:7:28",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14250,
+                "name": "deposit",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "780:12:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14249,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "780:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14252,
+                "name": "withdrawal",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "888:15:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14251,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "888:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14254,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "913:15:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_PeerState_$14246_storage_ptr",
+                  "typeString": "struct LedgerStruct.PeerState"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14253,
+                  "name": "PeerState",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 14246,
+                  "src": "913:9:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PeerState_$14246_storage_ptr",
+                    "typeString": "struct LedgerStruct.PeerState"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "PeerProfile",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "640:295:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.WithdrawIntent",
+            "id": 14264,
+            "members": [
+              {
+                "constant": false,
+                "id": 14257,
+                "name": "receiver",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "973:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14256,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "973:7:28",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14259,
+                "name": "amount",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "999:11:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14258,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "999:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14261,
+                "name": "requestTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "1020:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14260,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1020:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14263,
+                "name": "recipientChannelId",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "1046:26:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14262,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1046:7:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "WithdrawIntent",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "941:138:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.Channel",
+            "id": 14283,
+            "members": [
+              {
+                "constant": false,
+                "id": 14266,
+                "name": "settleFinalizedTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1514:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14265,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1514:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14268,
+                "name": "disputeTimeout",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1548:19:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14267,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1548:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14270,
+                "name": "token",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1577:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_TokenInfo_$7178_storage_ptr",
+                  "typeString": "struct PbEntity.TokenInfo"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14269,
+                  "name": "PbEntity.TokenInfo",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 7178,
+                  "src": "1577:18:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TokenInfo_$7178_storage_ptr",
+                    "typeString": "struct PbEntity.TokenInfo"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14272,
+                "name": "status",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1611:20:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_ChannelStatus_$14235",
+                  "typeString": "enum LedgerStruct.ChannelStatus"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14271,
+                  "name": "ChannelStatus",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 14235,
+                  "src": "1611:13:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ChannelStatus_$14235",
+                    "typeString": "enum LedgerStruct.ChannelStatus"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14274,
+                "name": "migratedTo",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1711:18:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14273,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1711:7:28",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14278,
+                "name": "peerProfiles",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1786:27:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_PeerProfile_$14255_storage_$2_storage_ptr",
+                  "typeString": "struct LedgerStruct.PeerProfile[2]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 14275,
+                    "name": "PeerProfile",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14255,
+                    "src": "1786:11:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PeerProfile_$14255_storage_ptr",
+                      "typeString": "struct LedgerStruct.PeerProfile"
+                    }
+                  },
+                  "id": 14277,
+                  "length": {
+                    "argumentTypes": null,
+                    "hexValue": "32",
+                    "id": 14276,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1798:1:28",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_2_by_1",
+                      "typeString": "int_const 2"
+                    },
+                    "value": "2"
+                  },
+                  "nodeType": "ArrayTypeName",
+                  "src": "1786:14:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_PeerProfile_$14255_storage_$2_storage_ptr",
+                    "typeString": "struct LedgerStruct.PeerProfile[2]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14280,
+                "name": "cooperativeWithdrawSeqNum",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1823:30:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14279,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1823:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14282,
+                "name": "withdrawIntent",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1863:29:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_WithdrawIntent_$14264_storage_ptr",
+                  "typeString": "struct LedgerStruct.WithdrawIntent"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14281,
+                  "name": "WithdrawIntent",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 14264,
+                  "src": "1863:14:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_WithdrawIntent_$14264_storage_ptr",
+                    "typeString": "struct LedgerStruct.WithdrawIntent"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Channel",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "1393:506:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.Ledger",
+            "id": 14304,
+            "members": [
+              {
+                "constant": false,
+                "id": 14287,
+                "name": "channelStatusNums",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2098:39:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 14286,
+                  "keyType": {
+                    "id": 14284,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2106:4:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2098:21:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 14285,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2114:4:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14289,
+                "name": "ethPool",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2147:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IEthPool_$9706",
+                  "typeString": "contract IEthPool"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14288,
+                  "name": "IEthPool",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 9706,
+                  "src": "2147:8:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IEthPool_$9706",
+                    "typeString": "contract IEthPool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14291,
+                "name": "payRegistry",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2173:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IPayRegistry_$9816",
+                  "typeString": "contract IPayRegistry"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14290,
+                  "name": "IPayRegistry",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 9816,
+                  "src": "2173:12:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IPayRegistry_$9816",
+                    "typeString": "contract IPayRegistry"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14293,
+                "name": "celerWallet",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2207:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ICelerWallet_$9604",
+                  "typeString": "contract ICelerWallet"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14292,
+                  "name": "ICelerWallet",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 9604,
+                  "src": "2207:12:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ICelerWallet_$9604",
+                    "typeString": "contract ICelerWallet"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14297,
+                "name": "balanceLimits",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2300:38:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 14296,
+                  "keyType": {
+                    "id": 14294,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2308:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2300:24:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 14295,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2319:4:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14299,
+                "name": "balanceLimitsEnabled",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2414:25:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 14298,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2414:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14303,
+                "name": "channelMap",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2449:38:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Channel_$14283_storage_$",
+                  "typeString": "mapping(bytes32 => struct LedgerStruct.Channel)"
+                },
+                "typeName": {
+                  "id": 14302,
+                  "keyType": {
+                    "id": 14300,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2457:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2449:27:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Channel_$14283_storage_$",
+                    "typeString": "mapping(bytes32 => struct LedgerStruct.Channel)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 14301,
+                    "name": "Channel",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14283,
+                    "src": "2468:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Channel_$14283_storage_ptr",
+                      "typeString": "struct LedgerStruct.Channel"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Ledger",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "2027:467:28",
+            "visibility": "public"
+          }
+        ],
+        "scope": 14306,
+        "src": "270:2226:28"
+      }
+    ],
+    "src": "0:2497:28"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
+    "exportedSymbols": {
+      "LedgerStruct": [
+        14305
+      ]
+    },
+    "id": 14306,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14225,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".1"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:28"
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
+        "file": "../interface/ICelerWallet.sol",
+        "id": 14226,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 9605,
+        "src": "25:39:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IEthPool.sol",
+        "file": "../interface/IEthPool.sol",
+        "id": 14227,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 9707,
+        "src": "65:35:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayRegistry.sol",
+        "file": "../interface/IPayRegistry.sol",
+        "id": 14228,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 9817,
+        "src": "101:39:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/PbEntity.sol",
+        "file": "../data/PbEntity.sol",
+        "id": 14229,
+        "nodeType": "ImportDirective",
+        "scope": 14306,
+        "sourceUnit": 8929,
+        "src": "141:30:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": "@title Ledger Struct Library\n@notice CelerLedger library defining all used structs",
+        "fullyImplemented": true,
+        "id": 14305,
+        "linearizedBaseContracts": [
+          14305
+        ],
+        "name": "LedgerStruct",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "LedgerStruct.ChannelStatus",
+            "id": 14235,
+            "members": [
+              {
+                "id": 14230,
+                "name": "Uninitialized",
+                "nodeType": "EnumValue",
+                "src": "318:13:28"
+              },
+              {
+                "id": 14231,
+                "name": "Operable",
+                "nodeType": "EnumValue",
+                "src": "333:8:28"
+              },
+              {
+                "id": 14232,
+                "name": "Settling",
+                "nodeType": "EnumValue",
+                "src": "343:8:28"
+              },
+              {
+                "id": 14233,
+                "name": "Closed",
+                "nodeType": "EnumValue",
+                "src": "353:6:28"
+              },
+              {
+                "id": 14234,
+                "name": "Migrated",
+                "nodeType": "EnumValue",
+                "src": "361:8:28"
+              }
+            ],
+            "name": "ChannelStatus",
+            "nodeType": "EnumDefinition",
+            "src": "297:74:28"
+          },
+          {
+            "canonicalName": "LedgerStruct.PeerState",
+            "id": 14246,
+            "members": [
+              {
+                "constant": false,
+                "id": 14237,
+                "name": "seqNum",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "404:11:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14236,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "404:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14239,
+                "name": "transferOut",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "511:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14238,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "511:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14241,
+                "name": "nextPayIdListHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "537:25:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14240,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "537:7:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14243,
+                "name": "lastPayResolveDeadline",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "572:27:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14242,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "572:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14245,
+                "name": "pendingPayOut",
+                "nodeType": "VariableDeclaration",
+                "scope": 14246,
+                "src": "609:18:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14244,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "609:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "PeerState",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "377:257:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.PeerProfile",
+            "id": 14255,
+            "members": [
+              {
+                "constant": false,
+                "id": 14248,
+                "name": "peerAddr",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "669:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14247,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "669:7:28",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14250,
+                "name": "deposit",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "780:12:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14249,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "780:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14252,
+                "name": "withdrawal",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "888:15:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14251,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "888:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14254,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 14255,
+                "src": "913:15:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_PeerState_$14246_storage_ptr",
+                  "typeString": "struct LedgerStruct.PeerState"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14253,
+                  "name": "PeerState",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 14246,
+                  "src": "913:9:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PeerState_$14246_storage_ptr",
+                    "typeString": "struct LedgerStruct.PeerState"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "PeerProfile",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "640:295:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.WithdrawIntent",
+            "id": 14264,
+            "members": [
+              {
+                "constant": false,
+                "id": 14257,
+                "name": "receiver",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "973:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14256,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "973:7:28",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14259,
+                "name": "amount",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "999:11:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14258,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "999:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14261,
+                "name": "requestTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "1020:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14260,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1020:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14263,
+                "name": "recipientChannelId",
+                "nodeType": "VariableDeclaration",
+                "scope": 14264,
+                "src": "1046:26:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 14262,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1046:7:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "WithdrawIntent",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "941:138:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.Channel",
+            "id": 14283,
+            "members": [
+              {
+                "constant": false,
+                "id": 14266,
+                "name": "settleFinalizedTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1514:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14265,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1514:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14268,
+                "name": "disputeTimeout",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1548:19:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14267,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1548:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14270,
+                "name": "token",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1577:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_TokenInfo_$7178_storage_ptr",
+                  "typeString": "struct PbEntity.TokenInfo"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14269,
+                  "name": "PbEntity.TokenInfo",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 7178,
+                  "src": "1577:18:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TokenInfo_$7178_storage_ptr",
+                    "typeString": "struct PbEntity.TokenInfo"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14272,
+                "name": "status",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1611:20:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_ChannelStatus_$14235",
+                  "typeString": "enum LedgerStruct.ChannelStatus"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14271,
+                  "name": "ChannelStatus",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 14235,
+                  "src": "1611:13:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ChannelStatus_$14235",
+                    "typeString": "enum LedgerStruct.ChannelStatus"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14274,
+                "name": "migratedTo",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1711:18:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 14273,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1711:7:28",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14278,
+                "name": "peerProfiles",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1786:27:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_PeerProfile_$14255_storage_$2_storage_ptr",
+                  "typeString": "struct LedgerStruct.PeerProfile[2]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 14275,
+                    "name": "PeerProfile",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14255,
+                    "src": "1786:11:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PeerProfile_$14255_storage_ptr",
+                      "typeString": "struct LedgerStruct.PeerProfile"
+                    }
+                  },
+                  "id": 14277,
+                  "length": {
+                    "argumentTypes": null,
+                    "hexValue": "32",
+                    "id": 14276,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1798:1:28",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_2_by_1",
+                      "typeString": "int_const 2"
+                    },
+                    "value": "2"
+                  },
+                  "nodeType": "ArrayTypeName",
+                  "src": "1786:14:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_PeerProfile_$14255_storage_$2_storage_ptr",
+                    "typeString": "struct LedgerStruct.PeerProfile[2]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14280,
+                "name": "cooperativeWithdrawSeqNum",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1823:30:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14279,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1823:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14282,
+                "name": "withdrawIntent",
+                "nodeType": "VariableDeclaration",
+                "scope": 14283,
+                "src": "1863:29:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_WithdrawIntent_$14264_storage_ptr",
+                  "typeString": "struct LedgerStruct.WithdrawIntent"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14281,
+                  "name": "WithdrawIntent",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 14264,
+                  "src": "1863:14:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_WithdrawIntent_$14264_storage_ptr",
+                    "typeString": "struct LedgerStruct.WithdrawIntent"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Channel",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "1393:506:28",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "LedgerStruct.Ledger",
+            "id": 14304,
+            "members": [
+              {
+                "constant": false,
+                "id": 14287,
+                "name": "channelStatusNums",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2098:39:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                  "typeString": "mapping(uint256 => uint256)"
+                },
+                "typeName": {
+                  "id": 14286,
+                  "keyType": {
+                    "id": 14284,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2106:4:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2098:21:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_uint256_$",
+                    "typeString": "mapping(uint256 => uint256)"
+                  },
+                  "valueType": {
+                    "id": 14285,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2114:4:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14289,
+                "name": "ethPool",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2147:16:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IEthPool_$9706",
+                  "typeString": "contract IEthPool"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14288,
+                  "name": "IEthPool",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 9706,
+                  "src": "2147:8:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IEthPool_$9706",
+                    "typeString": "contract IEthPool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14291,
+                "name": "payRegistry",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2173:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IPayRegistry_$9816",
+                  "typeString": "contract IPayRegistry"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14290,
+                  "name": "IPayRegistry",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 9816,
+                  "src": "2173:12:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IPayRegistry_$9816",
+                    "typeString": "contract IPayRegistry"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14293,
+                "name": "celerWallet",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2207:24:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_ICelerWallet_$9604",
+                  "typeString": "contract ICelerWallet"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 14292,
+                  "name": "ICelerWallet",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 9604,
+                  "src": "2207:12:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ICelerWallet_$9604",
+                    "typeString": "contract ICelerWallet"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14297,
+                "name": "balanceLimits",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2300:38:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 14296,
+                  "keyType": {
+                    "id": 14294,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2308:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2300:24:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueType": {
+                    "id": 14295,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2319:4:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14299,
+                "name": "balanceLimitsEnabled",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2414:25:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 14298,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2414:4:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 14303,
+                "name": "channelMap",
+                "nodeType": "VariableDeclaration",
+                "scope": 14304,
+                "src": "2449:38:28",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Channel_$14283_storage_$",
+                  "typeString": "mapping(bytes32 => struct LedgerStruct.Channel)"
+                },
+                "typeName": {
+                  "id": 14302,
+                  "keyType": {
+                    "id": 14300,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2457:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "2449:27:28",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Channel_$14283_storage_$",
+                    "typeString": "mapping(bytes32 => struct LedgerStruct.Channel)"
+                  },
+                  "valueType": {
+                    "contractScope": null,
+                    "id": 14301,
+                    "name": "Channel",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14283,
+                    "src": "2468:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Channel_$14283_storage_ptr",
+                      "typeString": "struct LedgerStruct.Channel"
+                    }
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Ledger",
+            "nodeType": "StructDefinition",
+            "scope": 14305,
+            "src": "2027:467:28",
+            "visibility": "public"
+          }
+        ],
+        "scope": 14306,
+        "src": "270:2226:28"
+      }
+    ],
+    "src": "0:2497:28"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-16T08:07:42.387Z",
+  "devdoc": {
+    "methods": {},
+    "title": "Ledger Struct Library"
+  },
+  "userdoc": {
+    "methods": {},
+    "notice": "CelerLedger library defining all used structs"
+  }
+}

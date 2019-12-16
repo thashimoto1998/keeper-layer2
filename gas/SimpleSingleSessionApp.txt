@@ -1,0 +1,6 @@
+******* Gas Used in SimpleSingleSessionApp Tests ********
+
+contract deploy: 1430736
+first intendSettle: 147677
+contract deploy: 1430736
+first intendSettle: 132817

@@ -1,0 +1,1331 @@
+{
+  "contractName": "SingleSessionBooleanOutcome",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_players1",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nonce",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timeout",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "seq",
+          "type": "uint256"
+        }
+      ],
+      "name": "IntendSettle",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_query",
+          "type": "bytes"
+        }
+      ],
+      "name": "getOutcome",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSeqNum",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSettleFinalizedTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getStatus",
+      "outputs": [
+        {
+          "internalType": "enum ISingleSession.AppStatus",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_stateProof",
+          "type": "bytes"
+        }
+      ],
+      "name": "intendSettle",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_query",
+          "type": "bytes"
+        }
+      ],
+      "name": "isFinalized",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_players1\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeout\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"seq\",\"type\":\"uint256\"}],\"name\":\"IntendSettle\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSeqNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSettleFinalizedTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enum ISingleSession.AppStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_stateProof\",\"type\":\"bytes\"}],\"name\":\"intendSettle\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"intendSettle(bytes)\":{\"params\":{\"_stateProof\":\"Serialized off-chain state with signatures\"}},\"isFinalized(bytes)\":{\"return\":\"True if app is finalized\"}}},\"userdoc\":{\"methods\":{\"getSeqNum()\":{\"notice\":\"get app sequence number\"},\"getSettleFinalizedTime()\":{\"notice\":\"get state settle finalized time\"},\"getStatus()\":{\"notice\":\"get app status\"},\"intendSettle(bytes)\":{\"notice\":\"Submit and settle off-chain state\"},\"isFinalized(bytes)\":{\"notice\":\"Check if the app is finalized\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol\":\"SingleSessionBooleanOutcome\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/LibSignature.sol\":{\"keccak256\":\"0x524a5f1f4dccef8f95ee4c2929830b778a3199197252b8cc40c8c5f3e3bbc4ec\",\"urls\":[\"bzz-raw://2a82dcd25c0af823a0a65dc99d0d40aa1c30b6b27cff405060074f89b2750f82\",\"dweb:/ipfs/QmTy45BrnWxWwMx1q7yUg8YSmPxkr4DYSCMBcNnFAyz36A\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/Pb.sol\":{\"keccak256\":\"0xe1f2fd485174ce4865cef0d9c8d35807a4d614cce33d68c57686a7ad83180ccb\",\"urls\":[\"bzz-raw://17e106111b22e7ad1e7e0bd452f6c328ad5fd01ea6a2c60b06bfaceb6ee125b7\",\"dweb:/ipfs/QmSMVeRUpUcbSwGRuAXGUSxw3ou7R4CGi1oVTPPjmEsaYT\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/PbApp.sol\":{\"keccak256\":\"0xe92b1561d7de9b608483f78e0d9fa0b65d34c7b5364b25c843839d1ea4aa6960\",\"urls\":[\"bzz-raw://946ef49e2fefdcb345d9144e40462f003d2a5b9dfe127705151922ddc82aee28\",\"dweb:/ipfs/QmWmsGNL4uUpV8V5zJnGJbjkue2ur29Mv9DeAX2ruh2RTg\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol\":{\"keccak256\":\"0xd8f3eab2878e273347ede5ddee4f6004ad5dae368df5b1a0533ea0f3555a7bd4\",\"urls\":[\"bzz-raw://d24cd429d1a0f8dc28497989279afff2024bc2d72d354f77f521f410850b4c65\",\"dweb:/ipfs/Qmd5w7y6ua5pbbspPa5e4pN1Kf5zZxHAXWfMsUnLpMBTjk\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol\":{\"keccak256\":\"0x711af0253a66cbab9a9b96e3c8840bd796afa38ba896240920eed2d40f598444\",\"urls\":[\"bzz-raw://9ed2dcaaec405543a93fffad6cbc982611ebb3d20468509eb178977498e4985d\",\"dweb:/ipfs/QmXBNgtZ33EWYu3t53ByXhKrDBmXZA5EK5pivWnaX9XhYE\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionApp.sol\":{\"keccak256\":\"0xc8bdadf8968cbe698214f8dcb2cc40fe1b9bc45955982e7151cf48cbdd8170f4\",\"urls\":[\"bzz-raw://aee9e7cfd1ed7fef5af62696655e08d665df14a23574dbd91650c21699aeb9ca\",\"dweb:/ipfs/QmZvfMPQK2Me26gU87oLB3kdzPagFHd1iYKMCyDqeFjoQD\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol\":{\"keccak256\":\"0x4029240d9d21788d5fc44c7e6db140f30a2a5c957648133cf250e22bb73683d3\",\"urls\":[\"bzz-raw://6ae0a41db216af3be803073997b9c904d9e5866b883436a7585dd577e5ee2737\",\"dweb:/ipfs/QmfGNAGgWZH8RhKGs8NnVfmsLDPMSTp6BAQcU1uePUw2sz\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity >=0.5.0 <0.6.0;\nimport \"./SingleSessionApp.sol\";\nimport \"./IBooleanOutcome.sol\";\n\ncontract SingleSessionBooleanOutcome is SingleSessionApp, IBooleanOutcome {\n\n    constructor(\n        address[] memory _players1,\n        uint _nonce,\n        uint _timeout)\n        public\n        SingleSessionApp(_players1, _nonce, _timeout)\n    {\n    }\n\n    /**\n     * @notice Check if the app is finalized\n     * @return True if app is finalized\n     */\n    function isFinalized(bytes calldata _query) external view returns (bool) {\n        require(_query.length == 0);\n        return appInfo.status == AppStatus.FINALIZED;\n    }\n\n}\n",
+  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol",
+  "ast": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol",
+    "exportedSymbols": {
+      "SingleSessionBooleanOutcome": [
+        16816
+      ]
+    },
+    "id": 16817,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 16772,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:40"
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionApp.sol",
+        "file": "./SingleSessionApp.sol",
+        "id": 16773,
+        "nodeType": "ImportDirective",
+        "scope": 16817,
+        "sourceUnit": 16771,
+        "src": "32:32:40",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
+        "file": "./IBooleanOutcome.sol",
+        "id": 16774,
+        "nodeType": "ImportDirective",
+        "scope": 16817,
+        "sourceUnit": 16454,
+        "src": "65:31:40",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 16775,
+              "name": "SingleSessionApp",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16770,
+              "src": "138:16:40",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SingleSessionApp_$16770",
+                "typeString": "contract SingleSessionApp"
+              }
+            },
+            "id": 16776,
+            "nodeType": "InheritanceSpecifier",
+            "src": "138:16:40"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 16777,
+              "name": "IBooleanOutcome",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16453,
+              "src": "156:15:40",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IBooleanOutcome_$16453",
+                "typeString": "contract IBooleanOutcome"
+              }
+            },
+            "id": 16778,
+            "nodeType": "InheritanceSpecifier",
+            "src": "156:15:40"
+          }
+        ],
+        "contractDependencies": [
+          16453,
+          16496,
+          16770
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 16816,
+        "linearizedBaseContracts": [
+          16816,
+          16453,
+          16770,
+          16496
+        ],
+        "name": "SingleSessionBooleanOutcome",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 16793,
+              "nodeType": "Block",
+              "src": "345:7:40",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 16794,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 16788,
+                    "name": "_players1",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16781,
+                    "src": "312:9:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                      "typeString": "address[] memory"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 16789,
+                    "name": "_nonce",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16783,
+                    "src": "323:6:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 16790,
+                    "name": "_timeout",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16785,
+                    "src": "331:8:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 16791,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 16787,
+                  "name": "SingleSessionApp",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 16770,
+                  "src": "295:16:40",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_SingleSessionApp_$16770_$",
+                    "typeString": "type(contract SingleSessionApp)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "295:45:40"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16786,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16781,
+                  "name": "_players1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16794,
+                  "src": "200:26:40",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 16779,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "200:7:40",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 16780,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "200:9:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 16783,
+                  "name": "_nonce",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16794,
+                  "src": "236:11:40",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16782,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "236:4:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 16785,
+                  "name": "_timeout",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16794,
+                  "src": "257:13:40",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16784,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "257:4:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "190:81:40"
+            },
+            "returnParameters": {
+              "id": 16792,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "345:0:40"
+            },
+            "scope": 16816,
+            "src": "179:173:40",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 16814,
+              "nodeType": "Block",
+              "src": "532:98:40",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 16805,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 16802,
+                            "name": "_query",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 16796,
+                            "src": "550:6:40",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_calldata_ptr",
+                              "typeString": "bytes calldata"
+                            }
+                          },
+                          "id": 16803,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "length",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "550:13:40",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 16804,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "567:1:40",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "550:18:40",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 16801,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        18654,
+                        18655
+                      ],
+                      "referencedDeclaration": 18654,
+                      "src": "542:7:40",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 16806,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "542:27:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 16807,
+                  "nodeType": "ExpressionStatement",
+                  "src": "542:27:40"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_AppStatus_$16471",
+                      "typeString": "enum ISingleSession.AppStatus"
+                    },
+                    "id": 16812,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 16808,
+                        "name": "appInfo",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16519,
+                        "src": "586:7:40",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_AppInfo_$16517_storage",
+                          "typeString": "struct SingleSessionApp.AppInfo storage ref"
+                        }
+                      },
+                      "id": 16809,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "status",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16516,
+                      "src": "586:14:40",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_AppStatus_$16471",
+                        "typeString": "enum ISingleSession.AppStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 16810,
+                        "name": "AppStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16471,
+                        "src": "604:9:40",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16471_$",
+                          "typeString": "type(enum ISingleSession.AppStatus)"
+                        }
+                      },
+                      "id": 16811,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "FINALIZED",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "604:19:40",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_AppStatus_$16471",
+                        "typeString": "enum ISingleSession.AppStatus"
+                      }
+                    },
+                    "src": "586:37:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 16800,
+                  "id": 16813,
+                  "nodeType": "Return",
+                  "src": "579:44:40"
+                }
+              ]
+            },
+            "documentation": "@notice Check if the app is finalized\n@return True if app is finalized",
+            "id": 16815,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isFinalized",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16797,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16796,
+                  "name": "_query",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16815,
+                  "src": "480:21:40",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 16795,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "480:5:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "479:23:40"
+            },
+            "returnParameters": {
+              "id": 16800,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16799,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16815,
+                  "src": "526:4:40",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 16798,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "526:4:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "525:6:40"
+            },
+            "scope": 16816,
+            "src": "459:171:40",
+            "stateMutability": "view",
+            "superFunction": 16445,
+            "visibility": "external"
+          }
+        ],
+        "scope": 16817,
+        "src": "98:535:40"
+      }
+    ],
+    "src": "0:634:40"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol",
+    "exportedSymbols": {
+      "SingleSessionBooleanOutcome": [
+        16816
+      ]
+    },
+    "id": 16817,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 16772,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:40"
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/SingleSessionApp.sol",
+        "file": "./SingleSessionApp.sol",
+        "id": 16773,
+        "nodeType": "ImportDirective",
+        "scope": 16817,
+        "sourceUnit": 16771,
+        "src": "32:32:40",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
+        "file": "./IBooleanOutcome.sol",
+        "id": 16774,
+        "nodeType": "ImportDirective",
+        "scope": 16817,
+        "sourceUnit": 16454,
+        "src": "65:31:40",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 16775,
+              "name": "SingleSessionApp",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16770,
+              "src": "138:16:40",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SingleSessionApp_$16770",
+                "typeString": "contract SingleSessionApp"
+              }
+            },
+            "id": 16776,
+            "nodeType": "InheritanceSpecifier",
+            "src": "138:16:40"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 16777,
+              "name": "IBooleanOutcome",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 16453,
+              "src": "156:15:40",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IBooleanOutcome_$16453",
+                "typeString": "contract IBooleanOutcome"
+              }
+            },
+            "id": 16778,
+            "nodeType": "InheritanceSpecifier",
+            "src": "156:15:40"
+          }
+        ],
+        "contractDependencies": [
+          16453,
+          16496,
+          16770
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 16816,
+        "linearizedBaseContracts": [
+          16816,
+          16453,
+          16770,
+          16496
+        ],
+        "name": "SingleSessionBooleanOutcome",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 16793,
+              "nodeType": "Block",
+              "src": "345:7:40",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 16794,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 16788,
+                    "name": "_players1",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16781,
+                    "src": "312:9:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                      "typeString": "address[] memory"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 16789,
+                    "name": "_nonce",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16783,
+                    "src": "323:6:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 16790,
+                    "name": "_timeout",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16785,
+                    "src": "331:8:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 16791,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 16787,
+                  "name": "SingleSessionApp",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 16770,
+                  "src": "295:16:40",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_SingleSessionApp_$16770_$",
+                    "typeString": "type(contract SingleSessionApp)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "295:45:40"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16786,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16781,
+                  "name": "_players1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16794,
+                  "src": "200:26:40",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 16779,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "200:7:40",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 16780,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "200:9:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 16783,
+                  "name": "_nonce",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16794,
+                  "src": "236:11:40",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16782,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "236:4:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 16785,
+                  "name": "_timeout",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16794,
+                  "src": "257:13:40",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 16784,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "257:4:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "190:81:40"
+            },
+            "returnParameters": {
+              "id": 16792,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "345:0:40"
+            },
+            "scope": 16816,
+            "src": "179:173:40",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 16814,
+              "nodeType": "Block",
+              "src": "532:98:40",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 16805,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 16802,
+                            "name": "_query",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 16796,
+                            "src": "550:6:40",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_calldata_ptr",
+                              "typeString": "bytes calldata"
+                            }
+                          },
+                          "id": 16803,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "length",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "550:13:40",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 16804,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "567:1:40",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "550:18:40",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 16801,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        18654,
+                        18655
+                      ],
+                      "referencedDeclaration": 18654,
+                      "src": "542:7:40",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 16806,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "542:27:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 16807,
+                  "nodeType": "ExpressionStatement",
+                  "src": "542:27:40"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_AppStatus_$16471",
+                      "typeString": "enum ISingleSession.AppStatus"
+                    },
+                    "id": 16812,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 16808,
+                        "name": "appInfo",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16519,
+                        "src": "586:7:40",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_AppInfo_$16517_storage",
+                          "typeString": "struct SingleSessionApp.AppInfo storage ref"
+                        }
+                      },
+                      "id": 16809,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "status",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 16516,
+                      "src": "586:14:40",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_AppStatus_$16471",
+                        "typeString": "enum ISingleSession.AppStatus"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 16810,
+                        "name": "AppStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 16471,
+                        "src": "604:9:40",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16471_$",
+                          "typeString": "type(enum ISingleSession.AppStatus)"
+                        }
+                      },
+                      "id": 16811,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "FINALIZED",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "604:19:40",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_AppStatus_$16471",
+                        "typeString": "enum ISingleSession.AppStatus"
+                      }
+                    },
+                    "src": "586:37:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 16800,
+                  "id": 16813,
+                  "nodeType": "Return",
+                  "src": "579:44:40"
+                }
+              ]
+            },
+            "documentation": "@notice Check if the app is finalized\n@return True if app is finalized",
+            "id": 16815,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isFinalized",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 16797,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16796,
+                  "name": "_query",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16815,
+                  "src": "480:21:40",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 16795,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "480:5:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "479:23:40"
+            },
+            "returnParameters": {
+              "id": 16800,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 16799,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 16815,
+                  "src": "526:4:40",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 16798,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "526:4:40",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "525:6:40"
+            },
+            "scope": 16816,
+            "src": "459:171:40",
+            "stateMutability": "view",
+            "superFunction": 16445,
+            "visibility": "external"
+          }
+        ],
+        "scope": 16817,
+        "src": "98:535:40"
+      }
+    ],
+    "src": "0:634:40"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-16T08:07:42.402Z",
+  "devdoc": {
+    "methods": {
+      "intendSettle(bytes)": {
+        "params": {
+          "_stateProof": "Serialized off-chain state with signatures"
+        }
+      },
+      "isFinalized(bytes)": {
+        "return": "True if app is finalized"
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "getSeqNum()": {
+        "notice": "get app sequence number"
+      },
+      "getSettleFinalizedTime()": {
+        "notice": "get state settle finalized time"
+      },
+      "getStatus()": {
+        "notice": "get app status"
+      },
+      "intendSettle(bytes)": {
+        "notice": "Submit and settle off-chain state"
+      },
+      "isFinalized(bytes)": {
+        "notice": "Check if the app is finalized"
+      }
+    }
+  }
+}

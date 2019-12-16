@@ -1,0 +1,9 @@
+******* Gas Used in MultiGomoku Tests ********
+
+contract deploy: 3480409
+first intendSettle: 404238
+second intendSettle: 191662
+applyAction: 93980
+applyAction: 82849
+applyAction: 93947
+finalizeOnActionTimeout: 43098
