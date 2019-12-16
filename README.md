@@ -11,7 +11,11 @@ npm install
 ```
 npm install -g truffle ganache-cli
 ```
-4. Test keeper-layer2 contracts.
+4. Run ganache-cli
+```
+ganache-cli -l 8000000
+```
+5. Test keeper-layer2 contracts.
 ```
 npm run test
 ```
