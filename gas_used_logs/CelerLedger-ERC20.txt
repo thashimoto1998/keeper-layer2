@@ -1,0 +1,23 @@
+********** Gas Used in CelerLedger-ERC20 Tests **********
+
+***** Deploy Gas Used *****
+VirtContractResolver Deploy Gas: 277002
+PayRegistry Deploy Gas: 810780
+PayResolver Deploy Gas: 2805318
+CelerWallet Deploy Gas: 2105015
+CelerLedger Deploy Gas: 2886100
+
+***** Function Calls Gas Used *****
+openChannel() with zero deposit: 330233
+setBalanceLimits(): 47578
+deposit(): 160532
+disableBalanceLimits(): 14407
+intendWithdraw(): 300233
+confirmWithdraw(): 86355
+cooperativeWithdraw(): 141175
+intendSettle() with two 2-payment-hashList states: 461866
+clearPays() with 2 payments: 37530
+confirmSettle(): 94379
+openChannel() with non-zero ERC20 deposits: 407725
+cooperativeWithdraw(): 146036
+cooperativeSettle(): 142227

@@ -1,0 +1,7 @@
+********** Gas Used in CelerLedger-ETH Tests **********
+
+***** Function Calls Gas Used *****
+migrateChannelFrom() an Operable ETH channel: 341103
+migrateChannelFrom() an Settling ETH channel: 371372
+migrateChannelFrom() an Operable ERC20 channel: 311039
+migrateChannelFrom() an Settling ERC20 channel: 371244

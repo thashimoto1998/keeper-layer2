@@ -1,0 +1,10 @@
+********** Gas Measurement of clearPays() multi pays **********
+
+pay number per following payIdList(i.e. except head payIdList),	used gas
+1	29228
+11	116611
+21	204677
+
+Linear regression result: gasUsed = 8772.45 * payNumPerList + 20341.72
+Max pay number per following payIdList (i.e. except head payIdList) is: 909
+Coefficient of determination (R^2) is: 1

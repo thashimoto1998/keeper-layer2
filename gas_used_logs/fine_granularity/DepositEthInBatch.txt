@@ -1,0 +1,9 @@
+********** Gas Measurement of depositInBatch() **********
+
+batch size,	used gas
+1	108203
+11	957217
+
+Linear regression result: gasUsed = 84901.4 * batchSize + 23301.6
+Max batch size of deposit ETH in batch is: 93
+Coefficient of determination (R^2) is: 1

@@ -1,0 +1,10 @@
+********** Gas Measurement of intendSettle() one state with multi pays **********
+
+pay number in head payIdList,	used gas
+1	202213
+11	232370
+21	324083
+
+Linear regression result: gasUsed = 6093.5 * payNumInHeadList + 185860.17
+Max pay number in head payIdList is: 1282
+Coefficient of determination (R^2) is: 0.92
