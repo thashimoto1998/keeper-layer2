@@ -1,0 +1,48 @@
+{
+  "name": "celer-apps",
+  "description": "contracts of sample dApps running on Celer Network",
+  "repository": "https://github.com/celer-network/cApps",
+  "scripts": {
+    "test": "npx truffle test",
+    "compile": "npx truffle compile",
+    "coverage": "npx solidity-coverage",
+    "lint": "npx solium -d contracts/",
+    "lint:js": "npx eslint .",
+    "migrate": "npx truffle migrate"
+  },
+  "keywords": [
+    "ethereum",
+    "smart",
+    "contracts",
+    "solidity",
+    "truffle",
+    "blockchain",
+    "celer"
+  ],
+  "dependencies": {
+    "@openzeppelin/contracts": "^2.4.0",
+    "@openzeppelin/upgrades": "^2.6.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "openzeppelin-eth": "^2.2.0",
+    "openzeppelin-solidity": "^2.3.0",
+    "protobufjs": "^6.8.8",
+    "truffle-hdwallet-provider": "1.0.2",
+    "web3": "^1.0.0-beta.54",
+    "regression": "^2.0.1",
+    "zos-lib": "^2.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "ganache-cli": "^6.7.0",
+    "npx": "^10.2.0",
+    "solidity-coverage": "^0.5.11",
+    "solium": "^1.2.4",
+    "truffle": "^5.0.24"
+  }
+}
