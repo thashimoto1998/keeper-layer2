@@ -75,25 +75,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"seq\",\"type\":\"uint256\"}],\"name\":\"IntendSettle\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSeqNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSettleFinalizedTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enum ISingleSession.AppStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_stateProof\",\"type\":\"bytes\"}],\"name\":\"intendSettle\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{\"getSeqNum()\":{\"notice\":\"get app sequence number\"},\"getSettleFinalizedTime()\":{\"notice\":\"get app state settle finalize time\"},\"getStatus()\":{\"notice\":\"get app status\"},\"intendSettle(bytes)\":{\"notice\":\"Submit off-chain state and start to dispute\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol\":\"ISingleSession\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol\":{\"keccak256\":\"0x711af0253a66cbab9a9b96e3c8840bd796afa38ba896240920eed2d40f598444\",\"urls\":[\"bzz-raw://9ed2dcaaec405543a93fffad6cbc982611ebb3d20468509eb178977498e4985d\",\"dweb:/ipfs/QmXBNgtZ33EWYu3t53ByXhKrDBmXZA5EK5pivWnaX9XhYE\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"seq\",\"type\":\"uint256\"}],\"name\":\"IntendSettle\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSeqNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSettleFinalizedTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enum ISingleSession.AppStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_stateProof\",\"type\":\"bytes\"}],\"name\":\"intendSettle\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{\"getSeqNum()\":{\"notice\":\"get app sequence number\"},\"getSettleFinalizedTime()\":{\"notice\":\"get app state settle finalize time\"},\"getStatus()\":{\"notice\":\"get app status\"},\"intendSettle(bytes)\":{\"notice\":\"Submit off-chain state and start to dispute\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/ISingleSession.sol\":\"ISingleSession\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/ISingleSession.sol\":{\"keccak256\":\"0x711af0253a66cbab9a9b96e3c8840bd796afa38ba896240920eed2d40f598444\",\"urls\":[\"bzz-raw://9ed2dcaaec405543a93fffad6cbc982611ebb3d20468509eb178977498e4985d\",\"dweb:/ipfs/QmXBNgtZ33EWYu3t53ByXhKrDBmXZA5EK5pivWnaX9XhYE\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity >=0.5.0 < 0.6.0;\n\ninterface ISingleSession {\n\n    enum AppStatus {IDLE, SETTLE, FINALIZED}\n\n    event IntendSettle(uint seq);\n\n    /**\n     * @notice Submit off-chain state and start to dispute\n     */\n    function intendSettle(bytes calldata _stateProof) external;\n\n    /**\n     *  @notice get app state settle finalize time\n     */\n    function getSettleFinalizedTime() external view returns (uint);\n\n    /**\n     * @notice get app status\n     */\n    function getStatus() external view returns (AppStatus);\n\n    /**\n     * @notice get app sequence number\n     */\n    function getSeqNum() external view returns (uint);\n\n}",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/ISingleSession.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/ISingleSession.sol",
     "exportedSymbols": {
       "ISingleSession": [
-        16496
+        16605
       ]
     },
-    "id": 16497,
+    "id": 16606,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 16467,
+        "id": 16576,
         "literals": [
           "solidity",
           ">=",
@@ -112,31 +112,31 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 16496,
+        "id": 16605,
         "linearizedBaseContracts": [
-          16496
+          16605
         ],
         "name": "ISingleSession",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "ISingleSession.AppStatus",
-            "id": 16471,
+            "id": 16580,
             "members": [
               {
-                "id": 16468,
+                "id": 16577,
                 "name": "IDLE",
                 "nodeType": "EnumValue",
                 "src": "82:4:38"
               },
               {
-                "id": 16469,
+                "id": 16578,
                 "name": "SETTLE",
                 "nodeType": "EnumValue",
                 "src": "88:6:38"
               },
               {
-                "id": 16470,
+                "id": 16579,
                 "name": "FINALIZED",
                 "nodeType": "EnumValue",
                 "src": "96:9:38"
@@ -149,20 +149,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 16475,
+            "id": 16584,
             "name": "IntendSettle",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 16474,
+              "id": 16583,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16473,
+                  "id": 16582,
                   "indexed": false,
                   "name": "seq",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16475,
+                  "scope": 16584,
                   "src": "131:8:38",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -171,7 +171,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16472,
+                    "id": 16581,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "131:4:38",
@@ -191,22 +191,22 @@
           {
             "body": null,
             "documentation": "@notice Submit off-chain state and start to dispute",
-            "id": 16480,
+            "id": 16589,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "intendSettle",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16478,
+              "id": 16587,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16477,
+                  "id": 16586,
                   "name": "_stateProof",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16480,
+                  "scope": 16589,
                   "src": "244:26:38",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -215,7 +215,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16476,
+                    "id": 16585,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "244:5:38",
@@ -231,12 +231,12 @@
               "src": "243:28:38"
             },
             "returnParameters": {
-              "id": 16479,
+              "id": 16588,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "280:0:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "222:59:38",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -245,28 +245,28 @@
           {
             "body": null,
             "documentation": " @notice get app state settle finalize time",
-            "id": 16485,
+            "id": 16594,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getSettleFinalizedTime",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16481,
+              "id": 16590,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "385:2:38"
             },
             "returnParameters": {
-              "id": 16484,
+              "id": 16593,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16483,
+                  "id": 16592,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16485,
+                  "scope": 16594,
                   "src": "411:4:38",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -275,7 +275,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16482,
+                    "id": 16591,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "411:4:38",
@@ -290,7 +290,7 @@
               ],
               "src": "410:6:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "354:63:38",
             "stateMutability": "view",
             "superFunction": null,
@@ -299,44 +299,44 @@
           {
             "body": null,
             "documentation": "@notice get app status",
-            "id": 16490,
+            "id": 16599,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getStatus",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16486,
+              "id": 16595,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "487:2:38"
             },
             "returnParameters": {
-              "id": 16489,
+              "id": 16598,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16488,
+                  "id": 16597,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16490,
+                  "scope": 16599,
                   "src": "513:9:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AppStatus_$16471",
+                    "typeIdentifier": "t_enum$_AppStatus_$16580",
                     "typeString": "enum ISingleSession.AppStatus"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 16487,
+                    "id": 16596,
                     "name": "AppStatus",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 16471,
+                    "referencedDeclaration": 16580,
                     "src": "513:9:38",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_AppStatus_$16471",
+                      "typeIdentifier": "t_enum$_AppStatus_$16580",
                       "typeString": "enum ISingleSession.AppStatus"
                     }
                   },
@@ -346,7 +346,7 @@
               ],
               "src": "512:11:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "469:55:38",
             "stateMutability": "view",
             "superFunction": null,
@@ -355,28 +355,28 @@
           {
             "body": null,
             "documentation": "@notice get app sequence number",
-            "id": 16495,
+            "id": 16604,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getSeqNum",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16491,
+              "id": 16600,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "603:2:38"
             },
             "returnParameters": {
-              "id": 16494,
+              "id": 16603,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16493,
+                  "id": 16602,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16495,
+                  "scope": 16604,
                   "src": "629:4:38",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -385,7 +385,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16492,
+                    "id": 16601,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "629:4:38",
@@ -400,31 +400,31 @@
               ],
               "src": "628:6:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "585:50:38",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 16497,
+        "scope": 16606,
         "src": "34:604:38"
       }
     ],
     "src": "0:638:38"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/ISingleSession.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/ISingleSession.sol",
     "exportedSymbols": {
       "ISingleSession": [
-        16496
+        16605
       ]
     },
-    "id": 16497,
+    "id": 16606,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 16467,
+        "id": 16576,
         "literals": [
           "solidity",
           ">=",
@@ -443,31 +443,31 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 16496,
+        "id": 16605,
         "linearizedBaseContracts": [
-          16496
+          16605
         ],
         "name": "ISingleSession",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "ISingleSession.AppStatus",
-            "id": 16471,
+            "id": 16580,
             "members": [
               {
-                "id": 16468,
+                "id": 16577,
                 "name": "IDLE",
                 "nodeType": "EnumValue",
                 "src": "82:4:38"
               },
               {
-                "id": 16469,
+                "id": 16578,
                 "name": "SETTLE",
                 "nodeType": "EnumValue",
                 "src": "88:6:38"
               },
               {
-                "id": 16470,
+                "id": 16579,
                 "name": "FINALIZED",
                 "nodeType": "EnumValue",
                 "src": "96:9:38"
@@ -480,20 +480,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 16475,
+            "id": 16584,
             "name": "IntendSettle",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 16474,
+              "id": 16583,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16473,
+                  "id": 16582,
                   "indexed": false,
                   "name": "seq",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16475,
+                  "scope": 16584,
                   "src": "131:8:38",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -502,7 +502,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16472,
+                    "id": 16581,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "131:4:38",
@@ -522,22 +522,22 @@
           {
             "body": null,
             "documentation": "@notice Submit off-chain state and start to dispute",
-            "id": 16480,
+            "id": 16589,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "intendSettle",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16478,
+              "id": 16587,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16477,
+                  "id": 16586,
                   "name": "_stateProof",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16480,
+                  "scope": 16589,
                   "src": "244:26:38",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -546,7 +546,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16476,
+                    "id": 16585,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "244:5:38",
@@ -562,12 +562,12 @@
               "src": "243:28:38"
             },
             "returnParameters": {
-              "id": 16479,
+              "id": 16588,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "280:0:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "222:59:38",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -576,28 +576,28 @@
           {
             "body": null,
             "documentation": " @notice get app state settle finalize time",
-            "id": 16485,
+            "id": 16594,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getSettleFinalizedTime",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16481,
+              "id": 16590,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "385:2:38"
             },
             "returnParameters": {
-              "id": 16484,
+              "id": 16593,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16483,
+                  "id": 16592,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16485,
+                  "scope": 16594,
                   "src": "411:4:38",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -606,7 +606,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16482,
+                    "id": 16591,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "411:4:38",
@@ -621,7 +621,7 @@
               ],
               "src": "410:6:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "354:63:38",
             "stateMutability": "view",
             "superFunction": null,
@@ -630,44 +630,44 @@
           {
             "body": null,
             "documentation": "@notice get app status",
-            "id": 16490,
+            "id": 16599,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getStatus",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16486,
+              "id": 16595,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "487:2:38"
             },
             "returnParameters": {
-              "id": 16489,
+              "id": 16598,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16488,
+                  "id": 16597,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16490,
+                  "scope": 16599,
                   "src": "513:9:38",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_AppStatus_$16471",
+                    "typeIdentifier": "t_enum$_AppStatus_$16580",
                     "typeString": "enum ISingleSession.AppStatus"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 16487,
+                    "id": 16596,
                     "name": "AppStatus",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 16471,
+                    "referencedDeclaration": 16580,
                     "src": "513:9:38",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_AppStatus_$16471",
+                      "typeIdentifier": "t_enum$_AppStatus_$16580",
                       "typeString": "enum ISingleSession.AppStatus"
                     }
                   },
@@ -677,7 +677,7 @@
               ],
               "src": "512:11:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "469:55:38",
             "stateMutability": "view",
             "superFunction": null,
@@ -686,28 +686,28 @@
           {
             "body": null,
             "documentation": "@notice get app sequence number",
-            "id": 16495,
+            "id": 16604,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getSeqNum",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16491,
+              "id": 16600,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "603:2:38"
             },
             "returnParameters": {
-              "id": 16494,
+              "id": 16603,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16493,
+                  "id": 16602,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16495,
+                  "scope": 16604,
                   "src": "629:4:38",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -716,7 +716,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16492,
+                    "id": 16601,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "629:4:38",
@@ -731,14 +731,14 @@
               ],
               "src": "628:6:38"
             },
-            "scope": 16496,
+            "scope": 16605,
             "src": "585:50:38",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 16497,
+        "scope": 16606,
         "src": "34:604:38"
       }
     ],
@@ -750,7 +750,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-16T08:07:42.394Z",
+  "updatedAt": "2019-12-17T07:54:09.792Z",
   "devdoc": {
     "methods": {}
   },

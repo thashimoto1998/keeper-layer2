@@ -44,15 +44,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"NumericCond interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/INumericCond.sol\":\"INumericCond\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/INumericCond.sol\":{\"keccak256\":\"0x6be61af80d5113bdf48671788a8878925af9e86d541b8704e465973a393e216d\",\"urls\":[\"bzz-raw://b34c6bd159a0f0fbc42c946f28219a3302081b457e7b4a6c179b1ecea508cb3c\",\"dweb:/ipfs/QmRBB8zWsFY7gqkdERw5h7o1siMjNvLvT4z1Dv45ZiwCfe\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"NumericCond interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/INumericCond.sol\":\"INumericCond\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/INumericCond.sol\":{\"keccak256\":\"0x6be61af80d5113bdf48671788a8878925af9e86d541b8704e465973a393e216d\",\"urls\":[\"bzz-raw://b34c6bd159a0f0fbc42c946f28219a3302081b457e7b4a6c179b1ecea508cb3c\",\"dweb:/ipfs/QmRBB8zWsFY7gqkdERw5h7o1siMjNvLvT4z1Dv45ZiwCfe\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\n/**\n * @title NumericCond interface\n */\ninterface INumericCond {\n    function isFinalized(bytes calldata _query) external view returns (bool);\n    \n    function getOutcome(bytes calldata _query) external view returns (uint);\n}\n",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/INumericCond.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/INumericCond.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/INumericCond.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/INumericCond.sol",
     "exportedSymbols": {
       "INumericCond": [
         9723
@@ -255,7 +255,7 @@
     "src": "0:252:19"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/INumericCond.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/INumericCond.sol",
     "exportedSymbols": {
       "INumericCond": [
         9723
@@ -463,7 +463,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.568Z",
+  "updatedAt": "2019-12-17T07:54:09.667Z",
   "devdoc": {
     "methods": {},
     "title": "NumericCond interface"

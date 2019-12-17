@@ -52,15 +52,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_celerWallet\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"walletId\",\"type\":\"bytes32\"}],\"name\":\"NewWallet\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_owners\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"_operator\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"create\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/helper/WalletTestHelper.sol\":\"WalletTestHelper\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/helper/WalletTestHelper.sol\":{\"keccak256\":\"0x26653653cdd4ea55bba6a4000b1ed33a2c8d990d7cb7e566f2840d08c8e4552f\",\"urls\":[\"bzz-raw://1f7dedf9d559d8a7251acd6e96c7a50f80c3923a3ae3d439000557f065f3d928\",\"dweb:/ipfs/QmP8Bqh1b7yYiDj7tUaJ9QpppkZ2pH1sv57uENrnAjRgqd\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol\":{\"keccak256\":\"0xf8fdbfc0ae959e0a78c52829b3658f99469a274724d22c1fd2bdef155cd33523\",\"urls\":[\"bzz-raw://10b2ce8241db028343357ca2146f42179b1c10bb63f768d6155c0c15367c2644\",\"dweb:/ipfs/Qmf9Hq4JHo6KmBcerYCLs1huiMkgyH7stMZcuG7UFCLnfj\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506040516102a93803806102a98339818101604052602081101561003357600080fd5b5051600080546001600160a01b039092166001600160a01b0319909216919091179055610244806100656000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c806348e7c62714610030575b600080fd5b6100e16004803603606081101561004657600080fd5b81019060208101813564010000000081111561006157600080fd5b82018360208201111561007357600080fd5b8035906020019184602083028401116401000000008311171561009557600080fd5b919080806020026020016040519081016040528093929190818152602001838360200280828437600092019190915250929550506001600160a01b0383351693505050602001356100e3565b005b6040805160208082018490528251808303820181528284019384905280519082012060008054630d63a1fd60e01b9095526001600160a01b03878116606486015260848501839052606060448601908152895160a48701528951939692959190921693630d63a1fd938a938a9389939192839260c49092019187810191028083838d5b8381101561017e578181015183820152602001610166565b50505050905001945050505050602060405180830381600087803b1580156101a557600080fd5b505af11580156101b9573d6000803e3d6000fd5b505050506040513d60208110156101cf57600080fd5b50516040805182815290519192507f986bcb2d81145ff3ce3f644ab7850d2a93aba2cbcf35db57d8faa78ec145444f919081900360200190a1505050505056fea265627a7a72315820f8026f42047ddd6731072f01f242d3ed961a28cbe330c87eec5ede2b1aaed10464736f6c634300050c0032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c806348e7c62714610030575b600080fd5b6100e16004803603606081101561004657600080fd5b81019060208101813564010000000081111561006157600080fd5b82018360208201111561007357600080fd5b8035906020019184602083028401116401000000008311171561009557600080fd5b919080806020026020016040519081016040528093929190818152602001838360200280828437600092019190915250929550506001600160a01b0383351693505050602001356100e3565b005b6040805160208082018490528251808303820181528284019384905280519082012060008054630d63a1fd60e01b9095526001600160a01b03878116606486015260848501839052606060448601908152895160a48701528951939692959190921693630d63a1fd938a938a9389939192839260c49092019187810191028083838d5b8381101561017e578181015183820152602001610166565b50505050905001945050505050602060405180830381600087803b1580156101a557600080fd5b505af11580156101b9573d6000803e3d6000fd5b505050506040513d60208110156101cf57600080fd5b50516040805182815290519192507f986bcb2d81145ff3ce3f644ab7850d2a93aba2cbcf35db57d8faa78ec145444f919081900360200190a1505050505056fea265627a7a72315820f8026f42047ddd6731072f01f242d3ed961a28cbe330c87eec5ede2b1aaed10464736f6c634300050c0032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_celerWallet\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"walletId\",\"type\":\"bytes32\"}],\"name\":\"NewWallet\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_owners\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"_operator\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"create\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/helper/WalletTestHelper.sol\":\"WalletTestHelper\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/helper/WalletTestHelper.sol\":{\"keccak256\":\"0x26653653cdd4ea55bba6a4000b1ed33a2c8d990d7cb7e566f2840d08c8e4552f\",\"urls\":[\"bzz-raw://1f7dedf9d559d8a7251acd6e96c7a50f80c3923a3ae3d439000557f065f3d928\",\"dweb:/ipfs/QmP8Bqh1b7yYiDj7tUaJ9QpppkZ2pH1sv57uENrnAjRgqd\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/ICelerWallet.sol\":{\"keccak256\":\"0xf8fdbfc0ae959e0a78c52829b3658f99469a274724d22c1fd2bdef155cd33523\",\"urls\":[\"bzz-raw://10b2ce8241db028343357ca2146f42179b1c10bb63f768d6155c0c15367c2644\",\"dweb:/ipfs/Qmf9Hq4JHo6KmBcerYCLs1huiMkgyH7stMZcuG7UFCLnfj\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516102a93803806102a98339818101604052602081101561003357600080fd5b5051600080546001600160a01b039092166001600160a01b0319909216919091179055610244806100656000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c806348e7c62714610030575b600080fd5b6100e16004803603606081101561004657600080fd5b81019060208101813564010000000081111561006157600080fd5b82018360208201111561007357600080fd5b8035906020019184602083028401116401000000008311171561009557600080fd5b919080806020026020016040519081016040528093929190818152602001838360200280828437600092019190915250929550506001600160a01b0383351693505050602001356100e3565b005b6040805160208082018490528251808303820181528284019384905280519082012060008054630d63a1fd60e01b9095526001600160a01b03878116606486015260848501839052606060448601908152895160a48701528951939692959190921693630d63a1fd938a938a9389939192839260c49092019187810191028083838d5b8381101561017e578181015183820152602001610166565b50505050905001945050505050602060405180830381600087803b1580156101a557600080fd5b505af11580156101b9573d6000803e3d6000fd5b505050506040513d60208110156101cf57600080fd5b50516040805182815290519192507f986bcb2d81145ff3ce3f644ab7850d2a93aba2cbcf35db57d8faa78ec145444f919081900360200190a1505050505056fea265627a7a72315820da9c4f6068471d221c1ede9969d385bed380389bb7cc3011dfaa93c9c6c37a1564736f6c634300050c0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c806348e7c62714610030575b600080fd5b6100e16004803603606081101561004657600080fd5b81019060208101813564010000000081111561006157600080fd5b82018360208201111561007357600080fd5b8035906020019184602083028401116401000000008311171561009557600080fd5b919080806020026020016040519081016040528093929190818152602001838360200280828437600092019190915250929550506001600160a01b0383351693505050602001356100e3565b005b6040805160208082018490528251808303820181528284019384905280519082012060008054630d63a1fd60e01b9095526001600160a01b03878116606486015260848501839052606060448601908152895160a48701528951939692959190921693630d63a1fd938a938a9389939192839260c49092019187810191028083838d5b8381101561017e578181015183820152602001610166565b50505050905001945050505050602060405180830381600087803b1580156101a557600080fd5b505af11580156101b9573d6000803e3d6000fd5b505050506040513d60208110156101cf57600080fd5b50516040805182815290519192507f986bcb2d81145ff3ce3f644ab7850d2a93aba2cbcf35db57d8faa78ec145444f919081900360200190a1505050505056fea265627a7a72315820da9c4f6068471d221c1ede9969d385bed380389bb7cc3011dfaa93c9c6c37a1564736f6c634300050c0032",
   "sourceMap": "70:485:11:-;;;168:93;8:9:-1;5:2;;;30:1;27;20:12;5:2;168:93:11;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;168:93:11;219:6;:35;;-1:-1:-1;;;;;219:35:11;;;-1:-1:-1;;;;;;219:35:11;;;;;;;;;70:485;;;;;;",
   "deployedSourceMap": "70:485:11:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;70:485:11;;;;;;;;;;;;;;;;;;;267:286;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;267:286:11;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;267:286:11;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;267:286:11;;;;;;101:9:-1;95:2;81:12;77:21;67:8;63:36;60:51;39:11;25:12;22:29;11:108;8:2;;;132:1;129;122:12;8:2;267:286:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;267:286:11;;-1:-1:-1;;;;;;;267:286:11;;;;-1:-1:-1;;;267:286:11;;;;:::i;:::-;;;422:24;;;;;;;;;;;;26:21:-1;;;22:32;;6:49;;422:24:11;;;;;;;412:35;;;;;;400:9;476:6;;-1:-1:-1;;;476:36:11;;;-1:-1:-1;;;;;476:36:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;412:35;;400:9;;476:6;;;;;:13;;490:7;;499:9;;412:35;;476:36;;;;;;;;;;;;;;;;;400:9;8:100:-1;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;476:36:11;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;476:36:11;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;476:36:11;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;476:36:11;527:19;;;;;;;;476:36;;-1:-1:-1;527:19:11;;;;;;476:36;527:19;;;267:286;;;;;:::o",
   "source": "pragma solidity ^0.5.0;\n\nimport \"../lib/interface/ICelerWallet.sol\";\n\ncontract WalletTestHelper {\n    event NewWallet(bytes32 walletId);\n\n    ICelerWallet wallet;\n\n    constructor(address _celerWallet) public {\n        wallet = ICelerWallet(_celerWallet);\n    }\n\n    function create(\n        address[] memory _owners,\n        address _operator,\n        uint _nonce\n    )\n        public\n    {\n        bytes32 n = keccak256(abi.encodePacked(_nonce));\n        bytes32 walletId = wallet.create(_owners, _operator, n);\n        emit NewWallet(walletId);\n    }\n}",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/helper/WalletTestHelper.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/helper/WalletTestHelper.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/helper/WalletTestHelper.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/helper/WalletTestHelper.sol",
     "exportedSymbols": {
       "WalletTestHelper": [
         5430
@@ -81,7 +81,7 @@
         "src": "0:23:11"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
         "file": "../lib/interface/ICelerWallet.sol",
         "id": 5378,
         "nodeType": "ImportDirective",
@@ -389,7 +389,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18866,
+                            "referencedDeclaration": 18747,
                             "src": "422:3:11",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -436,7 +436,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18873,
+                      "referencedDeclaration": 18754,
                       "src": "412:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -775,7 +775,7 @@
     "src": "0:555:11"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/helper/WalletTestHelper.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/helper/WalletTestHelper.sol",
     "exportedSymbols": {
       "WalletTestHelper": [
         5430
@@ -796,7 +796,7 @@
         "src": "0:23:11"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
         "file": "../lib/interface/ICelerWallet.sol",
         "id": 5378,
         "nodeType": "ImportDirective",
@@ -1104,7 +1104,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18866,
+                            "referencedDeclaration": 18747,
                             "src": "422:3:11",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -1151,7 +1151,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18873,
+                      "referencedDeclaration": 18754,
                       "src": "412:9:11",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -1495,7 +1495,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.403Z",
+  "updatedAt": "2019-12-17T07:54:09.532Z",
   "devdoc": {
     "methods": {}
   },

@@ -57,15 +57,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"payId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"resolveDeadline\",\"type\":\"uint256\"}],\"name\":\"ResolvePayment\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_resolvePayRequest\",\"type\":\"bytes\"}],\"name\":\"resolvePaymentByConditions\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_vouchedPayResult\",\"type\":\"bytes\"}],\"name\":\"resolvePaymentByVouchedResult\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"PayResolver interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol\":\"IPayResolver\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol\":{\"keccak256\":\"0xcccb8335769f8bb3026a243ccfa97e5e5c7202c28e120c8ef9a62767d7ab6ed5\",\"urls\":[\"bzz-raw://fd17eac8197743b5cf6977b8580cc85867fa66806ab3ea3d9cbc0c4784ea1bf9\",\"dweb:/ipfs/QmWU26HQmAtHKNBji9SjWicV74H5VEvzKwrC57t7kjGEw5\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"payId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"resolveDeadline\",\"type\":\"uint256\"}],\"name\":\"ResolvePayment\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_resolvePayRequest\",\"type\":\"bytes\"}],\"name\":\"resolvePaymentByConditions\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_vouchedPayResult\",\"type\":\"bytes\"}],\"name\":\"resolvePaymentByVouchedResult\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"PayResolver interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayResolver.sol\":\"IPayResolver\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayResolver.sol\":{\"keccak256\":\"0xcccb8335769f8bb3026a243ccfa97e5e5c7202c28e120c8ef9a62767d7ab6ed5\",\"urls\":[\"bzz-raw://fd17eac8197743b5cf6977b8580cc85867fa66806ab3ea3d9cbc0c4784ea1bf9\",\"dweb:/ipfs/QmWU26HQmAtHKNBji9SjWicV74H5VEvzKwrC57t7kjGEw5\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.1;\n\n/**\n * @title PayResolver interface\n */\ninterface IPayResolver {\n    function resolvePaymentByConditions(bytes calldata _resolvePayRequest) external;\n\n    function resolvePaymentByVouchedResult(bytes calldata _vouchedPayResult) external;\n\n    event ResolvePayment(bytes32 indexed payId, uint amount, uint resolveDeadline);\n}\n",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
     "exportedSymbols": {
       "IPayResolver": [
         9837
@@ -310,7 +310,7 @@
     "src": "0:350:21"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayResolver.sol",
     "exportedSymbols": {
       "IPayResolver": [
         9837
@@ -560,7 +560,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.571Z",
+  "updatedAt": "2019-12-17T07:54:09.669Z",
   "devdoc": {
     "methods": {},
     "title": "PayResolver interface"

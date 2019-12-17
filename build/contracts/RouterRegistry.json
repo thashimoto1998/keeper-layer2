@@ -69,15 +69,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"enum IRouterRegistry.RouterOperation\",\"name\":\"op\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"routerAddress\",\"type\":\"address\"}],\"name\":\"RouterUpdated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"deregisterRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"refreshRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"registerRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"routerInfo\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"Router Registry contract for external routers to join the Celer Network\"},\"userdoc\":{\"methods\":{\"deregisterRouter()\":{\"notice\":\"An in-network router could deregister to leave the network\"},\"refreshRouter()\":{\"notice\":\"Refresh the existed router's block number\"},\"registerRouter()\":{\"notice\":\"An external router could register to join the Celer Network\"}},\"notice\":\"Implementation of a global registry to enable external routers to join\"}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/RouterRegistry.sol\":\"RouterRegistry\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/RouterRegistry.sol\":{\"keccak256\":\"0xe4c9a3dd247f08fb52d48712c839d8f4b192d5ea434e99ae9d810d12b316fe6e\",\"urls\":[\"bzz-raw://453482d0695b77e00853afad2c41d92370d5a966379bf51d2bce93563f1790b9\",\"dweb:/ipfs/Qmb2nmCPCNrTBuzD8ZrDnViKaXdM5cabQZqbAC5uUAmT32\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol\":{\"keccak256\":\"0x5dc772f70178c5a5c60f6ffb1fec085e650a338bca01952636f5eb784e00642d\",\"urls\":[\"bzz-raw://aefdf2db68cad76bc51e4acd39e6cc12c6d3387859b7b9c596f7a0fb2a91bb6b\",\"dweb:/ipfs/QmbE4xTVuKTVkX5Ln7NxVAbDQ7BuBjQEWTye7HMGEGivJX\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5061027c806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806324f277d2146100515780632ff0282b1461005b5780637880945614610063578063d1cf70d11461009b575b600080fd5b6100596100a3565b005b610059610143565b6100896004803603602081101561007957600080fd5b50356001600160a01b03166101bd565b60408051918252519081900360200190f35b6100596101cf565b3360009081526020819052604090205415610105576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320616c726561647920657869737473000000604482015290519081900360640190fd5b3360008181526020819052604081204390555b6040517fed739f5df64012854c2039ba144af8e3af26211fc7f10a959c6a592ae58c449190600090a3565b336000908152602081905260409020546101a4576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b3360008181526020819052604090204390556002610118565b60006020819052908152604090205481565b33600090815260208190526040902054610230576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b33600081815260208190526040812055600161011856fea265627a7a723158204df16617b71477cdeac4bc5b4dfcbbded5ac23ddacea83393b284eea8ae3dfc664736f6c634300050c0032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806324f277d2146100515780632ff0282b1461005b5780637880945614610063578063d1cf70d11461009b575b600080fd5b6100596100a3565b005b610059610143565b6100896004803603602081101561007957600080fd5b50356001600160a01b03166101bd565b60408051918252519081900360200190f35b6100596101cf565b3360009081526020819052604090205415610105576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320616c726561647920657869737473000000604482015290519081900360640190fd5b3360008181526020819052604081204390555b6040517fed739f5df64012854c2039ba144af8e3af26211fc7f10a959c6a592ae58c449190600090a3565b336000908152602081905260409020546101a4576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b3360008181526020819052604090204390556002610118565b60006020819052908152604090205481565b33600090815260208190526040902054610230576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b33600081815260208190526040812055600161011856fea265627a7a723158204df16617b71477cdeac4bc5b4dfcbbded5ac23ddacea83393b284eea8ae3dfc664736f6c634300050c0032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"enum IRouterRegistry.RouterOperation\",\"name\":\"op\",\"type\":\"uint8\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"routerAddress\",\"type\":\"address\"}],\"name\":\"RouterUpdated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[],\"name\":\"deregisterRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"refreshRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"registerRouter\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"routerInfo\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"Router Registry contract for external routers to join the Celer Network\"},\"userdoc\":{\"methods\":{\"deregisterRouter()\":{\"notice\":\"An in-network router could deregister to leave the network\"},\"refreshRouter()\":{\"notice\":\"Refresh the existed router's block number\"},\"registerRouter()\":{\"notice\":\"An external router could register to join the Celer Network\"}},\"notice\":\"Implementation of a global registry to enable external routers to join\"}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/RouterRegistry.sol\":\"RouterRegistry\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/RouterRegistry.sol\":{\"keccak256\":\"0xe4c9a3dd247f08fb52d48712c839d8f4b192d5ea434e99ae9d810d12b316fe6e\",\"urls\":[\"bzz-raw://453482d0695b77e00853afad2c41d92370d5a966379bf51d2bce93563f1790b9\",\"dweb:/ipfs/Qmb2nmCPCNrTBuzD8ZrDnViKaXdM5cabQZqbAC5uUAmT32\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol\":{\"keccak256\":\"0x5dc772f70178c5a5c60f6ffb1fec085e650a338bca01952636f5eb784e00642d\",\"urls\":[\"bzz-raw://aefdf2db68cad76bc51e4acd39e6cc12c6d3387859b7b9c596f7a0fb2a91bb6b\",\"dweb:/ipfs/QmbE4xTVuKTVkX5Ln7NxVAbDQ7BuBjQEWTye7HMGEGivJX\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061027c806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806324f277d2146100515780632ff0282b1461005b5780637880945614610063578063d1cf70d11461009b575b600080fd5b6100596100a3565b005b610059610143565b6100896004803603602081101561007957600080fd5b50356001600160a01b03166101bd565b60408051918252519081900360200190f35b6100596101cf565b3360009081526020819052604090205415610105576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320616c726561647920657869737473000000604482015290519081900360640190fd5b3360008181526020819052604081204390555b6040517fed739f5df64012854c2039ba144af8e3af26211fc7f10a959c6a592ae58c449190600090a3565b336000908152602081905260409020546101a4576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b3360008181526020819052604090204390556002610118565b60006020819052908152604090205481565b33600090815260208190526040902054610230576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b33600081815260208190526040812055600161011856fea265627a7a72315820288550cbaeee40b6b5daae7926b04b2a780a70fba21b2e573b35acad243fe85b64736f6c634300050c0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806324f277d2146100515780632ff0282b1461005b5780637880945614610063578063d1cf70d11461009b575b600080fd5b6100596100a3565b005b610059610143565b6100896004803603602081101561007957600080fd5b50356001600160a01b03166101bd565b60408051918252519081900360200190f35b6100596101cf565b3360009081526020819052604090205415610105576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320616c726561647920657869737473000000604482015290519081900360640190fd5b3360008181526020819052604081204390555b6040517fed739f5df64012854c2039ba144af8e3af26211fc7f10a959c6a592ae58c449190600090a3565b336000908152602081905260409020546101a4576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b3360008181526020819052604090204390556002610118565b60006020819052908152604090205481565b33600090815260208190526040902054610230576040805162461bcd60e51b815260206004820152601d60248201527f526f75746572206164647265737320646f6573206e6f74206578697374000000604482015290519081900360640190fd5b33600081815260208190526040812055600161011856fea265627a7a72315820288550cbaeee40b6b5daae7926b04b2a780a70fba21b2e573b35acad243fe85b64736f6c634300050c0032",
   "sourceMap": "244:1188:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;244:1188:6;;;;;;;",
   "deployedSourceMap": "244:1188:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;244:1188:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;562:231;;;:::i;:::-;;1196:234;;;:::i;422:42::-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;422:42:6;-1:-1:-1;;;;;422:42:6;;:::i;:::-;;;;;;;;;;;;;;;;889:228;;;:::i;562:231::-;626:10;615;:22;;;;;;;;;;;:27;607:69;;;;;-1:-1:-1;;;607:69:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;698:10;687;:22;;;;;;;;;;712:12;687:37;;740:46;;;;;;;;562:231::o;1196:234::-;1259:10;1248;:22;;;;;;;;;;;1240:69;;;;;-1:-1:-1;;;1240:69:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;1331:10;1320;:22;;;;;;;;;;1345:12;1320:37;;1387:23;1373:50;;422:42;;;;;;;;;;;;;;:::o;889:228::-;955:10;944;:22;;;;;;;;;;;936:69;;;;;-1:-1:-1;;;936:69:6;;;;;;;;;;;;;;;;;;;;;;;;;;;;1034:10;1023;:22;;;;;;;;;;1016:29;1075:22;1061:49;",
   "source": "pragma solidity ^0.5.5;\n\nimport \"./lib/interface/IRouterRegistry.sol\";\n\n/**\n * @title Router Registry contract for external routers to join the Celer Network\n * @notice Implementation of a global registry to enable external routers to join\n */\ncontract RouterRegistry is IRouterRegistry {\n    // mapping to store the registered routers address as key \n    // and the lastest registered/refreshed block number as value\n    mapping(address => uint) public routerInfo;\n\n    /**\n     * @notice An external router could register to join the Celer Network\n     */\n    function registerRouter() external {\n        require(routerInfo[msg.sender] == 0, \"Router address already exists\");\n\n        routerInfo[msg.sender] = block.number;\n\n        emit RouterUpdated(RouterOperation.Add, msg.sender);\n    }\n\n    /**\n     * @notice An in-network router could deregister to leave the network\n     */\n    function deregisterRouter() external {\n        require(routerInfo[msg.sender] != 0, \"Router address does not exist\");\n\n        delete routerInfo[msg.sender];\n\n        emit RouterUpdated(RouterOperation.Remove, msg.sender);\n    }\n\n    /**\n     * @notice Refresh the existed router's block number\n     */\n    function refreshRouter() external {\n        require(routerInfo[msg.sender] != 0, \"Router address does not exist\");\n\n        routerInfo[msg.sender] = block.number;\n\n        emit RouterUpdated(RouterOperation.Refresh, msg.sender);\n    }\n}",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/RouterRegistry.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/RouterRegistry.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/RouterRegistry.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/RouterRegistry.sol",
     "exportedSymbols": {
       "RouterRegistry": [
         5124
@@ -98,7 +98,7 @@
         "src": "0:23:6"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol",
         "file": "./lib/interface/IRouterRegistry.sol",
         "id": 5032,
         "nodeType": "ImportDirective",
@@ -233,7 +233,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18879,
+                              "referencedDeclaration": 18760,
                               "src": "626:3:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -325,10 +325,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "607:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -385,7 +385,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "698:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -427,7 +427,7 @@
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 18869,
+                        "referencedDeclaration": 18750,
                         "src": "712:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_block",
@@ -499,7 +499,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "775:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -633,7 +633,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18879,
+                              "referencedDeclaration": 18760,
                               "src": "955:3:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -725,10 +725,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "936:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -789,7 +789,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1034:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -871,7 +871,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1099:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1005,7 +1005,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18879,
+                              "referencedDeclaration": 18760,
                               "src": "1259:3:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1097,10 +1097,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "1240:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1157,7 +1157,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1331:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1199,7 +1199,7 @@
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 18869,
+                        "referencedDeclaration": 18750,
                         "src": "1345:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_block",
@@ -1271,7 +1271,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1412:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1368,7 +1368,7 @@
     "src": "0:1432:6"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/RouterRegistry.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/RouterRegistry.sol",
     "exportedSymbols": {
       "RouterRegistry": [
         5124
@@ -1389,7 +1389,7 @@
         "src": "0:23:6"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IRouterRegistry.sol",
         "file": "./lib/interface/IRouterRegistry.sol",
         "id": 5032,
         "nodeType": "ImportDirective",
@@ -1524,7 +1524,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18879,
+                              "referencedDeclaration": 18760,
                               "src": "626:3:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1616,10 +1616,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "607:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1676,7 +1676,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "698:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1718,7 +1718,7 @@
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 18869,
+                        "referencedDeclaration": 18750,
                         "src": "712:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_block",
@@ -1790,7 +1790,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "775:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1924,7 +1924,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18879,
+                              "referencedDeclaration": 18760,
                               "src": "955:3:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -2016,10 +2016,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "936:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2080,7 +2080,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1034:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2162,7 +2162,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1099:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2296,7 +2296,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18879,
+                              "referencedDeclaration": 18760,
                               "src": "1259:3:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -2388,10 +2388,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "1240:7:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2448,7 +2448,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1331:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2490,7 +2490,7 @@
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 18869,
+                        "referencedDeclaration": 18750,
                         "src": "1345:5:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_block",
@@ -2562,7 +2562,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18879,
+                          "referencedDeclaration": 18760,
                           "src": "1412:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2664,7 +2664,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.377Z",
+  "updatedAt": "2019-12-17T07:54:09.519Z",
   "devdoc": {
     "methods": {},
     "title": "Router Registry contract for external routers to join the Celer Network"

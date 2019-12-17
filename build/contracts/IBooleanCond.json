@@ -44,15 +44,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"BooleanCond interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IBooleanCond.sol\":\"IBooleanCond\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IBooleanCond.sol\":{\"keccak256\":\"0x4e84e081dae73f084f2d1e98298c6c3b9f6ffcc96b8e974370d7a3ffe1c1f5ef\",\"urls\":[\"bzz-raw://9c52ff6eb084b095a12fe1b4fedaf0b19b242c2467b67ee5f3f14c65decee3da\",\"dweb:/ipfs/QmZdMs3fasi8SfEEQ5GHeVG4NoMNzuoHFf4W8qJAGybkZn\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"BooleanCond interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IBooleanCond.sol\":\"IBooleanCond\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IBooleanCond.sol\":{\"keccak256\":\"0x4e84e081dae73f084f2d1e98298c6c3b9f6ffcc96b8e974370d7a3ffe1c1f5ef\",\"urls\":[\"bzz-raw://9c52ff6eb084b095a12fe1b4fedaf0b19b242c2467b67ee5f3f14c65decee3da\",\"dweb:/ipfs/QmZdMs3fasi8SfEEQ5GHeVG4NoMNzuoHFf4W8qJAGybkZn\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n\n/**\n * @title BooleanCond interface\n */\ninterface IBooleanCond {\n    function isFinalized(bytes calldata _query) external view returns (bool);\n    \n    function getOutcome(bytes calldata _query) external view returns (bool);\n}\n",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IBooleanCond.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IBooleanCond.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IBooleanCond.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IBooleanCond.sol",
     "exportedSymbols": {
       "IBooleanCond": [
         8945
@@ -255,7 +255,7 @@
     "src": "0:252:15"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IBooleanCond.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IBooleanCond.sol",
     "exportedSymbols": {
       "IBooleanCond": [
         8945
@@ -463,7 +463,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.547Z",
+  "updatedAt": "2019-12-17T07:54:09.647Z",
   "devdoc": {
     "methods": {},
     "title": "BooleanCond interface"

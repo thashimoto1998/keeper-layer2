@@ -44,25 +44,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol\":\"IBooleanOutcome\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol\":{\"keccak256\":\"0xd8f3eab2878e273347ede5ddee4f6004ad5dae368df5b1a0533ea0f3555a7bd4\",\"urls\":[\"bzz-raw://d24cd429d1a0f8dc28497989279afff2024bc2d72d354f77f521f410850b4c65\",\"dweb:/ipfs/Qmd5w7y6ua5pbbspPa5e4pN1Kf5zZxHAXWfMsUnLpMBTjk\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol\":\"IBooleanOutcome\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol\":{\"keccak256\":\"0xd8f3eab2878e273347ede5ddee4f6004ad5dae368df5b1a0533ea0f3555a7bd4\",\"urls\":[\"bzz-raw://d24cd429d1a0f8dc28497989279afff2024bc2d72d354f77f521f410850b4c65\",\"dweb:/ipfs/Qmd5w7y6ua5pbbspPa5e4pN1Kf5zZxHAXWfMsUnLpMBTjk\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity >=0.5.0 <0.6.0;\n\ninterface IBooleanOutcome {\n    function isFinalized(bytes calldata _query) external view returns (bool);\n    function getOutcome(bytes calldata _query) external view returns (bool);\n}\n",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
     "exportedSymbols": {
       "IBooleanOutcome": [
-        16519
+        16562
       ]
     },
-    "id": 16520,
+    "id": 16563,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 16504,
+        "id": 16547,
         "literals": [
           "solidity",
           ">=",
@@ -81,9 +81,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 16519,
+        "id": 16562,
         "linearizedBaseContracts": [
-          16519
+          16562
         ],
         "name": "IBooleanOutcome",
         "nodeType": "ContractDefinition",
@@ -91,22 +91,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 16511,
+            "id": 16554,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isFinalized",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16507,
+              "id": 16550,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16506,
+                  "id": 16549,
                   "name": "_query",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16511,
+                  "scope": 16554,
                   "src": "86:21:36",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -115,7 +115,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16505,
+                    "id": 16548,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "86:5:36",
@@ -131,15 +131,15 @@
               "src": "85:23:36"
             },
             "returnParameters": {
-              "id": 16510,
+              "id": 16553,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16509,
+                  "id": 16552,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16511,
+                  "scope": 16554,
                   "src": "132:4:36",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -148,7 +148,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 16508,
+                    "id": 16551,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "132:4:36",
@@ -163,7 +163,7 @@
               ],
               "src": "131:6:36"
             },
-            "scope": 16519,
+            "scope": 16562,
             "src": "65:73:36",
             "stateMutability": "view",
             "superFunction": null,
@@ -172,22 +172,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 16518,
+            "id": 16561,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getOutcome",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16514,
+              "id": 16557,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16513,
+                  "id": 16556,
                   "name": "_query",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16518,
+                  "scope": 16561,
                   "src": "163:21:36",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -196,7 +196,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16512,
+                    "id": 16555,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "163:5:36",
@@ -212,15 +212,15 @@
               "src": "162:23:36"
             },
             "returnParameters": {
-              "id": 16517,
+              "id": 16560,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16516,
+                  "id": 16559,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16518,
+                  "scope": 16561,
                   "src": "209:4:36",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -229,7 +229,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 16515,
+                    "id": 16558,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "209:4:36",
@@ -244,31 +244,31 @@
               ],
               "src": "208:6:36"
             },
-            "scope": 16519,
+            "scope": 16562,
             "src": "143:72:36",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 16520,
+        "scope": 16563,
         "src": "33:184:36"
       }
     ],
     "src": "0:218:36"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
     "exportedSymbols": {
       "IBooleanOutcome": [
-        16519
+        16562
       ]
     },
-    "id": 16520,
+    "id": 16563,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 16504,
+        "id": 16547,
         "literals": [
           "solidity",
           ">=",
@@ -287,9 +287,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 16519,
+        "id": 16562,
         "linearizedBaseContracts": [
-          16519
+          16562
         ],
         "name": "IBooleanOutcome",
         "nodeType": "ContractDefinition",
@@ -297,22 +297,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 16511,
+            "id": 16554,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "isFinalized",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16507,
+              "id": 16550,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16506,
+                  "id": 16549,
                   "name": "_query",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16511,
+                  "scope": 16554,
                   "src": "86:21:36",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -321,7 +321,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16505,
+                    "id": 16548,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "86:5:36",
@@ -337,15 +337,15 @@
               "src": "85:23:36"
             },
             "returnParameters": {
-              "id": 16510,
+              "id": 16553,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16509,
+                  "id": 16552,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16511,
+                  "scope": 16554,
                   "src": "132:4:36",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -354,7 +354,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 16508,
+                    "id": 16551,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "132:4:36",
@@ -369,7 +369,7 @@
               ],
               "src": "131:6:36"
             },
-            "scope": 16519,
+            "scope": 16562,
             "src": "65:73:36",
             "stateMutability": "view",
             "superFunction": null,
@@ -378,22 +378,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 16518,
+            "id": 16561,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getOutcome",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16514,
+              "id": 16557,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16513,
+                  "id": 16556,
                   "name": "_query",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16518,
+                  "scope": 16561,
                   "src": "163:21:36",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -402,7 +402,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16512,
+                    "id": 16555,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "163:5:36",
@@ -418,15 +418,15 @@
               "src": "162:23:36"
             },
             "returnParameters": {
-              "id": 16517,
+              "id": 16560,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16516,
+                  "id": 16559,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16518,
+                  "scope": 16561,
                   "src": "209:4:36",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -435,7 +435,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 16515,
+                    "id": 16558,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "209:4:36",
@@ -450,14 +450,14 @@
               ],
               "src": "208:6:36"
             },
-            "scope": 16519,
+            "scope": 16562,
             "src": "143:72:36",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 16520,
+        "scope": 16563,
         "src": "33:184:36"
       }
     ],
@@ -469,7 +469,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.720Z",
+  "updatedAt": "2019-12-17T07:54:09.791Z",
   "devdoc": {
     "methods": {}
   },

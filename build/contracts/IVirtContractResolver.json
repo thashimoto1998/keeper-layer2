@@ -62,15 +62,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"virtAddr\",\"type\":\"bytes32\"}],\"name\":\"Deploy\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_code\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"deploy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_virtAddr\",\"type\":\"bytes32\"}],\"name\":\"resolve\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"VirtContractResolver interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol\":\"IVirtContractResolver\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol\":{\"keccak256\":\"0xbad308d2777c0c8eef46adba2abfb879338da81c7dc101fc39a02f4b7c3b1227\",\"urls\":[\"bzz-raw://de525f1db6805b80ec7230c595d48d449092949ccdbd6e0f5acca7c590f68966\",\"dweb:/ipfs/QmQGF2fqa3MH7jASNSfSkxN3XwwSa4LgXarG4hV7bEGQMY\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"virtAddr\",\"type\":\"bytes32\"}],\"name\":\"Deploy\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_code\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"deploy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_virtAddr\",\"type\":\"bytes32\"}],\"name\":\"resolve\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{},\"title\":\"VirtContractResolver interface\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol\":\"IVirtContractResolver\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol\":{\"keccak256\":\"0xbad308d2777c0c8eef46adba2abfb879338da81c7dc101fc39a02f4b7c3b1227\",\"urls\":[\"bzz-raw://de525f1db6805b80ec7230c595d48d449092949ccdbd6e0f5acca7c590f68966\",\"dweb:/ipfs/QmQGF2fqa3MH7jASNSfSkxN3XwwSa4LgXarG4hV7bEGQMY\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.1;\n\n/**\n * @title VirtContractResolver interface\n */\ninterface IVirtContractResolver {\n    function deploy(bytes calldata _code, uint _nonce) external returns (bool);\n    \n    function resolve(bytes32 _virtAddr) external view returns (address);\n\n    event Deploy(bytes32 indexed virtAddr);\n}\n",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
     "exportedSymbols": {
       "IVirtContractResolver": [
         9882
@@ -342,7 +342,7 @@
     "src": "0:313:23"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
     "exportedSymbols": {
       "IVirtContractResolver": [
         9882
@@ -619,7 +619,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.573Z",
+  "updatedAt": "2019-12-17T07:54:09.670Z",
   "devdoc": {
     "methods": {},
     "title": "VirtContractResolver interface"

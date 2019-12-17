@@ -1,15 +1,15 @@
 {
   "contractName": "LibSignature",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/LibSignature.sol\":\"LibSignature\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/LibSignature.sol\":{\"keccak256\":\"0x524a5f1f4dccef8f95ee4c2929830b778a3199197252b8cc40c8c5f3e3bbc4ec\",\"urls\":[\"bzz-raw://2a82dcd25c0af823a0a65dc99d0d40aa1c30b6b27cff405060074f89b2750f82\",\"dweb:/ipfs/QmTy45BrnWxWwMx1q7yUg8YSmPxkr4DYSCMBcNnFAyz36A\"]}},\"version\":1}",
-  "bytecode": "0x60556023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820c6762a0e92b8e206feda07fe99cef86c186ecb4def40b247118e34a20f40edd064736f6c634300050c0032",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820c6762a0e92b8e206feda07fe99cef86c186ecb4def40b247118e34a20f40edd064736f6c634300050c0032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/LibSignature.sol\":\"LibSignature\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/LibSignature.sol\":{\"keccak256\":\"0x524a5f1f4dccef8f95ee4c2929830b778a3199197252b8cc40c8c5f3e3bbc4ec\",\"urls\":[\"bzz-raw://2a82dcd25c0af823a0a65dc99d0d40aa1c30b6b27cff405060074f89b2750f82\",\"dweb:/ipfs/QmTy45BrnWxWwMx1q7yUg8YSmPxkr4DYSCMBcNnFAyz36A\"]}},\"version\":1}",
+  "bytecode": "0x60556023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820a3e6747029717a8e8b1c829a021055f5080d93492ba589884833c034452ec30664736f6c634300050c0032",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820a3e6747029717a8e8b1c829a021055f5080d93492ba589884833c034452ec30664736f6c634300050c0032",
   "sourceMap": "33:1889:30:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
   "deployedSourceMap": "33:1889:30:-;;;;;;;;",
   "source": "pragma solidity >=0.5.0 <0.6.0;\n\nlibrary LibSignature {\n\n    /**\n     * @dev Recover signers from message and signatures\n     * @param state Signed state message\n     * @param sigs Signature array of the state\n     * @return Siger address array\n     */\n\n    function recoverSigners(bytes memory state, bytes[] memory sigs, bool ordered)\n        internal\n        pure\n        returns (address[] memory)\n    {\n        address[] memory signers = new address[](sigs.length);\n        bytes32 digest = prefixedDigest(keccak256(abi.encodePacked(state)));\n\n        address prev = address(0);\n        for (uint i = 0; i < sigs.length; i++) {\n            signers[i] = recoverSigner(digest, sigs[i]);\n            if (ordered) {\n                require(signers[i] > prev, \"signers not in ascending order\");\n                prev = signers[i];\n            }\n        }\n        return signers;\n    }\n\n    /**\n     * @dev Recover signer address from message and signatures\n     * @param digest Signed message digest\n     * @param sig Signature of the message\n     * @return Siger address\n     */\n    function recoverSigner(bytes32 digest, bytes memory sig)\n        internal\n        pure\n        returns (address)\n    {\n        if (sig.length != 65) {\n            return (address(0));\n        }\n\n        bytes32 r;\n        bytes32 s;\n        uint8 v;\n        assembly {\n            r := mload(add(sig, 32))\n            s := mload(add(sig, 64))\n            v := byte(0, mload(add(sig, 96)))\n        }\n        if (v < 27) {\n            v += 27;\n        }\n\n        if (v != 27 && v != 28) {\n            return (address(0));\n        } else {\n            return ecrecover(digest, v, r, s);\n        }\n    }\n\n    /**\n     * @dev ETH signed prefixed message digest\n     */\n    function prefixedDigest(bytes32 message) internal pure returns (bytes32) {\n        return keccak256(abi.encodePacked(\"\\x19Ethereum Signed Message:\\n32\", message));\n    }\n}",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/LibSignature.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/LibSignature.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/LibSignature.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/LibSignature.sol",
     "exportedSymbols": {
       "LibSignature": [
         14501
@@ -253,7 +253,7 @@
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 18866,
+                                "referencedDeclaration": 18747,
                                 "src": "521:3:30",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_abi",
@@ -300,7 +300,7 @@
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18873,
+                          "referencedDeclaration": 18754,
                           "src": "511:9:30",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -742,10 +742,10 @@
                                   "name": "require",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [
-                                    18882,
-                                    18883
+                                    18763,
+                                    18764
                                   ],
-                                  "referencedDeclaration": 18883,
+                                  "referencedDeclaration": 18764,
                                   "src": "733:7:30",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1830,7 +1830,7 @@
                             "name": "ecrecover",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18871,
+                            "referencedDeclaration": 18752,
                             "src": "1639:9:30",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_ecrecover_pure$_t_bytes32_$_t_uint8_$_t_bytes32_$_t_bytes32_$returns$_t_address_$",
@@ -2118,7 +2118,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18866,
+                            "referencedDeclaration": 18747,
                             "src": "1851:3:30",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -2165,7 +2165,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18873,
+                      "referencedDeclaration": 18754,
                       "src": "1841:9:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -2280,7 +2280,7 @@
     "src": "0:1922:30"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/keeper-layer2/lib/LibSignature.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/LibSignature.sol",
     "exportedSymbols": {
       "LibSignature": [
         14501
@@ -2524,7 +2524,7 @@
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 18866,
+                                "referencedDeclaration": 18747,
                                 "src": "521:3:30",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_abi",
@@ -2571,7 +2571,7 @@
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 18873,
+                          "referencedDeclaration": 18754,
                           "src": "511:9:30",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -3013,10 +3013,10 @@
                                   "name": "require",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [
-                                    18882,
-                                    18883
+                                    18763,
+                                    18764
                                   ],
-                                  "referencedDeclaration": 18883,
+                                  "referencedDeclaration": 18764,
                                   "src": "733:7:30",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4101,7 +4101,7 @@
                             "name": "ecrecover",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18871,
+                            "referencedDeclaration": 18752,
                             "src": "1639:9:30",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_ecrecover_pure$_t_bytes32_$_t_uint8_$_t_bytes32_$_t_bytes32_$returns$_t_address_$",
@@ -4389,7 +4389,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18866,
+                            "referencedDeclaration": 18747,
                             "src": "1851:3:30",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -4436,7 +4436,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18873,
+                      "referencedDeclaration": 18754,
                       "src": "1841:9:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -4556,7 +4556,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.684Z",
+  "updatedAt": "2019-12-17T07:54:09.760Z",
   "devdoc": {
     "methods": {}
   },

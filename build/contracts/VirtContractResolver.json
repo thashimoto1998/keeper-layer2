@@ -62,15 +62,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"virtAddr\",\"type\":\"bytes32\"}],\"name\":\"Deploy\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_code\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"deploy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_virtAddr\",\"type\":\"bytes32\"}],\"name\":\"resolve\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"this resolver establishes the mapping from off-chain address to on-chain address\",\"methods\":{\"deploy(bytes,uint256)\":{\"params\":{\"_code\":\"bytes of virtual contract code\",\"_nonce\":\"nonce associated to virtual contract code\"},\"return\":\"true if deployment succeeds\"},\"resolve(bytes32)\":{\"params\":{\"_virtAddr\":\"the virtual address to be looked up\"},\"return\":\"the deployed address of the input virtual address\"}},\"title\":\"Virtual Contract Resolver contract\"},\"userdoc\":{\"methods\":{\"deploy(bytes,uint256)\":{\"notice\":\"Deploy virtual contract to an on-chain address\"},\"resolve(bytes32)\":{\"notice\":\"look up the deployed address of a virtual address\"}},\"notice\":\"Implementation of the Virtual Contract Resolver.\"}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/VirtContractResolver.sol\":\"VirtContractResolver\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/VirtContractResolver.sol\":{\"keccak256\":\"0xce70f5a7fb1e5108119cb7460c58a17c64b917d25f2397e593499ce589fe64e5\",\"urls\":[\"bzz-raw://cfa07350a24f054005288668f49eecc81ab9336fcb60d331ba8050c075a3b172\",\"dweb:/ipfs/QmeCpTaJZtFMCgCp5qVBh7KZNDL2mM4yqfwrecAbvZtftA\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol\":{\"keccak256\":\"0xbad308d2777c0c8eef46adba2abfb879338da81c7dc101fc39a02f4b7c3b1227\",\"urls\":[\"bzz-raw://de525f1db6805b80ec7230c595d48d449092949ccdbd6e0f5acca7c590f68966\",\"dweb:/ipfs/QmQGF2fqa3MH7jASNSfSkxN3XwwSa4LgXarG4hV7bEGQMY\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610349806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80635c23bdf51461003b5780639c4ae2d014610074575b600080fd5b6100586004803603602081101561005157600080fd5b50356100f8565b604080516001600160a01b039092168252519081900360200190f35b6100e46004803603604081101561008a57600080fd5b8101906020810181356401000000008111156100a557600080fd5b8201836020820111156100b757600080fd5b803590602001918460018302840111640100000000831117156100d957600080fd5b91935091503561017d565b604080519115158252519081900360200190f35b6000818152602081905260408120546001600160a01b0316610161576040805162461bcd60e51b815260206004820152601b60248201527f4e6f6e6578697374656e74207669727475616c20616464726573730000000000604482015290519081900360640190fd5b506000908152602081905260409020546001600160a01b031690565b600080848484604051602001808484808284379190910192835250506040805180830381526020808401808452825192820192909220601f8b018290049091028401830183528982529550606094509250889188918291018382808284376000920182905250868152602081905260409020549394505050506001600160a01b031615610251576040805162461bcd60e51b815260206004820152601d60248201527f43757272656e74207265616c2061646472657373206973206e6f742030000000604482015290519081900360640190fd5b60008151602083016000f090506001600160a01b0381166102b9576040805162461bcd60e51b815260206004820152601760248201527f43726561746520636f6e7472616374206661696c65642e000000000000000000604482015290519081900360640190fd5b60008381526020819052604080822080546001600160a01b0319166001600160a01b0385161790555184917f149208daa30a9306858cc9c171c3510e0e50ab5d59ed2027a37a728430dd02e491a2506001969550505050505056fea265627a7a7231582032e8c44778a4ce615945fd26f8171ea73c3ec7091dcc5ba9e5e049f79784feb464736f6c634300050c0032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80635c23bdf51461003b5780639c4ae2d014610074575b600080fd5b6100586004803603602081101561005157600080fd5b50356100f8565b604080516001600160a01b039092168252519081900360200190f35b6100e46004803603604081101561008a57600080fd5b8101906020810181356401000000008111156100a557600080fd5b8201836020820111156100b757600080fd5b803590602001918460018302840111640100000000831117156100d957600080fd5b91935091503561017d565b604080519115158252519081900360200190f35b6000818152602081905260408120546001600160a01b0316610161576040805162461bcd60e51b815260206004820152601b60248201527f4e6f6e6578697374656e74207669727475616c20616464726573730000000000604482015290519081900360640190fd5b506000908152602081905260409020546001600160a01b031690565b600080848484604051602001808484808284379190910192835250506040805180830381526020808401808452825192820192909220601f8b018290049091028401830183528982529550606094509250889188918291018382808284376000920182905250868152602081905260409020549394505050506001600160a01b031615610251576040805162461bcd60e51b815260206004820152601d60248201527f43757272656e74207265616c2061646472657373206973206e6f742030000000604482015290519081900360640190fd5b60008151602083016000f090506001600160a01b0381166102b9576040805162461bcd60e51b815260206004820152601760248201527f43726561746520636f6e7472616374206661696c65642e000000000000000000604482015290519081900360640190fd5b60008381526020819052604080822080546001600160a01b0319166001600160a01b0385161790555184917f149208daa30a9306858cc9c171c3510e0e50ab5d59ed2027a37a728430dd02e491a2506001969550505050505056fea265627a7a7231582032e8c44778a4ce615945fd26f8171ea73c3ec7091dcc5ba9e5e049f79784feb464736f6c634300050c0032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"virtAddr\",\"type\":\"bytes32\"}],\"name\":\"Deploy\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_code\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"deploy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_virtAddr\",\"type\":\"bytes32\"}],\"name\":\"resolve\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"this resolver establishes the mapping from off-chain address to on-chain address\",\"methods\":{\"deploy(bytes,uint256)\":{\"params\":{\"_code\":\"bytes of virtual contract code\",\"_nonce\":\"nonce associated to virtual contract code\"},\"return\":\"true if deployment succeeds\"},\"resolve(bytes32)\":{\"params\":{\"_virtAddr\":\"the virtual address to be looked up\"},\"return\":\"the deployed address of the input virtual address\"}},\"title\":\"Virtual Contract Resolver contract\"},\"userdoc\":{\"methods\":{\"deploy(bytes,uint256)\":{\"notice\":\"Deploy virtual contract to an on-chain address\"},\"resolve(bytes32)\":{\"notice\":\"look up the deployed address of a virtual address\"}},\"notice\":\"Implementation of the Virtual Contract Resolver.\"}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/VirtContractResolver.sol\":\"VirtContractResolver\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/VirtContractResolver.sol\":{\"keccak256\":\"0xce70f5a7fb1e5108119cb7460c58a17c64b917d25f2397e593499ce589fe64e5\",\"urls\":[\"bzz-raw://cfa07350a24f054005288668f49eecc81ab9336fcb60d331ba8050c075a3b172\",\"dweb:/ipfs/QmeCpTaJZtFMCgCp5qVBh7KZNDL2mM4yqfwrecAbvZtftA\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol\":{\"keccak256\":\"0xbad308d2777c0c8eef46adba2abfb879338da81c7dc101fc39a02f4b7c3b1227\",\"urls\":[\"bzz-raw://de525f1db6805b80ec7230c595d48d449092949ccdbd6e0f5acca7c590f68966\",\"dweb:/ipfs/QmQGF2fqa3MH7jASNSfSkxN3XwwSa4LgXarG4hV7bEGQMY\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610349806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80635c23bdf51461003b5780639c4ae2d014610074575b600080fd5b6100586004803603602081101561005157600080fd5b50356100f8565b604080516001600160a01b039092168252519081900360200190f35b6100e46004803603604081101561008a57600080fd5b8101906020810181356401000000008111156100a557600080fd5b8201836020820111156100b757600080fd5b803590602001918460018302840111640100000000831117156100d957600080fd5b91935091503561017d565b604080519115158252519081900360200190f35b6000818152602081905260408120546001600160a01b0316610161576040805162461bcd60e51b815260206004820152601b60248201527f4e6f6e6578697374656e74207669727475616c20616464726573730000000000604482015290519081900360640190fd5b506000908152602081905260409020546001600160a01b031690565b600080848484604051602001808484808284379190910192835250506040805180830381526020808401808452825192820192909220601f8b018290049091028401830183528982529550606094509250889188918291018382808284376000920182905250868152602081905260409020549394505050506001600160a01b031615610251576040805162461bcd60e51b815260206004820152601d60248201527f43757272656e74207265616c2061646472657373206973206e6f742030000000604482015290519081900360640190fd5b60008151602083016000f090506001600160a01b0381166102b9576040805162461bcd60e51b815260206004820152601760248201527f43726561746520636f6e7472616374206661696c65642e000000000000000000604482015290519081900360640190fd5b60008381526020819052604080822080546001600160a01b0319166001600160a01b0385161790555184917f149208daa30a9306858cc9c171c3510e0e50ab5d59ed2027a37a728430dd02e491a2506001969550505050505056fea265627a7a723158205735614bcf8f6e027d3b86f1efe57cc4dd6e0e823cbcc63869b1420bb4e2903564736f6c634300050c0032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80635c23bdf51461003b5780639c4ae2d014610074575b600080fd5b6100586004803603602081101561005157600080fd5b50356100f8565b604080516001600160a01b039092168252519081900360200190f35b6100e46004803603604081101561008a57600080fd5b8101906020810181356401000000008111156100a557600080fd5b8201836020820111156100b757600080fd5b803590602001918460018302840111640100000000831117156100d957600080fd5b91935091503561017d565b604080519115158252519081900360200190f35b6000818152602081905260408120546001600160a01b0316610161576040805162461bcd60e51b815260206004820152601b60248201527f4e6f6e6578697374656e74207669727475616c20616464726573730000000000604482015290519081900360640190fd5b506000908152602081905260409020546001600160a01b031690565b600080848484604051602001808484808284379190910192835250506040805180830381526020808401808452825192820192909220601f8b018290049091028401830183528982529550606094509250889188918291018382808284376000920182905250868152602081905260409020549394505050506001600160a01b031615610251576040805162461bcd60e51b815260206004820152601d60248201527f43757272656e74207265616c2061646472657373206973206e6f742030000000604482015290519081900360640190fd5b60008151602083016000f090506001600160a01b0381166102b9576040805162461bcd60e51b815260206004820152601760248201527f43726561746520636f6e7472616374206661696c65642e000000000000000000604482015290519081900360640190fd5b60008381526020819052604080822080546001600160a01b0319166001600160a01b0385161790555184917f149208daa30a9306858cc9c171c3510e0e50ab5d59ed2027a37a728430dd02e491a2506001969550505050505056fea265627a7a723158205735614bcf8f6e027d3b86f1efe57cc4dd6e0e823cbcc63869b1420bb4e2903564736f6c634300050c0032",
   "sourceMap": "280:1338:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;280:1338:7;;;;;;;",
   "deployedSourceMap": "280:1338:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;280:1338:7;;;;;;;;;;;;;;;;;;;;;;;;1413:203;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1413:203:7;;:::i;:::-;;;;-1:-1:-1;;;;;1413:203:7;;;;;;;;;;;;;;624:577;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;624:577:7;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;624:577:7;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;624:577:7;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;624:577:7;;-1:-1:-1;624:577:7;-1:-1:-1;624:577:7;;:::i;:::-;;;;;;;;;;;;;;;;;;1413:203;1471:7;1498:24;;;;;;;;;;;-1:-1:-1;;;;;1498:24:7;1490:78;;;;;-1:-1:-1;;;1490:78:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;1585:13:7;:24;;;;;;;;;;;-1:-1:-1;;;;;1585:24:7;;1413:203::o;624:577::-;692:4;708:16;754:5;;761:6;737:31;;;;;;;30:3:-1;22:6;14;1:33;45:16;;;;737:31:7;;;-1:-1:-1;;737:31:7;;;26:21:-1;;;6:49;;737:31:7;;;;;;;727:42;;;;;;;;;779:22;;;;;;;;;;;;;;;;;;727:42;-1:-1:-1;779:14:7;;-1:-1:-1;737:31:7;-1:-1:-1;796:5:7;;;;;;779:22;796:5;;;;779:22;1:33:-1;99:1;81:16;;74:27;;;-1:-1;819:23:7;;;;;;;;;;;779:22;;-1:-1:-1;;;;;;;;;819:23:7;:37;811:79;;;;;-1:-1:-1;;;811:79:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;900:23;1003:1;997:8;992:2;989:1;985:10;982:1;975:31;956:50;-1:-1:-1;;;;;;1033:29:7;;1025:65;;;;;-1:-1:-1;;;1025:65:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;1101:13;:23;;;;;;;;;;;:41;;-1:-1:-1;;;;;;1101:41:7;-1:-1:-1;;;;;1101:41:7;;;;;1157:16;1101:23;;1157:16;;;-1:-1:-1;1190:4:7;;624:577;-1:-1:-1;;;;;;624:577:7:o",
   "source": "pragma solidity ^0.5.1;\n\nimport \"./lib/interface/IVirtContractResolver.sol\";\n\n/**\n * @title Virtual Contract Resolver contract\n * @notice Implementation of the Virtual Contract Resolver.\n * @dev this resolver establishes the mapping from off-chain address to on-chain address\n */\ncontract VirtContractResolver is IVirtContractResolver {\n    mapping(bytes32 => address) virtToRealMap;\n\n    /**\n     * @notice Deploy virtual contract to an on-chain address\n     * @param _code bytes of virtual contract code\n     * @param _nonce nonce associated to virtual contract code\n     * @return true if deployment succeeds\n     */\n    function deploy(bytes calldata _code, uint _nonce) external returns(bool) {\n        bytes32 virtAddr = keccak256(abi.encodePacked(_code, _nonce));\n        bytes memory c = _code;\n        require(virtToRealMap[virtAddr] == address(0), \"Current real address is not 0\");\n        address deployedAddress;\n        assembly {\n            deployedAddress := create(0, add(c, 32), mload(c))\n        }\n        require(deployedAddress != address(0), 'Create contract failed.');\n\n        virtToRealMap[virtAddr] = deployedAddress;\n        emit Deploy(virtAddr);\n        return true;\n    }\n\n    /**\n     * @notice look up the deployed address of a virtual address\n     * @param _virtAddr the virtual address to be looked up\n     * @return the deployed address of the input virtual address\n     */\n    function resolve(bytes32 _virtAddr) external view returns(address) {\n        require(virtToRealMap[_virtAddr] != address(0), 'Nonexistent virtual address');\n        return virtToRealMap[_virtAddr];\n    }\n}\n",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/VirtContractResolver.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/VirtContractResolver.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/VirtContractResolver.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/VirtContractResolver.sol",
     "exportedSymbols": {
       "VirtContractResolver": [
         5217
@@ -91,7 +91,7 @@
         "src": "0:23:7"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
         "file": "./lib/interface/IVirtContractResolver.sol",
         "id": 5127,
         "nodeType": "ImportDirective",
@@ -271,7 +271,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18866,
+                            "referencedDeclaration": 18747,
                             "src": "737:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -318,7 +318,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18873,
+                      "referencedDeclaration": 18754,
                       "src": "727:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -544,10 +544,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "811:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -771,10 +771,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "1025:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1216,10 +1216,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "1490:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1380,7 +1380,7 @@
     "src": "0:1619:7"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/VirtContractResolver.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/VirtContractResolver.sol",
     "exportedSymbols": {
       "VirtContractResolver": [
         5217
@@ -1401,7 +1401,7 @@
         "src": "0:23:7"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IVirtContractResolver.sol",
         "file": "./lib/interface/IVirtContractResolver.sol",
         "id": 5127,
         "nodeType": "ImportDirective",
@@ -1581,7 +1581,7 @@
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18866,
+                            "referencedDeclaration": 18747,
                             "src": "737:3:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
@@ -1628,7 +1628,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18873,
+                      "referencedDeclaration": 18754,
                       "src": "727:9:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -1854,10 +1854,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "811:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2081,10 +2081,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "1025:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2526,10 +2526,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18882,
-                        18883
+                        18763,
+                        18764
                       ],
-                      "referencedDeclaration": 18883,
+                      "referencedDeclaration": 18764,
                       "src": "1490:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2695,7 +2695,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-15T12:23:50.382Z",
+  "updatedAt": "2019-12-17T07:54:09.522Z",
   "devdoc": {
     "details": "this resolver establishes the mapping from off-chain address to on-chain address",
     "methods": {

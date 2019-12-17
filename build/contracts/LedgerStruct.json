@@ -1,15 +1,15 @@
 {
   "contractName": "LedgerStruct",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{},\"title\":\"Ledger Struct Library\"},\"userdoc\":{\"methods\":{},\"notice\":\"CelerLedger library defining all used structs\"}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol\":\"LedgerStruct\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/Pb.sol\":{\"keccak256\":\"0x24e00dc31bf511f0cd73ec39d8b1a49e16d72a740ca70bf283e496c2e09ad3a5\",\"urls\":[\"bzz-raw://39a4880e4be07fce40173de9901f16b166daac838f099b85d010212724aca3b5\",\"dweb:/ipfs/QmeV7ffztvntcb71TcjdgCQbu1Drq5hm5M4LZuSCFtksLP\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/PbEntity.sol\":{\"keccak256\":\"0xe84fdb2100a2c37cb448b5bf516ce92271a4c3e431a76b555e80c1f82b91dbc3\",\"urls\":[\"bzz-raw://54e9e5fbc7840ae225ba37560b5e970c8774a4fbfe3c0bb1361818d6d1764f0f\",\"dweb:/ipfs/QmbhWLQWQumpEzHNLHjCqayktNhqkEdHniBLXxMUNUQjdu\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol\":{\"keccak256\":\"0xf8fdbfc0ae959e0a78c52829b3658f99469a274724d22c1fd2bdef155cd33523\",\"urls\":[\"bzz-raw://10b2ce8241db028343357ca2146f42179b1c10bb63f768d6155c0c15367c2644\",\"dweb:/ipfs/Qmf9Hq4JHo6KmBcerYCLs1huiMkgyH7stMZcuG7UFCLnfj\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IEthPool.sol\":{\"keccak256\":\"0x5d08b71c0d1352980ef51c1fba95e40e38eaf49ad68282c5d36baef3d4bc23e1\",\"urls\":[\"bzz-raw://f754f90968ea44488f3fa01cd1a5b930669ce5796db3543d95401ba61d7a3f75\",\"dweb:/ipfs/QmTG7A2ULCsN4CxhvediT6BwAnKUQDUtQgrjBHTnUsusbh\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayRegistry.sol\":{\"keccak256\":\"0xed80be757851c5830b3794160e17c50c083fa9e557b6a2e68fd27b2ca23c7c6b\",\"urls\":[\"bzz-raw://2d4f491f65788dd6ef00ffbfd9ad574872a5716da09ce31625a588c10fd9b63a\",\"dweb:/ipfs/QmXMe1sYjkGhya4aLDshXhbNkvQ3UwM5NufJEATdpXsWez\"]},\"/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol\":{\"keccak256\":\"0x46b1cd7480268346d3072bf63b79d3576e02eedd96bd14449f5d7da28aca1d69\",\"urls\":[\"bzz-raw://cbd22eb6ce82dc890661995e5799e48723ef2312a1023dbad98f824412482030\",\"dweb:/ipfs/QmQ12Q61UUARB3vHN9RJXjgTa4cG8AuXJCXGc7KJ67Faax\"]}},\"version\":1}",
-  "bytecode": "0x60556023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820daf443e0541a512bb9cecc03d72b6f56089bea3c8b8781fa3f8037bf03277ed764736f6c634300050c0032",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72315820daf443e0541a512bb9cecc03d72b6f56089bea3c8b8781fa3f8037bf03277ed764736f6c634300050c0032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{},\"title\":\"Ledger Struct Library\"},\"userdoc\":{\"methods\":{},\"notice\":\"CelerLedger library defining all used structs\"}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol\":\"LedgerStruct\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/data/Pb.sol\":{\"keccak256\":\"0x24e00dc31bf511f0cd73ec39d8b1a49e16d72a740ca70bf283e496c2e09ad3a5\",\"urls\":[\"bzz-raw://39a4880e4be07fce40173de9901f16b166daac838f099b85d010212724aca3b5\",\"dweb:/ipfs/QmeV7ffztvntcb71TcjdgCQbu1Drq5hm5M4LZuSCFtksLP\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/data/PbEntity.sol\":{\"keccak256\":\"0xe84fdb2100a2c37cb448b5bf516ce92271a4c3e431a76b555e80c1f82b91dbc3\",\"urls\":[\"bzz-raw://54e9e5fbc7840ae225ba37560b5e970c8774a4fbfe3c0bb1361818d6d1764f0f\",\"dweb:/ipfs/QmbhWLQWQumpEzHNLHjCqayktNhqkEdHniBLXxMUNUQjdu\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/ICelerWallet.sol\":{\"keccak256\":\"0xf8fdbfc0ae959e0a78c52829b3658f99469a274724d22c1fd2bdef155cd33523\",\"urls\":[\"bzz-raw://10b2ce8241db028343357ca2146f42179b1c10bb63f768d6155c0c15367c2644\",\"dweb:/ipfs/Qmf9Hq4JHo6KmBcerYCLs1huiMkgyH7stMZcuG7UFCLnfj\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IEthPool.sol\":{\"keccak256\":\"0x5d08b71c0d1352980ef51c1fba95e40e38eaf49ad68282c5d36baef3d4bc23e1\",\"urls\":[\"bzz-raw://f754f90968ea44488f3fa01cd1a5b930669ce5796db3543d95401ba61d7a3f75\",\"dweb:/ipfs/QmTG7A2ULCsN4CxhvediT6BwAnKUQDUtQgrjBHTnUsusbh\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayRegistry.sol\":{\"keccak256\":\"0xed80be757851c5830b3794160e17c50c083fa9e557b6a2e68fd27b2ca23c7c6b\",\"urls\":[\"bzz-raw://2d4f491f65788dd6ef00ffbfd9ad574872a5716da09ce31625a588c10fd9b63a\",\"dweb:/ipfs/QmXMe1sYjkGhya4aLDshXhbNkvQ3UwM5NufJEATdpXsWez\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol\":{\"keccak256\":\"0x46b1cd7480268346d3072bf63b79d3576e02eedd96bd14449f5d7da28aca1d69\",\"urls\":[\"bzz-raw://cbd22eb6ce82dc890661995e5799e48723ef2312a1023dbad98f824412482030\",\"dweb:/ipfs/QmQ12Q61UUARB3vHN9RJXjgTa4cG8AuXJCXGc7KJ67Faax\"]}},\"version\":1}",
+  "bytecode": "0x60556023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a723158202724e75d781acefa575705023af9609283acaec386bb29e7c94bbec78edcb0f864736f6c634300050c0032",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a723158202724e75d781acefa575705023af9609283acaec386bb29e7c94bbec78edcb0f864736f6c634300050c0032",
   "sourceMap": "270:2226:28:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
   "deployedSourceMap": "270:2226:28:-;;;;;;;;",
   "source": "pragma solidity ^0.5.1;\n\nimport \"../interface/ICelerWallet.sol\";\nimport \"../interface/IEthPool.sol\";\nimport \"../interface/IPayRegistry.sol\";\nimport \"../data/PbEntity.sol\";\n\n/**\n * @title Ledger Struct Library\n * @notice CelerLedger library defining all used structs\n */\nlibrary LedgerStruct {\n    enum ChannelStatus { Uninitialized, Operable, Settling, Closed, Migrated }\n\n    struct PeerState {\n        uint seqNum;\n        // balance sent out to the other peer of the channel, no need to record amtIn\n        uint transferOut;\n        bytes32 nextPayIdListHash;\n        uint lastPayResolveDeadline;\n        uint pendingPayOut;\n    }\n\n    struct PeerProfile {\n        address peerAddr;\n        // the (monotone increasing) amount that this peer deposit into this channel\n        uint deposit;\n        // the (monotone increasing) amount that this peer withdraw from this channel\n        uint withdrawal;\n        PeerState state;\n    }\n\n    struct WithdrawIntent {\n        address receiver;\n        uint amount;\n        uint requestTime;\n        bytes32 recipientChannelId;\n    }\n\n    // Channel is a representation of the state channel between peers which puts the funds\n    // in CelerWallet and is hosted by a CelerLedger. The status of a state channel can\n    // be migrated from one CelerLedger instance to another CelerLedger instance with probably\n    // different operation logic.\n    struct Channel {\n        // the time after which peers can confirmSettle and before which peers can intendSettle\n        uint settleFinalizedTime;\n        uint disputeTimeout;\n        PbEntity.TokenInfo token;\n        ChannelStatus status;\n        // record the new CelerLedger address after channel migration\n        address migratedTo;\n        // only support 2-peer channel for now\n        PeerProfile[2] peerProfiles;\n        uint cooperativeWithdrawSeqNum;\n        WithdrawIntent withdrawIntent;\n    }\n\n    // Ledger is a host to record and operate the activities of many state\n    // channels with specific operation logic.\n    struct Ledger {\n        // ChannelStatus => number of channels\n        mapping(uint => uint) channelStatusNums;\n        IEthPool ethPool;\n        IPayRegistry payRegistry;\n        ICelerWallet celerWallet;\n        // per-channel balance limits for different tokens\n        mapping(address => uint) balanceLimits;\n        // whether balance limits of all tokens have been enabled\n        bool balanceLimitsEnabled;\n        mapping(bytes32 => Channel) channelMap;\n    }\n}\n",
-  "sourcePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
+  "sourcePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
   "ast": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
     "exportedSymbols": {
       "LedgerStruct": [
         14305
@@ -30,7 +30,7 @@
         "src": "0:23:28"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
         "file": "../interface/ICelerWallet.sol",
         "id": 14226,
         "nodeType": "ImportDirective",
@@ -41,7 +41,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IEthPool.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IEthPool.sol",
         "file": "../interface/IEthPool.sol",
         "id": 14227,
         "nodeType": "ImportDirective",
@@ -52,7 +52,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayRegistry.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayRegistry.sol",
         "file": "../interface/IPayRegistry.sol",
         "id": 14228,
         "nodeType": "ImportDirective",
@@ -63,7 +63,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/PbEntity.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/data/PbEntity.sol",
         "file": "../data/PbEntity.sol",
         "id": 14229,
         "nodeType": "ImportDirective",
@@ -1021,7 +1021,7 @@
     "src": "0:2497:28"
   },
   "legacyAST": {
-    "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
+    "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/ledgerlib/LedgerStruct.sol",
     "exportedSymbols": {
       "LedgerStruct": [
         14305
@@ -1042,7 +1042,7 @@
         "src": "0:23:28"
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/ICelerWallet.sol",
         "file": "../interface/ICelerWallet.sol",
         "id": 14226,
         "nodeType": "ImportDirective",
@@ -1053,7 +1053,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IEthPool.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IEthPool.sol",
         "file": "../interface/IEthPool.sol",
         "id": 14227,
         "nodeType": "ImportDirective",
@@ -1064,7 +1064,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/interface/IPayRegistry.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/interface/IPayRegistry.sol",
         "file": "../interface/IPayRegistry.sol",
         "id": 14228,
         "nodeType": "ImportDirective",
@@ -1075,7 +1075,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/hashimototatsuki/keeper-channel/contracts/cChannel-eth/lib/data/PbEntity.sol",
+        "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/cChannel-eth/lib/data/PbEntity.sol",
         "file": "../data/PbEntity.sol",
         "id": 14229,
         "nodeType": "ImportDirective",
@@ -2038,7 +2038,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-16T08:07:42.387Z",
+  "updatedAt": "2019-12-17T07:54:51.192Z",
   "devdoc": {
     "methods": {},
     "title": "Ledger Struct Library"
