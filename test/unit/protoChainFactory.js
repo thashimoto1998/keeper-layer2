@@ -77,7 +77,7 @@ module.exports = async (peers0, peers1, clients, provider) => {
   assert.equal(owner, peers[0]);
   instance = await AccessSecretRegistry.new(peers, nonce, timeout, _did, didRegistry.address);
   seq = 1;
-  state = [1];
+  state = [0];
   stateProof = await pbApp.encodeStateProof(
       nonce, 
       seq,
@@ -90,7 +90,7 @@ module.exports = async (peers0, peers1, clients, provider) => {
   const conditionDeployedTrue = {
     conditionType: 1,
     deployedContractAddress: web3.utils.hexToBytes(instance.address),
-    argsQueryOutcome: []
+    argsQueryOutcome: [0]
   };
 
   const conditionHashLock = {
