@@ -75,21 +75,6 @@
     {
       "constant": true,
       "inputs": [],
-      "name": "getSettleFinalizedTime",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
       "name": "getStatus",
       "outputs": [
         {
@@ -139,7 +124,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_players1\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeout\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"seq\",\"type\":\"uint256\"}],\"name\":\"IntendSettle\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSeqNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSettleFinalizedTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enum ISingleSession.AppStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_stateProof\",\"type\":\"bytes\"}],\"name\":\"intendSettle\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"intendSettle(bytes)\":{\"params\":{\"_stateProof\":\"Serialized off-chain state with signatures\"}},\"isFinalized(bytes)\":{\"return\":\"True if app is finalized\"}}},\"userdoc\":{\"methods\":{\"getSeqNum()\":{\"notice\":\"get app sequence number\"},\"getSettleFinalizedTime()\":{\"notice\":\"get state settle finalized time\"},\"getStatus()\":{\"notice\":\"get app status\"},\"intendSettle(bytes)\":{\"notice\":\"Submit and settle off-chain state\"},\"isFinalized(bytes)\":{\"notice\":\"Check if the app is finalized\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol\":\"SingleSessionBooleanOutcome\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/LibSignature.sol\":{\"keccak256\":\"0x524a5f1f4dccef8f95ee4c2929830b778a3199197252b8cc40c8c5f3e3bbc4ec\",\"urls\":[\"bzz-raw://2a82dcd25c0af823a0a65dc99d0d40aa1c30b6b27cff405060074f89b2750f82\",\"dweb:/ipfs/QmTy45BrnWxWwMx1q7yUg8YSmPxkr4DYSCMBcNnFAyz36A\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/Pb.sol\":{\"keccak256\":\"0xe1f2fd485174ce4865cef0d9c8d35807a4d614cce33d68c57686a7ad83180ccb\",\"urls\":[\"bzz-raw://17e106111b22e7ad1e7e0bd452f6c328ad5fd01ea6a2c60b06bfaceb6ee125b7\",\"dweb:/ipfs/QmSMVeRUpUcbSwGRuAXGUSxw3ou7R4CGi1oVTPPjmEsaYT\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/PbApp.sol\":{\"keccak256\":\"0xe92b1561d7de9b608483f78e0d9fa0b65d34c7b5364b25c843839d1ea4aa6960\",\"urls\":[\"bzz-raw://946ef49e2fefdcb345d9144e40462f003d2a5b9dfe127705151922ddc82aee28\",\"dweb:/ipfs/QmWmsGNL4uUpV8V5zJnGJbjkue2ur29Mv9DeAX2ruh2RTg\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol\":{\"keccak256\":\"0xd8f3eab2878e273347ede5ddee4f6004ad5dae368df5b1a0533ea0f3555a7bd4\",\"urls\":[\"bzz-raw://d24cd429d1a0f8dc28497989279afff2024bc2d72d354f77f521f410850b4c65\",\"dweb:/ipfs/Qmd5w7y6ua5pbbspPa5e4pN1Kf5zZxHAXWfMsUnLpMBTjk\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/ISingleSession.sol\":{\"keccak256\":\"0x711af0253a66cbab9a9b96e3c8840bd796afa38ba896240920eed2d40f598444\",\"urls\":[\"bzz-raw://9ed2dcaaec405543a93fffad6cbc982611ebb3d20468509eb178977498e4985d\",\"dweb:/ipfs/QmXBNgtZ33EWYu3t53ByXhKrDBmXZA5EK5pivWnaX9XhYE\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionApp.sol\":{\"keccak256\":\"0xc8bdadf8968cbe698214f8dcb2cc40fe1b9bc45955982e7151cf48cbdd8170f4\",\"urls\":[\"bzz-raw://aee9e7cfd1ed7fef5af62696655e08d665df14a23574dbd91650c21699aeb9ca\",\"dweb:/ipfs/QmZvfMPQK2Me26gU87oLB3kdzPagFHd1iYKMCyDqeFjoQD\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol\":{\"keccak256\":\"0x4029240d9d21788d5fc44c7e6db140f30a2a5c957648133cf250e22bb73683d3\",\"urls\":[\"bzz-raw://6ae0a41db216af3be803073997b9c904d9e5866b883436a7585dd577e5ee2737\",\"dweb:/ipfs/QmfGNAGgWZH8RhKGs8NnVfmsLDPMSTp6BAQcU1uePUw2sz\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_players1\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeout\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"seq\",\"type\":\"uint256\"}],\"name\":\"IntendSettle\",\"type\":\"event\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"getOutcome\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getSeqNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enum ISingleSession.AppStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_stateProof\",\"type\":\"bytes\"}],\"name\":\"intendSettle\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_query\",\"type\":\"bytes\"}],\"name\":\"isFinalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"intendSettle(bytes)\":{\"params\":{\"_stateProof\":\"Serialized off-chain state with signatures\"}},\"isFinalized(bytes)\":{\"return\":\"True if app is finalized\"}}},\"userdoc\":{\"methods\":{\"getSeqNum()\":{\"notice\":\"get app sequence number\"},\"getStatus()\":{\"notice\":\"get app status\"},\"intendSettle(bytes)\":{\"notice\":\"Submit and settle off-chain state\"},\"isFinalized(bytes)\":{\"notice\":\"Check if the app is finalized\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol\":\"SingleSessionBooleanOutcome\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/LibSignature.sol\":{\"keccak256\":\"0x524a5f1f4dccef8f95ee4c2929830b778a3199197252b8cc40c8c5f3e3bbc4ec\",\"urls\":[\"bzz-raw://2a82dcd25c0af823a0a65dc99d0d40aa1c30b6b27cff405060074f89b2750f82\",\"dweb:/ipfs/QmTy45BrnWxWwMx1q7yUg8YSmPxkr4DYSCMBcNnFAyz36A\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/Pb.sol\":{\"keccak256\":\"0xe1f2fd485174ce4865cef0d9c8d35807a4d614cce33d68c57686a7ad83180ccb\",\"urls\":[\"bzz-raw://17e106111b22e7ad1e7e0bd452f6c328ad5fd01ea6a2c60b06bfaceb6ee125b7\",\"dweb:/ipfs/QmSMVeRUpUcbSwGRuAXGUSxw3ou7R4CGi1oVTPPjmEsaYT\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/lib/PbApp.sol\":{\"keccak256\":\"0xe92b1561d7de9b608483f78e0d9fa0b65d34c7b5364b25c843839d1ea4aa6960\",\"urls\":[\"bzz-raw://946ef49e2fefdcb345d9144e40462f003d2a5b9dfe127705151922ddc82aee28\",\"dweb:/ipfs/QmWmsGNL4uUpV8V5zJnGJbjkue2ur29Mv9DeAX2ruh2RTg\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol\":{\"keccak256\":\"0xd8f3eab2878e273347ede5ddee4f6004ad5dae368df5b1a0533ea0f3555a7bd4\",\"urls\":[\"bzz-raw://d24cd429d1a0f8dc28497989279afff2024bc2d72d354f77f521f410850b4c65\",\"dweb:/ipfs/Qmd5w7y6ua5pbbspPa5e4pN1Kf5zZxHAXWfMsUnLpMBTjk\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/ISingleSession.sol\":{\"keccak256\":\"0x1e2f9d1db2c76659e884dfd6d2d54f2198c243b04dfe384cdac256b1b11dc215\",\"urls\":[\"bzz-raw://e63eb460d4983df06757e1aa2d450b83aa0c737e700212ed83b1773204d744d1\",\"dweb:/ipfs/QmS4dAh9Yr1wSe7yWyjkBUCj1jtMeaGqFymTX2DYbo3mVF\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionApp.sol\":{\"keccak256\":\"0x01f41345d1fa5922145a61c85fadedf7508cf3d9fc1008c9fa78b1a91e29ff2b\",\"urls\":[\"bzz-raw://a002e3889fc2285f52e53af775b4cd80d450946073ff697612596f9f994d3edf\",\"dweb:/ipfs/QmbH7NhFtYemWRAh6CAs8fe4HbrZpyjDJTM5hj3QLFg3BB\"]},\"/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol\":{\"keccak256\":\"0x4029240d9d21788d5fc44c7e6db140f30a2a5c957648133cf250e22bb73683d3\",\"urls\":[\"bzz-raw://6ae0a41db216af3be803073997b9c904d9e5866b883436a7585dd577e5ee2737\",\"dweb:/ipfs/QmfGNAGgWZH8RhKGs8NnVfmsLDPMSTp6BAQcU1uePUw2sz\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
@@ -187,7 +172,7 @@
         "id": 16888,
         "nodeType": "ImportDirective",
         "scope": 16931,
-        "sourceUnit": 16568,
+        "sourceUnit": 16591,
         "src": "65:31:40",
         "symbolAliases": [],
         "unitAlias": ""
@@ -219,10 +204,10 @@
               "id": 16891,
               "name": "IBooleanOutcome",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 16567,
+              "referencedDeclaration": 16590,
               "src": "156:15:40",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IBooleanOutcome_$16567",
+                "typeIdentifier": "t_contract$_IBooleanOutcome_$16590",
                 "typeString": "contract IBooleanOutcome"
               }
             },
@@ -232,8 +217,8 @@
           }
         ],
         "contractDependencies": [
-          16567,
-          16610,
+          16590,
+          16628,
           16884
         ],
         "contractKind": "contract",
@@ -242,9 +227,9 @@
         "id": 16930,
         "linearizedBaseContracts": [
           16930,
-          16567,
+          16590,
           16884,
-          16610
+          16628
         ],
         "name": "SingleSessionBooleanOutcome",
         "nodeType": "ContractDefinition",
@@ -551,7 +536,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "commonType": {
-                      "typeIdentifier": "t_enum$_AppStatus_$16585",
+                      "typeIdentifier": "t_enum$_AppStatus_$16608",
                       "typeString": "enum ISingleSession.AppStatus"
                     },
                     "id": 16926,
@@ -567,10 +552,10 @@
                         "name": "appInfo",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16633,
+                        "referencedDeclaration": 16651,
                         "src": "586:7:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_AppInfo_$16631_storage",
+                          "typeIdentifier": "t_struct$_AppInfo_$16649_storage",
                           "typeString": "struct SingleSessionApp.AppInfo storage ref"
                         }
                       },
@@ -581,10 +566,10 @@
                       "lValueRequested": false,
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 16630,
+                      "referencedDeclaration": 16648,
                       "src": "586:14:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16585",
+                        "typeIdentifier": "t_enum$_AppStatus_$16608",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -598,10 +583,10 @@
                         "name": "AppStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16585,
+                        "referencedDeclaration": 16608,
                         "src": "604:9:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16585_$",
+                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16608_$",
                           "typeString": "type(enum ISingleSession.AppStatus)"
                         }
                       },
@@ -615,7 +600,7 @@
                       "referencedDeclaration": null,
                       "src": "604:19:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16585",
+                        "typeIdentifier": "t_enum$_AppStatus_$16608",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -708,7 +693,7 @@
             "scope": 16930,
             "src": "459:171:40",
             "stateMutability": "view",
-            "superFunction": 16559,
+            "superFunction": 16582,
             "visibility": "external"
           }
         ],
@@ -759,7 +744,7 @@
         "id": 16888,
         "nodeType": "ImportDirective",
         "scope": 16931,
-        "sourceUnit": 16568,
+        "sourceUnit": 16591,
         "src": "65:31:40",
         "symbolAliases": [],
         "unitAlias": ""
@@ -791,10 +776,10 @@
               "id": 16891,
               "name": "IBooleanOutcome",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 16567,
+              "referencedDeclaration": 16590,
               "src": "156:15:40",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IBooleanOutcome_$16567",
+                "typeIdentifier": "t_contract$_IBooleanOutcome_$16590",
                 "typeString": "contract IBooleanOutcome"
               }
             },
@@ -804,8 +789,8 @@
           }
         ],
         "contractDependencies": [
-          16567,
-          16610,
+          16590,
+          16628,
           16884
         ],
         "contractKind": "contract",
@@ -814,9 +799,9 @@
         "id": 16930,
         "linearizedBaseContracts": [
           16930,
-          16567,
+          16590,
           16884,
-          16610
+          16628
         ],
         "name": "SingleSessionBooleanOutcome",
         "nodeType": "ContractDefinition",
@@ -1123,7 +1108,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "commonType": {
-                      "typeIdentifier": "t_enum$_AppStatus_$16585",
+                      "typeIdentifier": "t_enum$_AppStatus_$16608",
                       "typeString": "enum ISingleSession.AppStatus"
                     },
                     "id": 16926,
@@ -1139,10 +1124,10 @@
                         "name": "appInfo",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16633,
+                        "referencedDeclaration": 16651,
                         "src": "586:7:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_AppInfo_$16631_storage",
+                          "typeIdentifier": "t_struct$_AppInfo_$16649_storage",
                           "typeString": "struct SingleSessionApp.AppInfo storage ref"
                         }
                       },
@@ -1153,10 +1138,10 @@
                       "lValueRequested": false,
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 16630,
+                      "referencedDeclaration": 16648,
                       "src": "586:14:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16585",
+                        "typeIdentifier": "t_enum$_AppStatus_$16608",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -1170,10 +1155,10 @@
                         "name": "AppStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16585,
+                        "referencedDeclaration": 16608,
                         "src": "604:9:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16585_$",
+                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16608_$",
                           "typeString": "type(enum ISingleSession.AppStatus)"
                         }
                       },
@@ -1187,7 +1172,7 @@
                       "referencedDeclaration": null,
                       "src": "604:19:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16585",
+                        "typeIdentifier": "t_enum$_AppStatus_$16608",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -1280,7 +1265,7 @@
             "scope": 16930,
             "src": "459:171:40",
             "stateMutability": "view",
-            "superFunction": 16559,
+            "superFunction": 16582,
             "visibility": "external"
           }
         ],
@@ -1296,7 +1281,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-17T07:55:30.538Z",
+  "updatedAt": "2019-12-19T02:07:03.374Z",
   "devdoc": {
     "methods": {
       "intendSettle(bytes)": {
@@ -1313,9 +1298,6 @@
     "methods": {
       "getSeqNum()": {
         "notice": "get app sequence number"
-      },
-      "getSettleFinalizedTime()": {
-        "notice": "get state settle finalized time"
       },
       "getStatus()": {
         "notice": "get app status"
