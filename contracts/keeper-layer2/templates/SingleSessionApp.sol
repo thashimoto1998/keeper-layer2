@@ -71,16 +71,6 @@ contract SingleSessionApp is ISingleSession {
     }
 
     /**
-     * @notice get state settle finalized time
-     */
-    function getSettleFinalizedTime() external view returns (uint) {
-        if (appInfo.status == AppStatus.SETTLE) {
-            return appInfo.deadline;
-        }
-        return 0;
-    }
-
-    /**
      * @notice get app sequence number
      */
     function getSeqNum() external view returns (uint) {

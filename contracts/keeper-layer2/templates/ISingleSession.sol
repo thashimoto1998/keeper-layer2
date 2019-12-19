@@ -12,11 +12,6 @@ interface ISingleSession {
     function intendSettle(bytes calldata _stateProof) external;
 
     /**
-     *  @notice get app state settle finalize time
-     */
-    function getSettleFinalizedTime() external view returns (uint);
-
-    /**
      * @notice get app status
      */
     function getStatus() external view returns (AppStatus);
