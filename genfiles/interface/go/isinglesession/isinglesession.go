@@ -188,32 +188,6 @@ func (_ISingleSession *ISingleSessionTransactorRaw) Transact(opts *bind.Transact
 	return _ISingleSession.Contract.contract.Transact(opts, method, params...)
 }
 
-// GetActionDeadline is a free data retrieval call binding the contract method 0xbbc35280.
-//
-// Solidity: function getActionDeadline() constant returns(uint256)
-func (_ISingleSession *ISingleSessionCaller) GetActionDeadline(opts *bind.CallOpts) (*big.Int, error) {
-	var (
-		ret0 = new(*big.Int)
-	)
-	out := ret0
-	err := _ISingleSession.contract.Call(opts, out, "getActionDeadline")
-	return *ret0, err
-}
-
-// GetActionDeadline is a free data retrieval call binding the contract method 0xbbc35280.
-//
-// Solidity: function getActionDeadline() constant returns(uint256)
-func (_ISingleSession *ISingleSessionSession) GetActionDeadline() (*big.Int, error) {
-	return _ISingleSession.Contract.GetActionDeadline(&_ISingleSession.CallOpts)
-}
-
-// GetActionDeadline is a free data retrieval call binding the contract method 0xbbc35280.
-//
-// Solidity: function getActionDeadline() constant returns(uint256)
-func (_ISingleSession *ISingleSessionCallerSession) GetActionDeadline() (*big.Int, error) {
-	return _ISingleSession.Contract.GetActionDeadline(&_ISingleSession.CallOpts)
-}
-
 // GetSeqNum is a free data retrieval call binding the contract method 0x6d15c457.
 //
 // Solidity: function getSeqNum() constant returns(uint256)
@@ -266,32 +240,6 @@ func (_ISingleSession *ISingleSessionCallerSession) GetSettleFinalizedTime() (*b
 	return _ISingleSession.Contract.GetSettleFinalizedTime(&_ISingleSession.CallOpts)
 }
 
-// GetState is a free data retrieval call binding the contract method 0x44c9af28.
-//
-// Solidity: function getState(uint256 _key) constant returns(bytes)
-func (_ISingleSession *ISingleSessionCaller) GetState(opts *bind.CallOpts, _key *big.Int) ([]byte, error) {
-	var (
-		ret0 = new([]byte)
-	)
-	out := ret0
-	err := _ISingleSession.contract.Call(opts, out, "getState", _key)
-	return *ret0, err
-}
-
-// GetState is a free data retrieval call binding the contract method 0x44c9af28.
-//
-// Solidity: function getState(uint256 _key) constant returns(bytes)
-func (_ISingleSession *ISingleSessionSession) GetState(_key *big.Int) ([]byte, error) {
-	return _ISingleSession.Contract.GetState(&_ISingleSession.CallOpts, _key)
-}
-
-// GetState is a free data retrieval call binding the contract method 0x44c9af28.
-//
-// Solidity: function getState(uint256 _key) constant returns(bytes)
-func (_ISingleSession *ISingleSessionCallerSession) GetState(_key *big.Int) ([]byte, error) {
-	return _ISingleSession.Contract.GetState(&_ISingleSession.CallOpts, _key)
-}
-
 // GetStatus is a free data retrieval call binding the contract method 0x4e69d560.
 //
 // Solidity: function getStatus() constant returns(uint8)
@@ -316,48 +264,6 @@ func (_ISingleSession *ISingleSessionSession) GetStatus() (uint8, error) {
 // Solidity: function getStatus() constant returns(uint8)
 func (_ISingleSession *ISingleSessionCallerSession) GetStatus() (uint8, error) {
 	return _ISingleSession.Contract.GetStatus(&_ISingleSession.CallOpts)
-}
-
-// ApplyAction is a paid mutator transaction binding the contract method 0x1f2b71e5.
-//
-// Solidity: function applyAction(bytes _action) returns()
-func (_ISingleSession *ISingleSessionTransactor) ApplyAction(opts *bind.TransactOpts, _action []byte) (*types.Transaction, error) {
-	return _ISingleSession.contract.Transact(opts, "applyAction", _action)
-}
-
-// ApplyAction is a paid mutator transaction binding the contract method 0x1f2b71e5.
-//
-// Solidity: function applyAction(bytes _action) returns()
-func (_ISingleSession *ISingleSessionSession) ApplyAction(_action []byte) (*types.Transaction, error) {
-	return _ISingleSession.Contract.ApplyAction(&_ISingleSession.TransactOpts, _action)
-}
-
-// ApplyAction is a paid mutator transaction binding the contract method 0x1f2b71e5.
-//
-// Solidity: function applyAction(bytes _action) returns()
-func (_ISingleSession *ISingleSessionTransactorSession) ApplyAction(_action []byte) (*types.Transaction, error) {
-	return _ISingleSession.Contract.ApplyAction(&_ISingleSession.TransactOpts, _action)
-}
-
-// FinalizeOnActionTimeout is a paid mutator transaction binding the contract method 0xfa5e7ff5.
-//
-// Solidity: function finalizeOnActionTimeout() returns()
-func (_ISingleSession *ISingleSessionTransactor) FinalizeOnActionTimeout(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _ISingleSession.contract.Transact(opts, "finalizeOnActionTimeout")
-}
-
-// FinalizeOnActionTimeout is a paid mutator transaction binding the contract method 0xfa5e7ff5.
-//
-// Solidity: function finalizeOnActionTimeout() returns()
-func (_ISingleSession *ISingleSessionSession) FinalizeOnActionTimeout() (*types.Transaction, error) {
-	return _ISingleSession.Contract.FinalizeOnActionTimeout(&_ISingleSession.TransactOpts)
-}
-
-// FinalizeOnActionTimeout is a paid mutator transaction binding the contract method 0xfa5e7ff5.
-//
-// Solidity: function finalizeOnActionTimeout() returns()
-func (_ISingleSession *ISingleSessionTransactorSession) FinalizeOnActionTimeout() (*types.Transaction, error) {
-	return _ISingleSession.Contract.FinalizeOnActionTimeout(&_ISingleSession.TransactOpts)
 }
 
 // IntendSettle is a paid mutator transaction binding the contract method 0x130d33fe.

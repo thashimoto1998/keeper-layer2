@@ -1,85 +1,40 @@
 [
     {
-      "constant": false,
-      "inputs": [],
-      "name": "renounceOwnership",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "isOwner",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "newOwner",
-          "type": "address"
-        }
-      ],
-      "name": "transferOwnership",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "anonymous": false,
       "inputs": [
         {
           "indexed": true,
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
           "indexed": true,
+          "internalType": "address",
           "name": "_owner",
           "type": "address"
         },
         {
           "indexed": true,
+          "internalType": "bytes32",
           "name": "_checksum",
           "type": "bytes32"
         },
         {
           "indexed": false,
+          "internalType": "string",
           "name": "_value",
           "type": "string"
         },
         {
           "indexed": false,
+          "internalType": "address",
           "name": "_lastUpdatedBy",
           "type": "address"
         },
         {
           "indexed": false,
+          "internalType": "uint256",
           "name": "_blockNumberUpdated",
           "type": "uint256"
         }
@@ -92,21 +47,24 @@
       "inputs": [
         {
           "indexed": false,
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
           "indexed": false,
-          "name": "_provider",
+          "internalType": "address",
+          "name": "_previousOwner",
           "type": "address"
         },
         {
           "indexed": false,
-          "name": "state",
-          "type": "bool"
+          "internalType": "address",
+          "name": "_newOwner",
+          "type": "address"
         }
       ],
-      "name": "DIDProviderRemoved",
+      "name": "DIDOwnershipTransferred",
       "type": "event"
     },
     {
@@ -114,11 +72,13 @@
       "inputs": [
         {
           "indexed": false,
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
           "indexed": false,
+          "internalType": "address",
           "name": "_provider",
           "type": "address"
         }
@@ -130,12 +90,39 @@
       "anonymous": false,
       "inputs": [
         {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "_did",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_provider",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "state",
+          "type": "bool"
+        }
+      ],
+      "name": "DIDProviderRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
           "indexed": true,
+          "internalType": "address",
           "name": "previousOwner",
           "type": "address"
         },
         {
           "indexed": true,
+          "internalType": "address",
           "name": "newOwner",
           "type": "address"
         }
@@ -144,21 +131,120 @@
       "type": "event"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_caller",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_did",
+          "type": "bytes32"
+        }
+      ],
+      "name": "isDIDOwnerOrProvider",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
+          "internalType": "bytes32",
           "name": "_checksum",
           "type": "bytes32"
         },
         {
+          "internalType": "address[]",
           "name": "_providers",
           "type": "address[]"
         },
         {
+          "internalType": "string",
           "name": "_value",
           "type": "string"
         }
@@ -166,6 +252,7 @@
       "name": "registerAttribute",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "size",
           "type": "uint256"
         }
@@ -178,10 +265,12 @@
       "constant": false,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
+          "internalType": "address",
           "name": "_provider",
           "type": "address"
         }
@@ -196,10 +285,12 @@
       "constant": false,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
+          "internalType": "address",
           "name": "_provider",
           "type": "address"
         }
@@ -214,10 +305,12 @@
       "constant": true,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         },
         {
+          "internalType": "address",
           "name": "_provider",
           "type": "address"
         }
@@ -225,6 +318,7 @@
       "name": "isDIDProvider",
       "outputs": [
         {
+          "internalType": "bool",
           "name": "",
           "type": "bool"
         }
@@ -237,6 +331,7 @@
       "constant": true,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         }
@@ -244,22 +339,27 @@
       "name": "getDIDRegister",
       "outputs": [
         {
+          "internalType": "address",
           "name": "owner",
           "type": "address"
         },
         {
+          "internalType": "bytes32",
           "name": "lastChecksum",
           "type": "bytes32"
         },
         {
+          "internalType": "address",
           "name": "lastUpdatedBy",
           "type": "address"
         },
         {
+          "internalType": "uint256",
           "name": "blockNumberUpdated",
           "type": "uint256"
         },
         {
+          "internalType": "address[]",
           "name": "providers",
           "type": "address[]"
         }
@@ -272,6 +372,7 @@
       "constant": true,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         }
@@ -279,6 +380,7 @@
       "name": "getBlockNumberUpdated",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "blockNumberUpdated",
           "type": "uint256"
         }
@@ -291,6 +393,7 @@
       "constant": true,
       "inputs": [
         {
+          "internalType": "bytes32",
           "name": "_did",
           "type": "bytes32"
         }
@@ -298,6 +401,7 @@
       "name": "getDIDOwner",
       "outputs": [
         {
+          "internalType": "address",
           "name": "didOwner",
           "type": "address"
         }
@@ -312,6 +416,7 @@
       "name": "getDIDRegistrySize",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "size",
           "type": "uint256"
         }
@@ -326,6 +431,7 @@
       "name": "getDIDRegisterIds",
       "outputs": [
         {
+          "internalType": "bytes32[]",
           "name": "",
           "type": "bytes32[]"
         }
@@ -333,5 +439,25 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_did",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferDIDOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
     }
-]
+  ]
