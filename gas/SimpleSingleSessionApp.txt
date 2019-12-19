@@ -1,6 +1,29 @@
 ******* Gas Used in SimpleSingleSessionApp Tests ********
 
-contract deploy: 1430736
-first intendSettle: 147677
-contract deploy: 1430736
-first intendSettle: 132817
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147600
+first intendSettle: 147880
+first intendSettle: 147880
+first intendSettle: 147880
+first intendSettle: 147880
+first intendSettle: 117920
+first intendSettle: 147880
+first intendSettle: 117920
+first intendSettle: 147880
+first intendSettle: 117920
+first intendSettle: 147880
+first intendSettle: 147880
+first intendSettle: 147880
+first intendSettle: 147880
+first intendSettle: 117920
+first intendSettle: 147880
+first intendSettle: 118048
