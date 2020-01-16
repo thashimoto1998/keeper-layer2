@@ -63,7 +63,13 @@ async function getEventArgsFromTx(txReceipt, eventName) {
   })[0].args
 }
 
-
+function getSortedArray(peers) {
+  if (peers[0].toLowerCase() < peers[1].toLowerCase()) {
+    return peers;
+  } else {
+    return [peers[1], peers[0]];
+  }
+}
 
 module.exports.getSessionID = getSessionID;
 module.exports.padLeft = padLeft;
@@ -74,3 +80,4 @@ module.exports.generateId = generateId;
 module.exports.assertEmitted = assertEmitted;
 module.exports.getEventArgsFromTx = getEventArgsFromTx;
 module.exports.getWeb3 = getWeb3;
+module.exports.getSortedArray = getSortedArray;

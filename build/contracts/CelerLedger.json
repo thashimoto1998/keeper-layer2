@@ -1423,7 +1423,7 @@
         "id": 10,
         "nodeType": "ImportDirective",
         "scope": 841,
-        "sourceUnit": 17884,
+        "sourceUnit": 17890,
         "src": "376:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1455,10 +1455,10 @@
               "id": 13,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 17883,
+              "referencedDeclaration": 17889,
               "src": "1078:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$17883",
+                "typeIdentifier": "t_contract$_Ownable_$17889",
                 "typeString": "contract Ownable"
               }
             },
@@ -1469,8 +1469,8 @@
         ],
         "contractDependencies": [
           9425,
-          17156,
-          17883
+          17162,
+          17889
         ],
         "contractKind": "contract",
         "documentation": "@title CelerLedger wrapper contract\n@notice A wrapper contract using libraries to provide CelerLedger's APIs.\n@notice Ownable contract and LedgerBalanceLimit library should only be used\n  in the initial stage of the mainnet operation for a very short period of\n  time to limit the balance amount that can be deposit into each channel,\n  so that any losses due to unknown bugs (if any) will be limited. The balance\n  limits should be disabled and the owner account of CelerLedger should renounce\n  its ownership after the system is stable and comprehensively audited.",
@@ -1478,8 +1478,8 @@
         "id": 840,
         "linearizedBaseContracts": [
           840,
-          17883,
-          17156,
+          17889,
+          17162,
           9425
         ],
         "name": "CelerLedger",
@@ -2214,7 +2214,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 17816,
+                  "referencedDeclaration": 17822,
                   "src": "2164:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2392,7 +2392,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 17816,
+                  "referencedDeclaration": 17822,
                   "src": "2355:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2496,7 +2496,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 17816,
+                  "referencedDeclaration": 17822,
                   "src": "2524:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -3091,10 +3091,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18791,
-                        18792
+                        18797,
+                        18798
                       ],
-                      "referencedDeclaration": 18792,
+                      "referencedDeclaration": 18798,
                       "src": "4091:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -11124,7 +11124,7 @@
         "id": 10,
         "nodeType": "ImportDirective",
         "scope": 841,
-        "sourceUnit": 17884,
+        "sourceUnit": 17890,
         "src": "376:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -11156,10 +11156,10 @@
               "id": 13,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 17883,
+              "referencedDeclaration": 17889,
               "src": "1078:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$17883",
+                "typeIdentifier": "t_contract$_Ownable_$17889",
                 "typeString": "contract Ownable"
               }
             },
@@ -11170,8 +11170,8 @@
         ],
         "contractDependencies": [
           9425,
-          17156,
-          17883
+          17162,
+          17889
         ],
         "contractKind": "contract",
         "documentation": "@title CelerLedger wrapper contract\n@notice A wrapper contract using libraries to provide CelerLedger's APIs.\n@notice Ownable contract and LedgerBalanceLimit library should only be used\n  in the initial stage of the mainnet operation for a very short period of\n  time to limit the balance amount that can be deposit into each channel,\n  so that any losses due to unknown bugs (if any) will be limited. The balance\n  limits should be disabled and the owner account of CelerLedger should renounce\n  its ownership after the system is stable and comprehensively audited.",
@@ -11179,8 +11179,8 @@
         "id": 840,
         "linearizedBaseContracts": [
           840,
-          17883,
-          17156,
+          17889,
+          17162,
           9425
         ],
         "name": "CelerLedger",
@@ -11915,7 +11915,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 17816,
+                  "referencedDeclaration": 17822,
                   "src": "2164:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -12093,7 +12093,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 17816,
+                  "referencedDeclaration": 17822,
                   "src": "2355:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -12197,7 +12197,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 17816,
+                  "referencedDeclaration": 17822,
                   "src": "2524:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -12792,10 +12792,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18791,
-                        18792
+                        18797,
+                        18798
                       ],
-                      "referencedDeclaration": 18792,
+                      "referencedDeclaration": 18798,
                       "src": "4091:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -20716,7 +20716,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-17T15:54:10.017Z",
+  "updatedAt": "2020-01-16T03:30:12.176Z",
   "devdoc": {
     "methods": {
       "clearPays(bytes32,address,bytes)": {

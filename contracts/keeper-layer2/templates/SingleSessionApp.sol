@@ -30,13 +30,6 @@ contract SingleSessionApp is ISingleSession {
         appInfo.status = AppStatus.IDLE;
     }
 
-    /**
-     * @dev check if the app has been finalized
-     */
-    modifier notFinalized() {
-        require(appInfo.status != AppStatus.FINALIZED, "app state is finalized");
-        _;
-    }
 
     /**
      * @notice Update state according to an off-chain state proof
@@ -49,7 +42,7 @@ contract SingleSessionApp is ISingleSession {
      * @notice Submit and settle off-chain state
      * @param _stateProof Serialized off-chain state with signatures
      */
-    function intendSettle(bytes calldata _stateProof) external notFinalized() {
+    function intendSettle(bytes calldata _stateProof) external  {
         PbApp.StateProof memory stateProof = PbApp.decStateProof(_stateProof);
         require(verifySignature(stateProof.appState, stateProof.sigs), "invalid signature");
         PbApp.AppState memory appstate = PbApp.decAppState(stateProof.appState);

@@ -11,7 +11,7 @@ const fs = require('fs');
 const GAS_USED_LOG = 'gas/SimpleSingleSessionApp.txt';
 
 contract('AccessSecretRegistry', async accounts => {
-    const owner = accounts[0];
+    let owner = accounts[0];
     let peers = [owner, accounts[1]];
     const providers = [accounts[8], accounts[9]];
     const nonce = 0;
@@ -52,7 +52,7 @@ contract('AccessSecretRegistry', async accounts => {
         );
 
         try {
-            res = await instance.setDID(_did2, didRegistry2.address, {from: peers[0]});
+            res = await instance.setDID(_did2, didRegistry2.address, {from: owner});
         } catch (e) {
             assert.isAbove(
                 e.message.search('VM Exception while processing transaction'),
@@ -133,7 +133,7 @@ contract('AccessSecretRegistry', async accounts => {
             );
             return;
         }
-        assert.fail('msg.sender is not player1 and player2');
+        assert.fail('msg.sender is not channel peer');
     });
 
     it('invlaid did owner set new did should fail', async () => {
@@ -178,12 +178,24 @@ contract('AccessSecretRegistry', async accounts => {
         assert.equal(args.did, _did2);
     });
 
-    it('intend third settle (state is 1) should success', async () => {
+    it('intend settle (state is 1 which key of _did2) should success', async () => {
         res = await instance.getDID(1);
         assert.equal(res, _did2);
         res = await instance.getKeyDID(_did2);
         assert.equal(res, 1);
         seq = 3;
+        state = [-2];
+        stateProof = await pbApp.encodeStateProof(
+            nonce, 
+            seq,
+            state,
+            timeout,
+            peers
+        );
+        res = await instance.intendSettle(stateProof);
+        fs.appendFileSync(GAS_USED_LOG, 'intendSettle: ' + utils.getCallGasUsed(res) + '\n');
+
+        seq = 4;
         state = [1];
         stateProof = await pbApp.encodeStateProof(
             nonce, 
@@ -193,7 +205,7 @@ contract('AccessSecretRegistry', async accounts => {
             peers
         );
         res = await instance.intendSettle(stateProof);
-        fs.appendFileSync(GAS_USED_LOG, 'first intendSettle: ' + utils.getCallGasUsed(res) + '\n');
+        fs.appendFileSync(GAS_USED_LOG, 'intendSettle: ' + utils.getCallGasUsed(res) + '\n');
         const { event, args } = res.logs[0];
         assert.equal(event, 'IntendSettle');
         assert.equal(args.seq.toString(10), seq);
@@ -226,4 +238,25 @@ contract('AccessSecretRegistry', async accounts => {
         }
        assert.fail("invalid sequence number");
     });
+
+    it("intend settle (state is -1) should success and swap owner and grantee", async () => {
+        seq = 5;
+        state = [-1];
+        stateProof = await pbApp.encodeStateProof(
+            nonce,
+            seq,
+            state,
+            timeout,
+            peers
+        );
+        res = await instance.intendSettle(stateProof);
+        fs.appendFileSync(GAS_USED_LOG, 'intendSettle: ' + utils.getCallGasUsed(res) + '\n');
+        const { event, args } = res.logs[0];
+        assert.equal(event, 'IntendSettle');
+        assert.equal(args.seq.toString(10), seq);
+        owner = await instance.getOwner();
+        grantee = await instance.getGrantee();
+        assert.equal(peers[0], grantee);
+        assert.equal(peers[1], owner);
+    })    
 });
