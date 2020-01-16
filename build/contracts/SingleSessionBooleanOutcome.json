@@ -135,14 +135,14 @@
     "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol",
     "exportedSymbols": {
       "SingleSessionBooleanOutcome": [
-        16959
+        16961
       ]
     },
-    "id": 16960,
+    "id": 16962,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 16915,
+        "id": 16917,
         "literals": [
           "solidity",
           ">=",
@@ -158,10 +158,10 @@
       {
         "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionApp.sol",
         "file": "./SingleSessionApp.sol",
-        "id": 16916,
+        "id": 16918,
         "nodeType": "ImportDirective",
-        "scope": 16960,
-        "sourceUnit": 16914,
+        "scope": 16962,
+        "sourceUnit": 16916,
         "src": "32:32:40",
         "symbolAliases": [],
         "unitAlias": ""
@@ -169,10 +169,10 @@
       {
         "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
         "file": "./IBooleanOutcome.sol",
-        "id": 16917,
+        "id": 16919,
         "nodeType": "ImportDirective",
-        "scope": 16960,
-        "sourceUnit": 16635,
+        "scope": 16962,
+        "sourceUnit": 16637,
         "src": "65:31:40",
         "symbolAliases": [],
         "unitAlias": ""
@@ -183,17 +183,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 16918,
+              "id": 16920,
               "name": "SingleSessionApp",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 16913,
+              "referencedDeclaration": 16915,
               "src": "138:16:40",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SingleSessionApp_$16913",
+                "typeIdentifier": "t_contract$_SingleSessionApp_$16915",
                 "typeString": "contract SingleSessionApp"
               }
             },
-            "id": 16919,
+            "id": 16921,
             "nodeType": "InheritanceSpecifier",
             "src": "138:16:40"
           },
@@ -201,48 +201,48 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 16920,
+              "id": 16922,
               "name": "IBooleanOutcome",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 16634,
+              "referencedDeclaration": 16636,
               "src": "156:15:40",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IBooleanOutcome_$16634",
+                "typeIdentifier": "t_contract$_IBooleanOutcome_$16636",
                 "typeString": "contract IBooleanOutcome"
               }
             },
-            "id": 16921,
+            "id": 16923,
             "nodeType": "InheritanceSpecifier",
             "src": "156:15:40"
           }
         ],
         "contractDependencies": [
-          16634,
-          16672,
-          16913
+          16636,
+          16674,
+          16915
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 16959,
+        "id": 16961,
         "linearizedBaseContracts": [
-          16959,
-          16634,
-          16913,
-          16672
+          16961,
+          16636,
+          16915,
+          16674
         ],
         "name": "SingleSessionBooleanOutcome",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 16936,
+              "id": 16938,
               "nodeType": "Block",
               "src": "345:7:40",
               "statements": []
             },
             "documentation": null,
-            "id": 16937,
+            "id": 16939,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [
@@ -250,11 +250,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 16931,
+                    "id": 16933,
                     "name": "_players1",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 16924,
+                    "referencedDeclaration": 16926,
                     "src": "312:9:40",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
@@ -263,11 +263,11 @@
                   },
                   {
                     "argumentTypes": null,
-                    "id": 16932,
+                    "id": 16934,
                     "name": "_nonce",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 16926,
+                    "referencedDeclaration": 16928,
                     "src": "323:6:40",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -276,11 +276,11 @@
                   },
                   {
                     "argumentTypes": null,
-                    "id": 16933,
+                    "id": 16935,
                     "name": "_timeout",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 16928,
+                    "referencedDeclaration": 16930,
                     "src": "331:8:40",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -288,17 +288,17 @@
                     }
                   }
                 ],
-                "id": 16934,
+                "id": 16936,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 16930,
+                  "id": 16932,
                   "name": "SingleSessionApp",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 16913,
+                  "referencedDeclaration": 16915,
                   "src": "295:16:40",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_SingleSessionApp_$16913_$",
+                    "typeIdentifier": "t_type$_t_contract$_SingleSessionApp_$16915_$",
                     "typeString": "type(contract SingleSessionApp)"
                   }
                 },
@@ -309,15 +309,15 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16929,
+              "id": 16931,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16924,
+                  "id": 16926,
                   "name": "_players1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16937,
+                  "scope": 16939,
                   "src": "200:26:40",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -327,7 +327,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 16922,
+                      "id": 16924,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "200:7:40",
@@ -337,7 +337,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 16923,
+                    "id": 16925,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "200:9:40",
@@ -351,10 +351,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 16926,
+                  "id": 16928,
                   "name": "_nonce",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16937,
+                  "scope": 16939,
                   "src": "236:11:40",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -363,7 +363,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16925,
+                    "id": 16927,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "236:4:40",
@@ -377,10 +377,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 16928,
+                  "id": 16930,
                   "name": "_timeout",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16937,
+                  "scope": 16939,
                   "src": "257:13:40",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -389,7 +389,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16927,
+                    "id": 16929,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "257:4:40",
@@ -405,12 +405,12 @@
               "src": "190:81:40"
             },
             "returnParameters": {
-              "id": 16935,
+              "id": 16937,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "345:0:40"
             },
-            "scope": 16959,
+            "scope": 16961,
             "src": "179:173:40",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -418,7 +418,7 @@
           },
           {
             "body": {
-              "id": 16957,
+              "id": 16959,
               "nodeType": "Block",
               "src": "532:98:40",
               "statements": [
@@ -432,7 +432,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 16948,
+                        "id": 16950,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -441,18 +441,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 16945,
+                            "id": 16947,
                             "name": "_query",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 16939,
+                            "referencedDeclaration": 16941,
                             "src": "550:6:40",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes_calldata_ptr",
                               "typeString": "bytes calldata"
                             }
                           },
-                          "id": 16946,
+                          "id": 16948,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -471,7 +471,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 16947,
+                          "id": 16949,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -500,21 +500,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 16944,
+                      "id": 16946,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18797,
-                        18798
+                        18799,
+                        18800
                       ],
-                      "referencedDeclaration": 18797,
+                      "referencedDeclaration": 18799,
                       "src": "542:7:40",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 16949,
+                    "id": 16951,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -528,7 +528,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 16950,
+                  "id": 16952,
                   "nodeType": "ExpressionStatement",
                   "src": "542:27:40"
                 },
@@ -536,10 +536,10 @@
                   "expression": {
                     "argumentTypes": null,
                     "commonType": {
-                      "typeIdentifier": "t_enum$_AppStatus_$16652",
+                      "typeIdentifier": "t_enum$_AppStatus_$16654",
                       "typeString": "enum ISingleSession.AppStatus"
                     },
-                    "id": 16955,
+                    "id": 16957,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -548,28 +548,28 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 16951,
+                        "id": 16953,
                         "name": "appInfo",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16695,
+                        "referencedDeclaration": 16697,
                         "src": "586:7:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_AppInfo_$16693_storage",
+                          "typeIdentifier": "t_struct$_AppInfo_$16695_storage",
                           "typeString": "struct SingleSessionApp.AppInfo storage ref"
                         }
                       },
-                      "id": 16952,
+                      "id": 16954,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 16692,
+                      "referencedDeclaration": 16694,
                       "src": "586:14:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16652",
+                        "typeIdentifier": "t_enum$_AppStatus_$16654",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -579,18 +579,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 16953,
+                        "id": 16955,
                         "name": "AppStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16652,
+                        "referencedDeclaration": 16654,
                         "src": "604:9:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16652_$",
+                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16654_$",
                           "typeString": "type(enum ISingleSession.AppStatus)"
                         }
                       },
-                      "id": 16954,
+                      "id": 16956,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -600,7 +600,7 @@
                       "referencedDeclaration": null,
                       "src": "604:19:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16652",
+                        "typeIdentifier": "t_enum$_AppStatus_$16654",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -610,30 +610,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 16943,
-                  "id": 16956,
+                  "functionReturnParameters": 16945,
+                  "id": 16958,
                   "nodeType": "Return",
                   "src": "579:44:40"
                 }
               ]
             },
             "documentation": "@notice Check if the app is finalized\n@return True if app is finalized",
-            "id": 16958,
+            "id": 16960,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isFinalized",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16940,
+              "id": 16942,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16939,
+                  "id": 16941,
                   "name": "_query",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16958,
+                  "scope": 16960,
                   "src": "480:21:40",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -642,7 +642,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16938,
+                    "id": 16940,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "480:5:40",
@@ -658,15 +658,15 @@
               "src": "479:23:40"
             },
             "returnParameters": {
-              "id": 16943,
+              "id": 16945,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16942,
+                  "id": 16944,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16958,
+                  "scope": 16960,
                   "src": "526:4:40",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -675,7 +675,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 16941,
+                    "id": 16943,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "526:4:40",
@@ -690,14 +690,14 @@
               ],
               "src": "525:6:40"
             },
-            "scope": 16959,
+            "scope": 16961,
             "src": "459:171:40",
             "stateMutability": "view",
-            "superFunction": 16626,
+            "superFunction": 16628,
             "visibility": "external"
           }
         ],
-        "scope": 16960,
+        "scope": 16962,
         "src": "98:535:40"
       }
     ],
@@ -707,14 +707,14 @@
     "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionBooleanOutcome.sol",
     "exportedSymbols": {
       "SingleSessionBooleanOutcome": [
-        16959
+        16961
       ]
     },
-    "id": 16960,
+    "id": 16962,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 16915,
+        "id": 16917,
         "literals": [
           "solidity",
           ">=",
@@ -730,10 +730,10 @@
       {
         "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/SingleSessionApp.sol",
         "file": "./SingleSessionApp.sol",
-        "id": 16916,
+        "id": 16918,
         "nodeType": "ImportDirective",
-        "scope": 16960,
-        "sourceUnit": 16914,
+        "scope": 16962,
+        "sourceUnit": 16916,
         "src": "32:32:40",
         "symbolAliases": [],
         "unitAlias": ""
@@ -741,10 +741,10 @@
       {
         "absolutePath": "/Users/hashimototatsuki/keeper-layer2/contracts/keeper-layer2/templates/IBooleanOutcome.sol",
         "file": "./IBooleanOutcome.sol",
-        "id": 16917,
+        "id": 16919,
         "nodeType": "ImportDirective",
-        "scope": 16960,
-        "sourceUnit": 16635,
+        "scope": 16962,
+        "sourceUnit": 16637,
         "src": "65:31:40",
         "symbolAliases": [],
         "unitAlias": ""
@@ -755,17 +755,17 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 16918,
+              "id": 16920,
               "name": "SingleSessionApp",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 16913,
+              "referencedDeclaration": 16915,
               "src": "138:16:40",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SingleSessionApp_$16913",
+                "typeIdentifier": "t_contract$_SingleSessionApp_$16915",
                 "typeString": "contract SingleSessionApp"
               }
             },
-            "id": 16919,
+            "id": 16921,
             "nodeType": "InheritanceSpecifier",
             "src": "138:16:40"
           },
@@ -773,48 +773,48 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 16920,
+              "id": 16922,
               "name": "IBooleanOutcome",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 16634,
+              "referencedDeclaration": 16636,
               "src": "156:15:40",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IBooleanOutcome_$16634",
+                "typeIdentifier": "t_contract$_IBooleanOutcome_$16636",
                 "typeString": "contract IBooleanOutcome"
               }
             },
-            "id": 16921,
+            "id": 16923,
             "nodeType": "InheritanceSpecifier",
             "src": "156:15:40"
           }
         ],
         "contractDependencies": [
-          16634,
-          16672,
-          16913
+          16636,
+          16674,
+          16915
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 16959,
+        "id": 16961,
         "linearizedBaseContracts": [
-          16959,
-          16634,
-          16913,
-          16672
+          16961,
+          16636,
+          16915,
+          16674
         ],
         "name": "SingleSessionBooleanOutcome",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 16936,
+              "id": 16938,
               "nodeType": "Block",
               "src": "345:7:40",
               "statements": []
             },
             "documentation": null,
-            "id": 16937,
+            "id": 16939,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [
@@ -822,11 +822,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 16931,
+                    "id": 16933,
                     "name": "_players1",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 16924,
+                    "referencedDeclaration": 16926,
                     "src": "312:9:40",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
@@ -835,11 +835,11 @@
                   },
                   {
                     "argumentTypes": null,
-                    "id": 16932,
+                    "id": 16934,
                     "name": "_nonce",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 16926,
+                    "referencedDeclaration": 16928,
                     "src": "323:6:40",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -848,11 +848,11 @@
                   },
                   {
                     "argumentTypes": null,
-                    "id": 16933,
+                    "id": 16935,
                     "name": "_timeout",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 16928,
+                    "referencedDeclaration": 16930,
                     "src": "331:8:40",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -860,17 +860,17 @@
                     }
                   }
                 ],
-                "id": 16934,
+                "id": 16936,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 16930,
+                  "id": 16932,
                   "name": "SingleSessionApp",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 16913,
+                  "referencedDeclaration": 16915,
                   "src": "295:16:40",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_SingleSessionApp_$16913_$",
+                    "typeIdentifier": "t_type$_t_contract$_SingleSessionApp_$16915_$",
                     "typeString": "type(contract SingleSessionApp)"
                   }
                 },
@@ -881,15 +881,15 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16929,
+              "id": 16931,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16924,
+                  "id": 16926,
                   "name": "_players1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16937,
+                  "scope": 16939,
                   "src": "200:26:40",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -899,7 +899,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 16922,
+                      "id": 16924,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "200:7:40",
@@ -909,7 +909,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 16923,
+                    "id": 16925,
                     "length": null,
                     "nodeType": "ArrayTypeName",
                     "src": "200:9:40",
@@ -923,10 +923,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 16926,
+                  "id": 16928,
                   "name": "_nonce",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16937,
+                  "scope": 16939,
                   "src": "236:11:40",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -935,7 +935,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16925,
+                    "id": 16927,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "236:4:40",
@@ -949,10 +949,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 16928,
+                  "id": 16930,
                   "name": "_timeout",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16937,
+                  "scope": 16939,
                   "src": "257:13:40",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -961,7 +961,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 16927,
+                    "id": 16929,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "257:4:40",
@@ -977,12 +977,12 @@
               "src": "190:81:40"
             },
             "returnParameters": {
-              "id": 16935,
+              "id": 16937,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "345:0:40"
             },
-            "scope": 16959,
+            "scope": 16961,
             "src": "179:173:40",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -990,7 +990,7 @@
           },
           {
             "body": {
-              "id": 16957,
+              "id": 16959,
               "nodeType": "Block",
               "src": "532:98:40",
               "statements": [
@@ -1004,7 +1004,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 16948,
+                        "id": 16950,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1013,18 +1013,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 16945,
+                            "id": 16947,
                             "name": "_query",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 16939,
+                            "referencedDeclaration": 16941,
                             "src": "550:6:40",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes_calldata_ptr",
                               "typeString": "bytes calldata"
                             }
                           },
-                          "id": 16946,
+                          "id": 16948,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1043,7 +1043,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 16947,
+                          "id": 16949,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1072,21 +1072,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 16944,
+                      "id": 16946,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18797,
-                        18798
+                        18799,
+                        18800
                       ],
-                      "referencedDeclaration": 18797,
+                      "referencedDeclaration": 18799,
                       "src": "542:7:40",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 16949,
+                    "id": 16951,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1100,7 +1100,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 16950,
+                  "id": 16952,
                   "nodeType": "ExpressionStatement",
                   "src": "542:27:40"
                 },
@@ -1108,10 +1108,10 @@
                   "expression": {
                     "argumentTypes": null,
                     "commonType": {
-                      "typeIdentifier": "t_enum$_AppStatus_$16652",
+                      "typeIdentifier": "t_enum$_AppStatus_$16654",
                       "typeString": "enum ISingleSession.AppStatus"
                     },
-                    "id": 16955,
+                    "id": 16957,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1120,28 +1120,28 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 16951,
+                        "id": 16953,
                         "name": "appInfo",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16695,
+                        "referencedDeclaration": 16697,
                         "src": "586:7:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_AppInfo_$16693_storage",
+                          "typeIdentifier": "t_struct$_AppInfo_$16695_storage",
                           "typeString": "struct SingleSessionApp.AppInfo storage ref"
                         }
                       },
-                      "id": 16952,
+                      "id": 16954,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 16692,
+                      "referencedDeclaration": 16694,
                       "src": "586:14:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16652",
+                        "typeIdentifier": "t_enum$_AppStatus_$16654",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -1151,18 +1151,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 16953,
+                        "id": 16955,
                         "name": "AppStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 16652,
+                        "referencedDeclaration": 16654,
                         "src": "604:9:40",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16652_$",
+                          "typeIdentifier": "t_type$_t_enum$_AppStatus_$16654_$",
                           "typeString": "type(enum ISingleSession.AppStatus)"
                         }
                       },
-                      "id": 16954,
+                      "id": 16956,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1172,7 +1172,7 @@
                       "referencedDeclaration": null,
                       "src": "604:19:40",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_AppStatus_$16652",
+                        "typeIdentifier": "t_enum$_AppStatus_$16654",
                         "typeString": "enum ISingleSession.AppStatus"
                       }
                     },
@@ -1182,30 +1182,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 16943,
-                  "id": 16956,
+                  "functionReturnParameters": 16945,
+                  "id": 16958,
                   "nodeType": "Return",
                   "src": "579:44:40"
                 }
               ]
             },
             "documentation": "@notice Check if the app is finalized\n@return True if app is finalized",
-            "id": 16958,
+            "id": 16960,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isFinalized",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 16940,
+              "id": 16942,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16939,
+                  "id": 16941,
                   "name": "_query",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16958,
+                  "scope": 16960,
                   "src": "480:21:40",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -1214,7 +1214,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 16938,
+                    "id": 16940,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "480:5:40",
@@ -1230,15 +1230,15 @@
               "src": "479:23:40"
             },
             "returnParameters": {
-              "id": 16943,
+              "id": 16945,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 16942,
+                  "id": 16944,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 16958,
+                  "scope": 16960,
                   "src": "526:4:40",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1247,7 +1247,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 16941,
+                    "id": 16943,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "526:4:40",
@@ -1262,14 +1262,14 @@
               ],
               "src": "525:6:40"
             },
-            "scope": 16959,
+            "scope": 16961,
             "src": "459:171:40",
             "stateMutability": "view",
-            "superFunction": 16626,
+            "superFunction": 16628,
             "visibility": "external"
           }
         ],
-        "scope": 16960,
+        "scope": 16962,
         "src": "98:535:40"
       }
     ],
@@ -1281,7 +1281,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2020-01-16T03:30:12.495Z",
+  "updatedAt": "2020-01-16T07:38:38.524Z",
   "devdoc": {
     "methods": {
       "intendSettle(bytes)": {

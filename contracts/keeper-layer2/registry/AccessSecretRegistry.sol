@@ -7,7 +7,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
     mapping(bytes32 => mapping(address => bool)) private documentPermissionsState;
     address owner;
     address grantee;
-    int8 key;
+    int8 private key;
     mapping (bytes32 => int8) private keyList;
     mapping (int8 => bytes32) private didList;
     mapping (bytes32 => address) private didRegistryAddressList;
@@ -76,6 +76,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
             appInfo.status = AppStatus.FINALIZED;
             return true;
         }
+        return false;
     }
 
     /**
