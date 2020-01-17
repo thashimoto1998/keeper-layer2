@@ -174,10 +174,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "630:7:24",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1368,10 +1368,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "630:7:24",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2402,7 +2402,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2020-01-17T02:02:21.701Z",
+  "updatedAt": "2020-01-17T02:11:33.374Z",
   "devdoc": {
     "methods": {
       "disableBalanceLimits(LedgerStruct.Ledger storage)": {

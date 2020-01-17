@@ -879,10 +879,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18774,
+                      "referencedDeclaration": 18766,
                       "src": "1328:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -984,7 +984,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18765,
+                      "referencedDeclaration": 18757,
                       "src": "1491:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -1144,10 +1144,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1588:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1227,7 +1227,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18817,
+                              "referencedDeclaration": 18809,
                               "src": "1728:4:26",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_LedgerMigrate_$11311",
@@ -1309,10 +1309,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1677:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1375,7 +1375,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18771,
+                            "referencedDeclaration": 18763,
                             "src": "1803:3:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1436,10 +1436,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1779:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1487,7 +1487,7 @@
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18761,
+                            "referencedDeclaration": 18753,
                             "src": "1871:5:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
@@ -1579,10 +1579,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1863:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2584,10 +2584,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "3270:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2719,7 +2719,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18817,
+                              "referencedDeclaration": 18809,
                               "src": "3451:4:26",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_LedgerMigrate_$11311",
@@ -2801,10 +2801,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "3378:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4281,10 +4281,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18774,
+                      "referencedDeclaration": 18766,
                       "src": "1328:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -4386,7 +4386,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 18765,
+                      "referencedDeclaration": 18757,
                       "src": "1491:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -4546,10 +4546,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1588:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4629,7 +4629,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18817,
+                              "referencedDeclaration": 18809,
                               "src": "1728:4:26",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_LedgerMigrate_$11311",
@@ -4711,10 +4711,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1677:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4777,7 +4777,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18771,
+                            "referencedDeclaration": 18763,
                             "src": "1803:3:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -4838,10 +4838,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1779:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4889,7 +4889,7 @@
                             "name": "block",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 18761,
+                            "referencedDeclaration": 18753,
                             "src": "1871:5:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_block",
@@ -4981,10 +4981,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "1863:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -5986,10 +5986,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "3270:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -6121,7 +6121,7 @@
                               "name": "this",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 18817,
+                              "referencedDeclaration": 18809,
                               "src": "3451:4:26",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_contract$_LedgerMigrate_$11311",
@@ -6203,10 +6203,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        18774,
-                        18775
+                        18766,
+                        18767
                       ],
-                      "referencedDeclaration": 18775,
+                      "referencedDeclaration": 18767,
                       "src": "3378:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -6857,7 +6857,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.19",
-  "updatedAt": "2020-01-17T02:02:21.729Z",
+  "updatedAt": "2020-01-17T02:11:33.404Z",
   "devdoc": {
     "methods": {
       "migrateChannelFrom(LedgerStruct.Ledger storage,address,bytes)": {
