@@ -51,7 +51,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
 
     /**
      *  @notice Update state according to an off-chain state proof
-     *  @param _state Signed off-chain app _state is key of didList, -1, -2. When _state is -1, swap owner and grantee. When _state is -2, appInfo.status -> IDLE.
+     *  @param _state Signed off-chain app _state is key of didList, -1, -2. When _state is -1, appInfo.status -> IDLE and swap owner and grantee. When _state is -2, appInfo.status -> IDLE.
      *  @return True if update success
      */
     function updateByState(bytes memory _state) internal returns (bool) {
@@ -85,7 +85,6 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
      *  @param _didRegistryAddress (address)
      */
     function setDID(bytes32 _did, address _didRegistryAddress) public  {
-        require((key == 0 && appInfo.status == AppStatus.IDLE) || ( key > 0 && appInfo.status == AppStatus.FINALIZED), "appInfo.status is not correct");
         require(msg.sender == owner || msg.sender == grantee, "msg.sender is not channel peer");
         require(DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(msg.sender, _did), "msg.sender is not didOwner");
         didList[key] = _did;
