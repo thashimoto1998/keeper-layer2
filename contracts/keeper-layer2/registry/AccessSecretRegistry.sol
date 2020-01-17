@@ -71,12 +71,10 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
             return true;
         } else {
             bytes32 did = didList[state];
-            address didRegistryAddress = didRegistryAddressList[did];
             documentPermissionsState[did][grantee] = true;
             appInfo.status = AppStatus.FINALIZED;
             return true;
         }
-        return false;
     }
 
     /**
