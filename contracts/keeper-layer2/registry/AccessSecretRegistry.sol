@@ -5,8 +5,8 @@ import "../templates/ISecretStore.sol";
 
 contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
     mapping(bytes32 => mapping(address => bool)) private documentPermissionsState;
-    address owner;
-    address grantee;
+    address private owner;
+    address private grantee;
     int8 private key;
     mapping (bytes32 => int8) private keyList;
     mapping (int8 => bytes32) private didList;
