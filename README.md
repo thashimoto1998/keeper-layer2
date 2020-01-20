@@ -19,7 +19,7 @@ ganache-cli -l 8000000
 ```
 npm run test
 ```
-*a
+＊a
 
 
 
