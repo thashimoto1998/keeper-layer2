@@ -39,30 +39,6 @@ contract('AccessSecretRegistry', async accounts => {
         instance = await AccessSecretRegistry.new(peers, nonce, timeout, _did1, didRegistry1.address);
     });
 
-    it('set new did before finalized should fail', async () => {
-        const didRegistryLibrary2 = await DIDRegistryLibrary.new();
-        await DIDRegistry.link('DIDRegistryLibrary', didRegistryLibrary2.address);
-        const didRegistry2 = await DIDRegistry.new();
-        await didRegistry2.initialize(peers[0]);
-        await didRegistry2.registerAttribute(
-            _did2,
-            checksum2,
-            providers,
-            value2
-        );
-
-        try {
-            res = await instance.setDID(_did2, didRegistry2.address, {from: owner});
-        } catch (e) {
-            assert.isAbove(
-                e.message.search('VM Exception while processing transaction'),
-                 -1
-            );
-            return;
-        }
-        assert.fail('appInfo.status is not correct');
-    })
-
     it('intend first settle (state is 0) should success and outcome shoule true', async () => {
         res = await instance.getDID(0);
         assert.equal(res, _did1);
@@ -87,29 +63,6 @@ contract('AccessSecretRegistry', async accounts => {
         assert.equal(res, true);
         res = await instance.checkPermissions(peers[1], _did1);
         assert.equal(res, true);
-    });
-
-    it('intend second settle (invalid state is 1) should fail', async () => {
-        seq = 2;
-        state = [1];
-        stateProof = await pbApp.encodeStateProof(
-            nonce, 
-            seq,
-            state,
-            timeout,
-            peers
-        );
-        
-        try {
-            res = await instance.intendSettle(stateProof);
-        } catch (e) {
-            assert.isAbove(
-                e.message.search('VM Exception while processing transaction'),
-                -1
-            );
-            return;
-        }
-        assert.fail('invalid state');
     });
 
     it('msg.sender who is not state channel peer setDID should fail', async () => {
