@@ -82,7 +82,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
      *  @param _did (bytes32)
      *  @param _didRegistryAddress (address)
      */
-    function setDID(bytes32 _did, address _didRegistryAddress) public  returns (bool){
+    function setDID(bytes32 _did, address _didRegistryAddress) public returns (bool){
         require(msg.sender == owner || msg.sender == grantee, "msg.sender is not channel peer");
         require(DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(msg.sender, _did), "msg.sender is not didOwner");
         didList[key] = _did;
@@ -98,7 +98,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
      * @param _key (int8)
      * @return did (bytes32)
      */
-    function getDID(int8 _key) public view returns (bytes32) {
+    function getDID(int8 _key) external view returns (bytes32) {
         return didList[_key];
     }
 
@@ -107,7 +107,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
      * @param _did (bytes32)
      * @return key (int8)
      */
-    function getKeyDID(bytes32 _did) public view returns (int8) {
+    function getKeyDID(bytes32 _did) external view returns (int8) {
         return keyList[_did];
     }
 
@@ -130,14 +130,14 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
     /**
      *  @notice Check owner to test.
      */
-    function getOwner() public view returns (address) {
+    function getOwner() external view returns (address) {
         return owner;
     }
 
     /**
      *  @notice Check grantee to test.
      */
-    function getGrantee() public view returns (address) {
+    function getGrantee() external view returns (address) {
         return grantee;
     }
 
