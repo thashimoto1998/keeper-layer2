@@ -5,11 +5,11 @@ import "./IBooleanOutcome.sol";
 contract SingleSessionBooleanOutcome is SingleSessionApp, IBooleanOutcome {
 
     constructor(
-        address[] memory _players1,
+        address[] memory _players,
         uint _nonce,
         uint _timeout)
         public
-        SingleSessionApp(_players1, _nonce, _timeout)
+        SingleSessionApp(_players, _nonce, _timeout)
     {
     }
 

@@ -1,9 +1,9 @@
 pragma solidity >=0.5.0 <0.6.0;
 import "../templates/SingleSessionBooleanOutcome.sol";
 import {DIDRegistry} from "./DIDRegistry.sol";
-import "../templates/ISecretStore.sol";
+import "../templates/IAccessSecretRegistry.sol";
 
-contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
+contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegistry{
     mapping(bytes32 => mapping(address => bool)) private documentPermissionsState;
     address private owner;
     address private grantee;
@@ -82,7 +82,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
      *  @param _did (bytes32)
      *  @param _didRegistryAddress (address)
      */
-    function setDID(bytes32 _did, address _didRegistryAddress) public  {
+    function setDID(bytes32 _did, address _didRegistryAddress) public  returns (bool){
         require(msg.sender == owner || msg.sender == grantee, "msg.sender is not channel peer");
         require(DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(msg.sender, _did), "msg.sender is not didOwner");
         didList[key] = _did;
@@ -90,6 +90,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, ISecretStore{
         didRegistryAddressList[_did] = _didRegistryAddress;
         key += 1;
         emit settedDID(_did);
+        return true;
     }
 
     /**
