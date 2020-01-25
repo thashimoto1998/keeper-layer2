@@ -5,6 +5,7 @@
   "scripts": {
     "test": "npx truffle test",
     "compile": "npx truffle compile",
+    "generate": "typechain --target ethers './build/**/*.json'",
     "coverage": "npx solidity-coverage",
     "lint": "npx solium -d contracts/",
     "lint:js": "npx eslint .",
@@ -43,6 +44,8 @@
     "npx": "^10.2.0",
     "solidity-coverage": "^0.5.11",
     "solium": "^1.2.4",
-    "truffle": "^5.0.24"
+    "truffle": "^5.0.24",
+    "typechain": "^1.0.4",
+    "typechain-target-ethers": "^1.0.3"
   }
 }
