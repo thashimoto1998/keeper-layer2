@@ -15,6 +15,13 @@ interface IAccessSecretRegistry {
     function getDID(int8 _key) external view returns (bytes32);
 
     /**
+     *  @notice Set did to didList
+     *  @param _did (bytes32)
+     *  @param _didRegistryAddress (address)
+     */
+    function setDID(bytes32 _did, address _didRegistryAddress) external returns (bool);
+
+    /**
      * @notice Get key of didList
      */
     function getKeyDID(bytes32 _did) external view returns (int8);

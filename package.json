@@ -6,7 +6,6 @@
     "test": "npx truffle test",
     "compile": "npx truffle compile",
     "generate:contract-bindings": "typechain --target ethers './build/**/*.json'",
-    "generate:proto-bindings": "scripts/generate_proto_bindings.sh",
     "coverage": "npx solidity-coverage",
     "lint": "npx solium -d contracts/",
     "lint:js": "npx eslint .",

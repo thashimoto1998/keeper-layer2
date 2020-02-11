@@ -23,14 +23,22 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
         SingleSessionBooleanOutcome(_players, _nonce, _timeout)
     {
         key = 0;
-        if (DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(_players[0], _did) == true) {
+        bool isPlayer0 = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(_players[0], _did);
+        bool isPlayer1 = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(_players[1], _did);
+        
+        require(isPlayer0 == true || isPlayer1 == true, "invalid did owner");
+
+        if (isPlayer0) {
             owner = _players[0];
             grantee = _players[1];
         } else {
             owner = _players[1];
             grantee = _players[0];
         }
-        setDID(_did, _didRegistryAddress);
+        didList[key] = _did;
+        keyList[_did] = key;
+        didRegistryAddressList[_did] = _didRegistryAddress;
+        key += 1;
     }
 
     event settedDID(
@@ -82,7 +90,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
      *  @param _did (bytes32)
      *  @param _didRegistryAddress (address)
      */
-    function setDID(bytes32 _did, address _didRegistryAddress) public returns (bool){
+    function setDID(bytes32 _did, address _didRegistryAddress) external returns (bool){
         require(msg.sender == owner || msg.sender == grantee, "msg.sender is not channel peer");
         require(DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(msg.sender, _did), "msg.sender is not didOwner");
         didList[key] = _did;
