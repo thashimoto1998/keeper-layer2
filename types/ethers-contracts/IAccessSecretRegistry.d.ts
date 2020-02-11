@@ -20,6 +20,10 @@ interface IAccessSecretRegistryInterface extends Interface {
       encode([_key]: [BigNumberish]): string;
     }>;
 
+    setDID: TypedFunctionDescription<{
+      encode([_did, _didRegistryAddress]: [Arrayish, string]): string;
+    }>;
+
     getKeyDID: TypedFunctionDescription<{ encode([_did]: [Arrayish]): string }>;
 
     checkPermissions: TypedFunctionDescription<{
@@ -57,6 +61,12 @@ export class IAccessSecretRegistry extends Contract {
 
     getDID(_key: BigNumberish): Promise<string>;
 
+    setDID(
+      _did: Arrayish,
+      _didRegistryAddress: string,
+      overrides?: TransactionOverrides
+    ): Promise<ContractTransaction>;
+
     getKeyDID(_did: Arrayish): Promise<number>;
 
     checkPermissions(user: string, documentKeyId: Arrayish): Promise<boolean>;
@@ -69,6 +79,12 @@ export class IAccessSecretRegistry extends Contract {
   getOutcome(_query: Arrayish): Promise<boolean>;
 
   getDID(_key: BigNumberish): Promise<string>;
+
+  setDID(
+    _did: Arrayish,
+    _didRegistryAddress: string,
+    overrides?: TransactionOverrides
+  ): Promise<ContractTransaction>;
 
   getKeyDID(_did: Arrayish): Promise<number>;
 
@@ -86,6 +102,8 @@ export class IAccessSecretRegistry extends Contract {
     getOutcome(_query: Arrayish): Promise<BigNumber>;
 
     getDID(_key: BigNumberish): Promise<BigNumber>;
+
+    setDID(_did: Arrayish, _didRegistryAddress: string): Promise<BigNumber>;
 
     getKeyDID(_did: Arrayish): Promise<BigNumber>;
 

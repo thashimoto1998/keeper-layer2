@@ -76,6 +76,32 @@ const _abi = [
     type: "function"
   },
   {
+    constant: false,
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "_did",
+        type: "bytes32"
+      },
+      {
+        internalType: "address",
+        name: "_didRegistryAddress",
+        type: "address"
+      }
+    ],
+    name: "setDID",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool"
+      }
+    ],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
     constant: true,
     inputs: [
       {
