@@ -119,7 +119,7 @@ Conditions are not part of the CelerPay contracts, but external [CelerApp](https
 This section describes detail flow.
 ## When PUBLISHERS and CONSUMERS contract for the first time and CONSUMERS and PUBLISHERS is cooperative.
 	
-	![for-the-first-time](for_the_first_time.png)
+	![for-the-first-time](./for_the_first_time.png)
 
 **Deploy**
 DID PUBLISHERS deploy AccessSecretRegistry.sol. This contract is used for on-chain oracle. Sending a conditional payment with dependency on an outcome from this smart contract. Outcome is `isFinalized()` and `getOutcome()`. When `IsFinalized()` and `getOutcome()` is true, PUBLISHERS can get token. Access agreement outcome is `checkPermissions()`. When `checkPermissions()` is true, CONSUMERS can access document .
