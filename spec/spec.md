@@ -25,8 +25,8 @@ White dashed modules at the boatman are user-offchain components. Each colored r
 The CelerWallet contract keeps the multi-owner and multi-token wallets for all the payment channels. CelerWallet only holds tokens for the channel peers without any complicated payment channel logics, which are programmed in the CelerLedger contract. Is is extremely robust and safe due to its simplicity. Payment channel peers (CelerNodes) do not directly interact with the CelerWallet contract to operate their funds, but the wallet operator: the CelerLedger contract, which we describe below.
 
 **CelerLedger**
-CelerLedger is central of all CelerPay contracts, and the entry point of most of the on-[chain useroperations(https://www.celer.network/docs/celercore/channel/pay_contracts.html#channel-operations). 
-It defines the CelerPay on-chain state machine, maintains the core logic of a payment channel, acts as the operator of CelerWallet to operate on the token assets, and expose a rich set of (APIs)[https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/ICelerLedger.sol] for users (channel peers) to manage the payment channels. CelerLedger calls the external functions of three contracts when executing its logic:
+CelerLedger is central of all CelerPay contracts, and the entry point of most of the [on chain user operations](https://www.celer.network/docs/celercore/channel/pay_contracts.html#channel-operations). 
+It defines the CelerPay on-chain state machine, maintains the core logic of a payment channel, acts as the operator of CelerWallet to operate on the token assets, and expose a rich set of [APIs](https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/ICelerLedger.sol) for users (channel peers) to manage the payment channels. CelerLedger calls the external functions of three contracts when executing its logic:
 * To CelerWallet: operation on CelerWallet to deposit/withdraw funds, or transfer operatorship.
 * To EthPool: transfer ETH to CelerWallet, enable the single-transaction channel opening.
 * To PayRegistry: query about the resolved payment amount when settling a channel.
