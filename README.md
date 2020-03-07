@@ -1,4 +1,4 @@
-# keeper-layer2 (state channel)
+# Scalable decentralized data market
 
 # Test
 1. Install node v10: https://nodejs.org.
