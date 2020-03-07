@@ -5,6 +5,7 @@ Celer Channel is conditional payment.  There are three key components in the sys
 System Architecture
 
 ![1](https://imgur.com/oeGzrBP)
+
 **CelerPay** is a generalized payment network that supports efficient off-chain token transfer with the capability to resolve arbitrary conditional dependency on on-chain verifiable states. It consists of a set of on-chain smart contracts and off-chain communication protocols. The shared smart contracts maintain the minimum required on-chain states for each pair of channel peers. The off-chain protocols specify how peers update and exchange off-chain states, and when to make the rare on-chain function calls. CelerPay channels are the edges connecting the state channel network. 
 
 **CelerApp** are generic state channels that can express any application logic. They expose the standard query APIs required by CelerPay, so that payment conditions can be based on CelerApp outcomes. Dashed lines in the figure above indicate CelerApp could be virtual modules. An app contract can be either initially deployed once by the developer and shared by all the future players.
@@ -23,6 +24,7 @@ Celer components at different platforms need to support the same set of protobuf
 
 
 ![1](https://imgur.com/Fm3APWF)
+
 ##Contracts Architecture
 White dashed modules at the boatman are user-offchain components. Each colored rectangle is an individual on-chain contract. Blue modules are CelerPay contracts (ones with dashed border are upgradable); green modules are external arbitrary condition contracts; orange arrows are external function calls (with single word functionality summaries) among contracts; black arrows are external function calls from CelerNodes (off-chain users).
 
@@ -53,6 +55,7 @@ Conditions are not part of the CelerPay contracts, but external [CelerApp](https
 #Flows
 This section describes swap access control and token.
 ![1](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=600&height=700&select=c1TfzbLh5opage0)
+
 This flow is when Owner and grantee contract for the first time and grantee and owner is cooperative for the first time.
 
 **Deploy**
@@ -121,6 +124,7 @@ Send State Proof Request (state is -2)
 When Grantee `intendSettle()`(state is -2) to AccessSecretRegistry.sol, `AppStatus.FINALIZED -> APPStatus.IDLE`
 
 ![5](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=300&height=500&select=kdOVf7d5V)
+
 **When Owner and Grantee want to swap positions.**
 Send State Proof Request (state is -1)
 When Grantee `intendSettle()` (state is -1) to AccessSecretRegistry.sol, Owner <-> Grantee.
