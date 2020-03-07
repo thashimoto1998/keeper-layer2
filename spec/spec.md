@@ -17,7 +17,7 @@ Celer components at different platforms need to support the same set of protobuf
 [app.proto](https://github.com/celer-network/cApps-eth/blob/master/contracts/lib/proto/app.proto) is used for CelerApp on-chain and off-chain communications.
 
 **Contracts Architecture**
-![1](images/contract.png)
+![1](image/contract.png)
 
 White dashed modules at the boatman are user-offchain components. Each colored rectangle is an individual on-chain contract. Blue modules are CelerPay contracts (ones with dashed border are upgradable); green modules are external arbitrary condition contracts; orange arrows are external function calls (with single word functionality summaries) among contracts; black arrows are external function calls from CelerNodes (off-chain users).
 
