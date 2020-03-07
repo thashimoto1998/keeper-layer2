@@ -1,6 +1,7 @@
 **System Architecture**
 Celer Channel is conditional payment.  There are three key components in the system: CelerPay, CelerApp, and CelerNode.
-![1](images/Architecture.png)
+
+![1](image/Architecture.png)
 **CelerPay** is a generalized payment network that supports efficient off-chain token transfer with the capability to resolve arbitrary conditional dependency on on-chain verifiable states. It consists of a set of on-chain smart contracts and off-chain communication protocols. The shared smart contracts maintain the minimum required on-chain states for each pair of channel peers. The off-chain protocols specify how peers update and exchange off-chain states, and when to make the rare on-chain function calls. CelerPay channels are the edges connecting the state channel network. 
 
 **CelerApp** are generic state channels that can express any application logic. They expose the standard query APIs required by CelerPay, so that payment conditions can be based on CelerApp outcomes. Dashed lines in the figure above indicate CelerApp could be virtual modules. An app contract can be either initially deployed once by the developer and shared by all the future players.
@@ -49,7 +50,7 @@ This section describes detail flow.
 
 ## When PUBLISHERS and CONSUMERS contract for the first time and CONSUMERS and PUBLISHERS is cooperative.
 	
-![for-the-first-time](images/for-the-first-time.png)
+![for-the-first-time](image/for-the-first-time.png)
 	
 **Deploy**
 DID PUBLISHERS deploy AccessSecretRegistry.sol. This contract is used for on-chain oracle. Sending a conditional payment with dependency on an outcome from this smart contract. Outcome is `isFinalized()` and `getOutcome()`. When `IsFinalized()` and `getOutcome()` is true, PUBLISHERS can get token. Access agreement outcome is `checkPermissions()`. When `checkPermissions()` is true, CONSUMERS can access document .
@@ -111,7 +112,7 @@ A challenge time window is opened after the unilateral settle request, for the o
 
 ## When PUBLISHERS and CONSUMERS want to contract another did document.
 
-![3](images/another-did.png)
+![3](image/another-did.png)
 
 REQUIREMENT: The security assumption of the applications on which conditional payments depend so we should not update `isFinalized()` and `getOutcome()` unintentionally.
 
@@ -123,7 +124,7 @@ When CONSUMERS `intendSettle()`(state is -2) to AccessSecretRegistry.sol, `AppSt
 
 ## When PUBLISHERS and CONSUMERS want to swap positions.
 
-![5](images/swap.png)
+![5](image/swap.png)
 
 REQUIREMENT: The security assumption of the applications on which conditional payments depend so we should not update `isFinalized()` and `getOutcome()` unintentionally.
 
