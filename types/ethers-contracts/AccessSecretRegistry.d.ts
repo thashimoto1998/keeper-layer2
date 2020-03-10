@@ -45,6 +45,14 @@ interface AccessSecretRegistryInterface extends Interface {
     getOwner: TypedFunctionDescription<{ encode([]: []): string }>;
 
     getGrantee: TypedFunctionDescription<{ encode([]: []): string }>;
+
+    evaluate: TypedFunctionDescription<{
+      encode([_eval, thisAddress, _did]: [
+        BigNumberish,
+        string,
+        Arrayish
+      ]): string;
+    }>;
   };
 
   events: {
@@ -101,6 +109,13 @@ export class AccessSecretRegistry extends Contract {
     getOwner(): Promise<string>;
 
     getGrantee(): Promise<string>;
+
+    evaluate(
+      _eval: BigNumberish,
+      thisAddress: string,
+      _did: Arrayish,
+      overrides?: TransactionOverrides
+    ): Promise<ContractTransaction>;
   };
 
   getSeqNum(): Promise<BigNumber>;
@@ -131,6 +146,13 @@ export class AccessSecretRegistry extends Contract {
   getOwner(): Promise<string>;
 
   getGrantee(): Promise<string>;
+
+  evaluate(
+    _eval: BigNumberish,
+    thisAddress: string,
+    _did: Arrayish,
+    overrides?: TransactionOverrides
+  ): Promise<ContractTransaction>;
 
   filters: {
     IntendSettle(seq: null): EventFilter;
@@ -163,5 +185,11 @@ export class AccessSecretRegistry extends Contract {
     getOwner(): Promise<BigNumber>;
 
     getGrantee(): Promise<BigNumber>;
+
+    evaluate(
+      _eval: BigNumberish,
+      thisAddress: string,
+      _did: Arrayish
+    ): Promise<BigNumber>;
   };
 }
