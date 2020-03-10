@@ -211,5 +211,47 @@ contract('AccessSecretRegistry', async accounts => {
         grantee = await instance.getGrantee();
         assert.equal(peers[0], grantee);
         assert.equal(peers[1], owner);
-    })    
+    });
+
+    it("evaluate (1) did of data from grantee should success", async () => {
+        res = await instance.evaluate(1, _did1, {from: peers[1]});
+        fs.appendFileSync(GAS_USED_LOG, 'evaluate: ' + utils.getCallGasUsed(res) + '\n');
+        const { event, args} = res.logs[0];
+        assert.equal(event, 'evaluated');
+        assert.equal(args.evaluation, 1);
+    });
+
+    it("evaluate (-1) did of data from grantee should success", async () => {
+        res = await instance.evaluate(-1, _did1, {from: peers[1]});
+        fs.appendFileSync(GAS_USED_LOG, 'evaluate: ' + utils.getCallGasUsed(res) + '\n');
+        const { event, args } = res.logs[0];
+        assert.equal(event, 'evaluated');
+        assert.equal(args.evaluation, 0);
+    })
+
+    it("evaluate (2) did of data from grantee should fail", async () => {
+        try {
+            res = await instance.evaluate(2, _did1, {from: peers[1]});
+        } catch(e) {
+            assert.isAbove(
+                e.message.search('VM Exception while processing transaction'),
+                 -1
+            );
+            return;
+        }
+       assert.fail("eval is not 1 or -1");
+    });
+
+    it("evaluate did of data from owner should fail", async () => {
+        try {
+            res = await instance.evaluate(1, _did1, {from: peers[0]});
+        } catch(e) {
+            assert.isAbove(
+                e.message.search('VM Exception while processing transaction'),
+                 -1
+            );
+            return;
+        }
+        assert.fail("DID owner can not evaluation DID")
+    });
 });

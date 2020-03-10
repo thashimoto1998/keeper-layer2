@@ -27,6 +27,17 @@ contract DIDRegistry is Ownable {
      */
     DIDRegistryLibrary.DIDRegisterList internal didRegisterList;
 
+    /**
+     *  @dev mapping of AccessSecretRegisty address
+     */
+    mapping(uint => address) addressAccessSecretRegistry;
+    uint key = 0;
+
+    /**
+     *  @dev evaluation of data of DID
+     */
+    int evaluation;
+
     modifier onlyDIDOwner(bytes32 _did)
     {
         require(
@@ -305,6 +316,33 @@ contract DIDRegistry is Ownable {
             _previousOwner,
             _newOwner
         );
+    }
+
+    /**
+     *  @notice Evaluate of data of DID
+     *  @param _eval refers to evaluation of data of DID 
+     *  @param _contractAddress address of AccessSecret
+     */
+    function evaluateDID(int8 _eval, address _contractAddress) external returns (bool) { 
+        for (uint i = 0; i < key; i++) {
+            if (addressAccessSecretRegistry[i] == _contractAddress) {
+                 evaluation += _eval;
+                 return true; 
+            }
+        }
+        return false;   
+    }
+
+    /**
+     *  @notice Get evaluation of data of DID
+     */
+    function getEvaluation() public view returns (int) {
+        return evaluation;
+    }
+
+    function setAccessSecretRegistry(address _contractAddress) external {
+        addressAccessSecretRegistry[key] = _contractAddress;
+        key += 1;
     }
 
 }
