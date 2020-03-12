@@ -62,11 +62,13 @@ DID PUBLISHERS deploy AccessSecretRegistry.sol. This contract is used for on-cha
 
 **Open Channel**
 The CelerLedger contract expose an `openChannel()` API which allows a funded payment channel to be open a single transaction. The API takes a single input, which is the channel peer co-signed payment channel initializer message. Once the CelerLedger contract receives a valid open channel request, it will execute the following operations in a single transaction:
-	
-	1. Create a wallet in the CelerWallet contract and use the returned wallet ID as the channel ID, which is computed as 
+
+1. Create a wallet in the CelerWallet contract and use the returned wallet ID as the channel ID, which is computed as 
     `Hash(walletAddress, ledgerAddress, Hash(channelInitializer))`.
-	2. Initialize the channel state in the CelerLedger contract.
-    	3. Accept the blockchain native tokens (ETH) sent along with the transaction request, and transfer tokens from the peer’s approved token pools (e.g.EthPool or ERC20 contracts) to the CelerWallet according to the requested initial distribution Amounts.
+
+2. Initialize the channel state in the CelerLedger contract.
+
+3. Accept the blockchain native tokens (ETH) sent along with the transaction request, and transfer tokens from the peer’s approved token pools (e.g.EthPool or ERC20 contracts) to the CelerWallet according to the requested initial distribution Amounts.
 
 **Send Conditional Payment**
 Sending a conditional payment is essentially creating a new co-signed [simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) to add a new entry in the pending payId list (field 5) and update other related fields. Two off-chain messages(`CondPayRequest` and `CondPayResponse`) in one round trip are involved during the process. `CondPayRequest` is the single-hop message sent by the peer who wants to send or forward the conditional payment. It mainly consists of the following information:
