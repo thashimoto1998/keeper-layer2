@@ -81,21 +81,25 @@ Sending a conditional payment is essentially creating a new co-signed [simplex c
 **Send State Proof Request(state is key of did)**
 Sending a [StateProof](https://github.com/celer-network/cApps-eth/blob/master/contracts/lib/proto/app.proto) is essentially creating a new consigned state.
 It mainly consists of the following information:
-New one-sig state: the new state with the signature of peer_from. The new state should have a higher sequence number. state is key of `didList (did(bytes32)=> key(uint8))`.
-seq: the sequence number of the previous state on which this new state is based.
-`StateProofResponse` is the replied message from receiving peer after checking the validity of every data field in the request. The response consists of two fields:
-Co-Signed state: the latest co-signed state.
-Error: an optional error message with the error reason and the sequence number of the errors request. 
+1. New one-sig state: the new state with the signature of peer_from. The new state should have a higher sequence number. state is key of `didList (did(bytes32)=> key(uint8))`.
+2. seq: the sequence number of the previous state on which this new state is based.
+
+**`StateProofResponse`** is the replied message from receiving peer after checking the validity of every data field in the request. The response consists of two fields:
+1. Co-Signed state: the latest co-signed state.
+2. Error: an optional error message with the error reason or the sequence number of the errors request. 
+
 **intendSettle(state is key of did)**
 Submit and settle off-chain state to update state according to an off-chain state proof. Outcome `isFinalized()`, `getOutcome()` and `checkPermissions()` will be true after checking validity (co-signed, state is valid).
 
 **Settle Conditional Payment**
-After a conditional payment is successfully setup, two peers can cooperatively settle the payment off-chain once the condition outcomes are finalized. Settling a conditional payment is essentially creating a new co-signed [simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) to remove an entry from the pending payId list (field 5) and update the transferred amount(field 4) and other related fields. Three off-chain messages(`PaymentSettleRequest`, `PaymentSettleResponse`, and `PaymentSettleProof`)
+After a conditional payment is successfully setup, two peers can cooperatively settle the payment off-chain once the condition outcomes are finalized. Settling a conditional payment is essentially creating a new co-signed [simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) to remove an entry from the pending payId list (field 5) and update the transferred amount(field 4) and other related fields. 
+
 `PaymentSettleRequest` is the single-hop message sent by peer_from side of the channel to clear a payment. It mainly consists of the following information:
-Payments to be settled: a list if payment IDs to be settled, their settle reasons(e.g. fully paid, expired, rejected, on-chain resolved), and the settled amounts.
-New one-sig state: the new [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) with the signature of peer_from. The new state should have a higher sequence number (field 3), new pending payId list  (field 5) that removes the IDs of settled payments, and updated transferred amount (field 4) and total pending amount (field 7).
-Base seq: the sequence number of the previous simplex state on which this new state is based.
-`PaymentSettleResponse` is the replied message from the receiving peer after checking the validity of the request. It has the two fields with the `CondPayResponse` described above: a co-signed simplex state, and an optional error message.
+1. Payments to be settled: a list if payment IDs to be settled, their settle reasons(e.g. fully paid, expired, rejected, on-chain resolved), and the settled amounts.
+2. New one-sig state: the new [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) with the signature of peer_from. The new state should have a higher sequence number (field 3), new pending payId list  (field 5) that removes the IDs of settled payments, and updated transferred amount (field 4) and total pending amount (field 7).
+3. Base seq: the sequence number of the previous simplex state on which this new state is based.
+
+**`PaymentSettleResponse`** is the replied message from the receiving peer after checking the validity of the request. It has the two fields with the `CondPayResponse` described above: a co-signed simplex state, and an optional error message.
 
 ## When PUBLISHERS are motivated to dispute the payment in case of uncooperative behaviors of CONSUMERS.
 
