@@ -1,4 +1,4 @@
-**Specification: Consensus algorithm of Off-Chain trading of data access control rights 
+## Specification: Consensus algorithm of Off-Chain trading of data access control rights 
 
 
 **System Architecture**
