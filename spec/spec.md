@@ -101,41 +101,40 @@ After a conditional payment is successfully setup, two peers can cooperatively s
 
 **`PaymentSettleResponse`** is the replied message from the receiving peer after checking the validity of the request. It has the two fields with the `CondPayResponse` described above: a co-signed simplex state, and an optional error message.
 
-## When PUBLISHERS are motivated to dispute the payment in case of uncooperative behaviors of CONSUMERS.
+## When PUBLISHER are motivated to dispute the payment in case of uncooperative behaviors of CONSUMER.
 
 ![2](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=b7DvKQy7e)
 
 
- In detail, when CONSUMERS doesn’t send PaymentSettleRequest after `intendSettle()`to AccessSecretRegistry.sol or `PaymentSettleRequest` is not expected.
-
+**When CONSUMER doesn’t send `PaymentSettleRequest` after `intendSettle()`to AccessSecretRegistry.sol or `PaymentSettleRequest` is not expected.**
 **Resolve Payment by Condition**
-If not receive the settlement as expected, PUBLISHERS can choose to submit an on-chain transaction to resolve the payment by conditions once conditions of a payment are finalized on-chain. `resolvePaymentByConditions()` API input consists of two pieces of information: 1) the full conditional payment data and 2) all hash preimgaes fo the hash locks associated with the payment. Then the PayResolver will verify the hash preimages, query the conditions outcomes, then compute and set the payment result in the PayRegistry. PUBLISHERS should send the `PaymentSettleProof` message to the CONSUMERS to ask for the settlement. `PaymentSettleProof` is used by the receiving peer to initiating a settlement process. After payment is resolved on-chain and CONSUMERS will be cooperative, CONSUMERS send valid `PaymentSettleRequest` and PUBLISHERS return `PaymentSettleResponse`.
+If not receive the settlement as expected, PUBLISHER can choose to submit an on-chain transaction to resolve the payment by conditions once conditions of a payment are finalized on-chain. `resolvePaymentByConditions()` API input consists of two pieces of information: 1) the full conditional payment data and 2) all hash preimgaes to the hash locks associated with the payment. Then the PayResolver will verify the hash preimages, query the conditions outcomes, then compute and set the payment result in the PayRegistry. PUBLISHER should send the `PaymentSettleProof` message to the CONSUMER to ask for the settlement. `PaymentSettleProof` is used by the receiving peer to initiating a settlement process. After payment is resolved on-chain and CONSUMER will be cooperative, CONSUMER send valid `PaymentSettleRequest` and PUBLISHER return `PaymentSettleResponse`.
 
-## When CONSUMERS is uncooperative after payment is resolved on-chain.
+**When CONSUMER or PUBLISHER is uncooperative after payment is resolved on-chain.
 
 ![3](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=amymc99GS)
 
-Settle/Close the payment channel
-If cooperative settling is not possible, PUBLISHERS can initiate a unilateral settling by calling the `intendSettle()` API, which takes the co-signed off-chain simplex states as input. The CelerLedger contract will compute the settled balance distributions based on the simplex states and the results pf pending payments queried from the PayRegistry.
-A challenge time window is opened after the unilateral settle request, for the other peer to submit simplex channel states with higher sequence numbers if exists. After the challenge window is closed, one can call the `confirmSettle()` API to finish the operation and close the channel.
+**Settle/Close the payment channel**
+If cooperative settling is not possible, PUBLISHERS can initiate a unilateral settling by calling the `intendSettle()` API, which takes the co-signed off-chain simplex states as input. The CelerLedger contract will compute the settled balance distributions based on the simplex states and the results of pending payments queried from the PayRegistry.
+A challenge time window is opened after the unilateral settlement request, for the other peer to submit simplex channel states with higher sequence numbers if exists. After the challenge window is closed, one can call the `confirmSettle()` API to finish the operation and close the channel.
 
-## When PUBLISHERS and CONSUMERS want to contract another did document.
+## When PUBLISHER and CONSUMER want to contract another data.
 
 ![3](image/another-did.png)
 
 REQUIREMENT: The security assumption of the applications on which conditional payments depend so we should not update `isFinalized()` and `getOutcome()` unintentionally.
 
 Set another DID.
-PUBLISHERS call `setDID()` to AccessSecretRegistry to set another DID.
+PUBLISHER call `setDID()` to AccessSecretRegistry to set another DID.
 
 Send State Proof Request (state is -2)
-When CONSUMERS `intendSettle()`(state is -2) to AccessSecretRegistry.sol, `AppStatus.FINALIZED -> APPStatus.IDLE`
+When CONSUMER `intendSettle()`(state is -2) to AccessSecretRegistry.sol, `AppStatus.FINALIZED -> ApStatus.IDLE`
 
-## When PUBLISHERS and CONSUMERS want to swap positions.
+## When PUBLISHER and CONSUMER want to swap positions.
 
 ![5](image/swap.png)
 
 REQUIREMENT: The security assumption of the applications on which conditional payments depend so we should not update `isFinalized()` and `getOutcome()` unintentionally.
 
 Send State Proof Request (state is -1)
-When CONSUMERS `intendSettle()` (state is -1) to AccessSecretRegistry.sol, owner <-swap-> grantee.
+When CONSUMER `intendSettle()` (state is -1) to AccessSecretRegistry.sol, owner <-swap-> grantee.
