@@ -137,3 +137,6 @@ REQUIREMENT: conditional ペイメントアプリケーションのセキュリ�
 
 Send State Proof Request (state is -1)
 CONSUMERが`intendSettle()`(stae is -1)で呼び出した時、AccessSecretRegistryコントラクト上のポジションであるownerとgranteeが入れ替わる。
+
+
+Reference: CelerCore: (https://www.celer.network/docs/celercore/index.html)
