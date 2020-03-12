@@ -80,6 +80,7 @@ New one-sig state: the new [simplex state](https://www.celer.network/docs/celerc
 Base seq: the sequence number of the previous simplex state on which this new state is based.
 
 Pay note: a payment note with `google.protobuf.Any` type that can describe any information which might be useful for off-chain communication.
+
 `CondPayResponse` is the replied message from receiving peer after checking the validity of every data field in the request. The response consists of two fields:
 
 Co-Signed state: the latest co-signed [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state). This sate should be the same as the state in the `CondPayRequest` if the request is valid. Otherwise (e.g. invalid sequence number due to packet loss), the latest co-signed state stored by the receiving peer is replied to the peer_from to help failure recovery (e.g., resending lost previous request).
