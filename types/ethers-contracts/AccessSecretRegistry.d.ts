@@ -47,17 +47,17 @@ interface AccessSecretRegistryInterface extends Interface {
     getGrantee: TypedFunctionDescription<{ encode([]: []): string }>;
 
     evaluate: TypedFunctionDescription<{
-      encode([_eval, thisAddress, _did]: [
-        BigNumberish,
-        string,
-        Arrayish
-      ]): string;
+      encode([_eval, _did]: [BigNumberish, Arrayish]): string;
     }>;
   };
 
   events: {
     IntendSettle: TypedEventDescription<{
       encodeTopics([seq]: [null]): string[];
+    }>;
+
+    evaluated: TypedEventDescription<{
+      encodeTopics([evaluation]: [null]): string[];
     }>;
 
     settedDID: TypedEventDescription<{ encodeTopics([did]: [null]): string[] }>;
@@ -112,7 +112,6 @@ export class AccessSecretRegistry extends Contract {
 
     evaluate(
       _eval: BigNumberish,
-      thisAddress: string,
       _did: Arrayish,
       overrides?: TransactionOverrides
     ): Promise<ContractTransaction>;
@@ -149,13 +148,14 @@ export class AccessSecretRegistry extends Contract {
 
   evaluate(
     _eval: BigNumberish,
-    thisAddress: string,
     _did: Arrayish,
     overrides?: TransactionOverrides
   ): Promise<ContractTransaction>;
 
   filters: {
     IntendSettle(seq: null): EventFilter;
+
+    evaluated(evaluation: null): EventFilter;
 
     settedDID(did: null): EventFilter;
   };
@@ -186,10 +186,6 @@ export class AccessSecretRegistry extends Contract {
 
     getGrantee(): Promise<BigNumber>;
 
-    evaluate(
-      _eval: BigNumberish,
-      thisAddress: string,
-      _did: Arrayish
-    ): Promise<BigNumber>;
+    evaluate(_eval: BigNumberish, _did: Arrayish): Promise<BigNumber>;
   };
 }
