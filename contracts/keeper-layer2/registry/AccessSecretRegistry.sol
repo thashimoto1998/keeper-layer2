@@ -106,6 +106,8 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
         keyList[_did] = key;
         didRegistryAddressList[_did] = _didRegistryAddress;
         key += 1;
+        address thisAddress = address(this);
+        DIDRegistry(_didRegistryAddress).setAccessSecretRegistry(thisAddress);
         emit settedDID(_did);
         return true;
     }
