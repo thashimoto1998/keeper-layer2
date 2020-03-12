@@ -72,12 +72,18 @@ The CelerLedger contract expose an `openChannel()` API which allows a funded pay
 
 **Send Conditional Payment**
 Sending a conditional payment is essentially creating a new co-signed [simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) to add a new entry in the pending payId list (field 5) and update other related fields. Two off-chain messages(`CondPayRequest` and `CondPayResponse`) in one round trip are involved during the process. `CondPayRequest` is the single-hop message sent by the peer who wants to send or forward the conditional payment. It mainly consists of the following information:
+
 Payment data: the immutable [conditional payment](https://www.celer.network/docs/celercore/channel/pay_contracts.html#conditional-payment) message set by the payment source.
+
 New one-sig state: the new [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) with the signature of peer_from. The new state should have a higher sequence number, new pending payId list (field 5) that includes the  new conditional payment ID, and updated channel metadata(field 6 and field 7).
+
 Base seq: the sequence number of the previous simplex state on which this new state is based.
+
 Pay note: a payment note with `google.protobuf.Any` type that can describe any information which might be useful for off-chain communication.
 `CondPayResponse` is the replied message from receiving peer after checking the validity of every data field in the request. The response consists of two fields:
+
 Co-Signed state: the latest co-signed [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state). This sate should be the same as the state in the `CondPayRequest` if the request is valid. Otherwise (e.g. invalid sequence number due to packet loss), the latest co-signed state stored by the receiving peer is replied to the peer_from to help failure recovery (e.g., resending lost previous request).
+
 Error: an optional error message with the error reason and the sequence number of the errored request. The peer_from sender is responsible for remembering and funding out the sent request based on the NACked sequence number.
 
 **Send State Proof Request(state is key of did)**
