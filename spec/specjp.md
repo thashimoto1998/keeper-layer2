@@ -105,6 +105,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 **CONSUMERがAccessSecretRegistry.solの`intendSettle()`を呼び出した後に、`PaymentSettleRequest`を送信しなかった場合か、`PaymentSettleRequest`が送信されなかった場合である。**
 
 **Resolve Payment by Condition**
+
 もし受け取ったsettlementメッセージが期待されたものでなかった場合、PUBLISHERはconditionのペイメントがオンチェーンでfinalizedな場合、オンチェーン上の`resolvePaymentByCondtions()`を呼び出すことで紛争解決をすることができる。`resolvePaymentByConditions()`APIはインプットとして二つの情報を受け取る。1) 全てのconditional payment data , 2)ペイメントに関連つけられている全てのhash preimages PayResolverは全てのhash preimagesを検証し、conditionsの結果をクエリし、計算し、ペイメント結果をPayRegistryにセットする。 PUBLISHERは決済完了を申し込むため、CONSUMERに`PaymentSettleProof`を送信しなければならない。　`PaymentSettleProof`は決済完了プロセスの初期化をするために使用される。オンチェーンでペイメントの紛争解決が行われ、不正証明が正しいと証明された後に、CONSUMERが協働的になった場合、CONSUMERは正当な`PaumentSettleRequest`を送り、PUBLISHERは`PaymentSettleResponse`を返すことになる。
 
 **オンチェーンで紛争解決が行われて、不正証明が正しいと証明された後でもCONSUMERかPUBLISHERが協働的でない場合**
@@ -112,6 +113,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 ![3](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=amymc99GS)
 
 **Settle/Close the payment channel**
+
 もし協働的な決済完了が不可能である場合、PUBLISHERはオンチェーン上に`intendSettle()`APIを呼び出すことで、一方的な決済完了を行うことができる。このAPIは両者に署名されたオフチェーンsimplex stateをインプットとして受け取る。CelerLedgerコントラクトはsimelex statesとPayRegistryからクエリされたpendingペイメントの結果を元に、分配されるトークン量を計算する。
 不正な一方的な決済完了リクエストが送られ、challenge windowが空いている場合、両者に署名されていて、より高いsequence　numberを持つメッセージを不正証明として送ることで紛争解決を行う。challenge windowが閉じた場合、`confirmSettle()`APIを呼ぶことでチャンネルを閉じる。
 
