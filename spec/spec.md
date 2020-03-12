@@ -1,5 +1,6 @@
 ## Specification: Consensus algorithm of Off-Chain trading of data access control rights 
 
+日本語版は![こちら](https://github.com/thashimoto1998/keeper-layer2/blob/master/spec/specjp.md)
 
 **System Architecture**
 Celer Channel is conditional payment.  There are three key components in the system: CelerPay, CelerApp, and CelerNode.
@@ -138,3 +139,6 @@ REQUIREMENT: The security assumption of the applications on which conditional pa
 
 Send State Proof Request (state is -1)
 When CONSUMER `intendSettle()` (state is -1) to AccessSecretRegistry.sol, owner <-swap-> grantee.
+
+
+Reference: ![celercore](https://www.celer.network/docs/celercore/index.html)
