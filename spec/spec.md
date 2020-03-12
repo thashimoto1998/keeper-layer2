@@ -141,4 +141,4 @@ Send State Proof Request (state is -1)
 When CONSUMER `intendSettle()` (state is -1) to AccessSecretRegistry.sol, owner <-swap-> grantee.
 
 
-Reference: ![celercore](https://www.celer.network/docs/celercore/index.html)
+Reference: celercore: (https://www.celer.network/docs/celercore/index.html)
