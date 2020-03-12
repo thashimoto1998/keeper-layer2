@@ -25,12 +25,16 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
         key = 0;
         bool isPlayer0 = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(_players[0], _did);
         bool isPlayer1 = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(_players[1], _did);
+        address thisAddress = address(this);
         
         require(isPlayer0 == true || isPlayer1 == true, "invalid did owner");
+
+        DIDRegistry(_didRegistryAddress).setAccessSecretRegistry(thisAddress);
 
         if (isPlayer0) {
             owner = _players[0];
             grantee = _players[1];
+
         } else {
             owner = _players[1];
             grantee = _players[0];
@@ -39,10 +43,15 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
         keyList[_did] = key;
         didRegistryAddressList[_did] = _didRegistryAddress;
         key += 1;
+        
     }
 
     event settedDID(
         bytes32 did
+    );
+
+    event evaluated(
+        int evaluation
     );
 
     /**
@@ -147,6 +156,23 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
      */
     function getGrantee() external view returns (address) {
         return grantee;
+    }
+
+    /**
+     *   @notice Evaluate data of did
+     *   @param _eval refers to evaluation of data of DID
+     *   @param _did refers to decentralized identifier (a bytes32 length ID).
+     */
+    function evaluate(int8 _eval, bytes32 _did) external returns (bool) {
+        require(_eval == 1 || _eval == -1, "eval is not 1 or -1");
+        address _thisAddress = address(this);
+        address _didRegistryAddress = didRegistryAddressList[_did];
+        bool isOwner = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(msg.sender, _did);
+        require(!isOwner, "DID owner can not evaluate DID");
+        DIDRegistry(_didRegistryAddress).evaluateDID(_eval, _thisAddress);
+        int eval = DIDRegistry(_didRegistryAddress).getEvaluation();
+        emit evaluated(eval);
+        return true;
     }
 
 }

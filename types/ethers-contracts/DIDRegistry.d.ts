@@ -70,6 +70,16 @@ interface DIDRegistryInterface extends Interface {
     transferDIDOwnership: TypedFunctionDescription<{
       encode([_did, _newOwner]: [Arrayish, string]): string;
     }>;
+
+    evaluateDID: TypedFunctionDescription<{
+      encode([_eval, _contractAddress]: [BigNumberish, string]): string;
+    }>;
+
+    getEvaluation: TypedFunctionDescription<{ encode([]: []): string }>;
+
+    setAccessSecretRegistry: TypedFunctionDescription<{
+      encode([_contractAddress]: [string]): string;
+    }>;
   };
 
   events: {
@@ -200,6 +210,19 @@ export class DIDRegistry extends Contract {
       _newOwner: string,
       overrides?: TransactionOverrides
     ): Promise<ContractTransaction>;
+
+    evaluateDID(
+      _eval: BigNumberish,
+      _contractAddress: string,
+      overrides?: TransactionOverrides
+    ): Promise<ContractTransaction>;
+
+    getEvaluation(): Promise<BigNumber>;
+
+    setAccessSecretRegistry(
+      _contractAddress: string,
+      overrides?: TransactionOverrides
+    ): Promise<ContractTransaction>;
   };
 
   isOwner(): Promise<boolean>;
@@ -273,6 +296,19 @@ export class DIDRegistry extends Contract {
     overrides?: TransactionOverrides
   ): Promise<ContractTransaction>;
 
+  evaluateDID(
+    _eval: BigNumberish,
+    _contractAddress: string,
+    overrides?: TransactionOverrides
+  ): Promise<ContractTransaction>;
+
+  getEvaluation(): Promise<BigNumber>;
+
+  setAccessSecretRegistry(
+    _contractAddress: string,
+    overrides?: TransactionOverrides
+  ): Promise<ContractTransaction>;
+
   filters: {
     DIDAttributeRegistered(
       _did: Arrayish | null,
@@ -336,5 +372,14 @@ export class DIDRegistry extends Contract {
     getDIDRegisterIds(): Promise<BigNumber>;
 
     transferDIDOwnership(_did: Arrayish, _newOwner: string): Promise<BigNumber>;
+
+    evaluateDID(
+      _eval: BigNumberish,
+      _contractAddress: string
+    ): Promise<BigNumber>;
+
+    getEvaluation(): Promise<BigNumber>;
+
+    setAccessSecretRegistry(_contractAddress: string): Promise<BigNumber>;
   };
 }
