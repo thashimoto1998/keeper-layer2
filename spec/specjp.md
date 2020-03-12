@@ -70,7 +70,7 @@ conditional paymentを送るということは両者に署名された[simplex c
 3. Base seq: previous sequence number
 4. Pay note: `google.protobuf.Any`の形式のpayment note。オフチェーンコミュニケーションで役にたつあらゆる情報を格納できる。
 
-**`CondPayResponse`**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールでの項目からなる。
+**CondPayResponse**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールでの項目からなる。
 1. Co-Signed state（両者に署名されたstate): 最後に両者に署名された[simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state)。もし、リクエストが正当であるならば、`CondPayRequest`の中のstateは同じであるべきである。他の場合、(e.g.パケットロスによる、正当でないsequence number)、受け取ったピアによって格納された最後の両者に署名されたstateが障害回復をするために,`peer_from`に返される。
 
 **Send State Proof Request(state is key of did)**
@@ -79,7 +79,7 @@ conditional paymentを送るということは両者に署名された[simplex c
 1. New one-sig state: `peer_from`から署名された新しいstate。この新しいstateはより高いsequence numberを持たなければならない。stateは`didList(did(bytes32) => key(uint8))`のkeyである。
 2. seq: previous sequence number
 
-**`StateProofResponse`**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールドからなる。
+**StateProofResponse**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールドからなる。
 1. Co-Signed state(両者に署名されたstate)：両者に署名されたstate
 2. Error: ある任意のerror reason か sequence number error
 
@@ -94,7 +94,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 2. New one-sig state: `peer_from`に署名された新しい[simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state)。この新しいstateはより高いsequence number(field 3)と新しいpending(保留中の) payId list (field 5) (決済完了されたペイメントが削除されている)を保持し、転送されたトークン量(field 4)とtotal pending amountが更新されている。
 3. Base seq: the sequence number of the previous simpelx state 
 
-**`PaymetSettleResponse`**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールドからなる。
+**PaymetSettleResponse**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールドからなる。
 1. Co-Signed state(両者に署名されたstate)：両者に署名されたstate
 2. Error: ある任意のerror reason か sequence number error
 
@@ -103,6 +103,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 ![2](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=b7DvKQy7e)
 
 **CONSUMERがAccessSecretRegistry.solの`intendSettle()`を呼び出した後に、`PaymentSettleRequest`を送信しなかった場合か、`PaymentSettleRequest`が送信されなかった場合である。**
+
 **Resolve Payment by Condition**
 もし受け取ったsettlementメッセージが期待されたものでなかった場合、PUBLISHERはconditionのペイメントがオンチェーンでfinalizedな場合、オンチェーン上の`resolvePaymentByCondtions()`を呼び出すことで紛争解決をすることができる。`resolvePaymentByConditions()`APIはインプットとして二つの情報を受け取る。1) 全てのconditional payment data , 2)ペイメントに関連つけられている全てのhash preimages PayResolverは全てのhash preimagesを検証し、conditionsの結果をクエリし、計算し、ペイメント結果をPayRegistryにセットする。 PUBLISHERは決済完了を申し込むため、CONSUMERに`PaymentSettleProof`を送信しなければならない。　`PaymentSettleProof`は決済完了プロセスの初期化をするために使用される。オンチェーンでペイメントの紛争解決が行われ、不正証明が正しいと証明された後に、CONSUMERが協働的になった場合、CONSUMERは正当な`PaumentSettleRequest`を送り、PUBLISHERは`PaymentSettleResponse`を返すことになる。
 
