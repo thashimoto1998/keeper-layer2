@@ -1,3 +1,6 @@
+**Specification: Consensus algorithm of Off-Chain trading of data access control rights 
+
+
 **System Architecture**
 Celer Channel is conditional payment.  There are three key components in the system: CelerPay, CelerApp, and CelerNode.
 
