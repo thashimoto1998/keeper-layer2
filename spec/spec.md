@@ -111,7 +111,7 @@ If not receive the settlement as expected, PUBLISHER can choose to submit an on-
 
 **When CONSUMER or PUBLISHER is uncooperative after payment is resolved on-chain.**
 
-![3](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=amymc99GS)
+![3](image/consumer-uncooperative-2.png)
 
 **Settle/Close the payment channel**
 If cooperative settling is not possible, PUBLISHERS can initiate a unilateral settling by calling the `intendSettle()` API, which takes the co-signed off-chain simplex states as input. The CelerLedger contract will compute the settled balance distributions based on the simplex states and the results of pending payments queried from the PayRegistry.
