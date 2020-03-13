@@ -119,7 +119,7 @@ A challenge time window is opened after the unilateral settlement request, for t
 
 ## When PUBLISHER and CONSUMER want to contract another data.
 
-![3](image/another-did.png)
+![3](image/another-did-2.png)
 
 REQUIREMENT: The security assumption of the applications on which conditional payments depend so we should not update `isFinalized()` and `getOutcome()` unintentionally.
 
