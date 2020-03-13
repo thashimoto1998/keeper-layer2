@@ -131,7 +131,7 @@ CONSUMERが`intendSettle()`(stae is -2)で呼び出した時、AccessSecretRegis
 
 ##  PUBLISHERとCONSUMERのオンチェーンのポジションを入れ替えたい場合
 
-![5](image/swap.png)
+![5](image/swap-2.png)
 
 REQUIREMENT: conditional ペイメントアプリケーションのセキュリティーリスクはconditionの`isFinalized()`と`getOutcome()`に依存するため、これらを意図せずアップデートするべきではない。
 
