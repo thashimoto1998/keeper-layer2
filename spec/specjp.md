@@ -117,7 +117,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 もし協働的な決済完了が不可能である場合、PUBLISHERはオンチェーン上に`intendSettle()`APIを呼び出すことで、一方的な決済完了を行うことができる。このAPIは両者に署名されたオフチェーンsimplex stateをインプットとして受け取る。CelerLedgerコントラクトはsimelex statesとPayRegistryからクエリされたpendingペイメントの結果を元に、分配されるトークン量を計算する。
 不正な一方的な決済完了リクエストが送られ、challenge windowが空いている場合、両者に署名されていて、より高いsequence　numberを持つメッセージを不正証明として送ることで紛争解決を行う。challenge windowが閉じた場合、`confirmSettle()`APIを呼ぶことでチャンネルを閉じる。
 
-##  PUBLISHERとCONSUMERが他のデータのアクセスコントロール権の売買の合意形成をした場合
+##  PUBLISHERとCONSUMERが他のデータのアクセスコントロール権の売買の合意形成をしたい場合
 
 ![4](image/another-did.png)
 
