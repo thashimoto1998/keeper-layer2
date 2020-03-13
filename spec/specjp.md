@@ -101,7 +101,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 ## PUBLISHERが不正な処理をしたCONSUMERをオンチェーンで紛争解決をしたい場合
 **CONSUMERがAccessSecretRegistry.solの`intendSettle()`を呼び出した後に、正当な`PaymentSettleRequest`を送信しなかった場合か、`PaymentSettleRequest`が送信されなかった場合**
 
-![2](image/consumer-uncooperative-2.png)
+![2](image/dispute-2.png)
 
 
 **Resolve Payment by Condition**
