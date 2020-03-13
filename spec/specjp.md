@@ -119,7 +119,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 
 ##  PUBLISHERとCONSUMERが他のデータのアクセスコントロール権の売買の合意形成をした場合
 
-![3](image/another-did.png)
+![4](image/another-did.png)
 
 REQUIREMENT: conditional ペイメントアプリケーションのセキュリティーリスクはconditionの`isFinalized()`と`getOutcome()`に依存するため、これらを意図せずアップデートするべきではない。
 
