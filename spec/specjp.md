@@ -52,7 +52,7 @@ ConditionsはCelerPayコントラクトのパートではなく、チャンネ�
 
 ## PUBLISHERとCONSUMERが初めてオフチェーンでデータアクセスコントロール権の合意形成をするときで、両者が互いに協調的である時
 
-![for-the-first-time](image/for-the-first-time.png)
+![for-the-first-time](image/for-the-first-time-2.png)
 
 **Depoly**
 DID PUBLISHERはAccessSecretRegistry.solをデプロイする。このスマートコントラクトはオンチェーンオラクルとして利用される。オンチェーンオラクルとはオンチェーンでのデータは耐改竄性が保証されているため、この真正性のあるデータを用いて何らかの処理をオンチェーンで行うこと。このスマートコントラクトの結果に依存するconditional paymentを送信する。この結果は`isFinalized()`と`getOutcome()`である。`isFinalized()`と`getOutcome()`がtrueである時、PUBLISHERSはトークンを受け取ることができる。消費者がデータのアクセスコントロール権を持っていれば、`checkPermissions()`がtrueとなっている。`isFinalized()`と`getOutcome()`と`checkPermissions()`はAccessSecretRegistry.sol内の関数である。
