@@ -50,7 +50,7 @@ ConditionsはCelerPayコントラクトのパートではなく、チャンネ�
 ## Flows
 このセクションはフローを説明する。
 
-## PUBLISHERとCONSUMERが初めてオフチェーンでデータアクセスコントロール権の合意形成をするときで、両者が互いに協調的である時
+## PUBLISHERとCONSUMERが初めてオフチェーンでデータアクセスコントロール権の売買の合意形成をするときで、両者が互いに協調的である場合
 
 ![for-the-first-time](image/for-the-first-time-3.png)
 
