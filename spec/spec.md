@@ -105,8 +105,7 @@ After a conditional payment is successfully setup, two peers can cooperatively s
 ## When PUBLISHER are motivated to dispute the payment in case of uncooperative behaviors of CONSUMER.
 **When CONSUMER doesn’t send `PaymentSettleRequest` after `intendSettle()`to AccessSecretRegistry.sol or `PaymentSettleRequest` is not expected.**
 
-![2](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=b7DvKQy7e)
-
+![2](image/consumer-uncooperative-2.png)
 **Resolve Payment by Condition**
 If not receive the settlement as expected, PUBLISHER can choose to submit an on-chain transaction to resolve the payment by conditions once conditions of a payment are finalized on-chain. `resolvePaymentByConditions()` API input consists of two pieces of information: 1) the full conditional payment data and 2) all hash preimgaes to the hash locks associated with the payment. Then the PayResolver will verify the hash preimages, query the conditions outcomes, then compute and set the payment result in the PayRegistry. PUBLISHER should send the `PaymentSettleProof` message to the CONSUMER to ask for the settlement. `PaymentSettleProof` is used by the receiving peer to initiating a settlement process. After payment is resolved on-chain and CONSUMER will be cooperative, CONSUMER send valid `PaymentSettleRequest` and PUBLISHER return `PaymentSettleResponse`.
 
