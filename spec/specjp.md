@@ -98,11 +98,11 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 1. Co-Signed state(両者に署名されたstate)：両者に署名されたstate
 2. Error: ある任意のerror reason か sequence number error
 
-##　PUBLISHERが不正な処理をしたCONSUMERをオンチェーンで紛争解決をしたい場合
+## PUBLISHERが不正な処理をしたCONSUMERをオンチェーンで紛争解決をしたい場合
+**CONSUMERがAccessSecretRegistry.solの`intendSettle()`を呼び出した後に、`PaymentSettleRequest`を送信しなかった場合か、`PaymentSettleRequest`が送信されなかった場合**
 
 ![2](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=b7DvKQy7e)
 
-**CONSUMERがAccessSecretRegistry.solの`intendSettle()`を呼び出した後に、`PaymentSettleRequest`を送信しなかった場合か、`PaymentSettleRequest`が送信されなかった場合である。**
 
 **Resolve Payment by Condition**
 
