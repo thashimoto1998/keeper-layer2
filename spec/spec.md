@@ -131,7 +131,7 @@ When CONSUMER `intendSettle()`(state is -2) to AccessSecretRegistry.sol, `AppSta
 
 ## When PUBLISHER and CONSUMER want to swap positions.
 
-![5](image/swap.png)
+![5](image/swap-2.png)
 
 REQUIREMENT: The security assumption of the applications on which conditional payments depend so we should not update `isFinalized()` and `getOutcome()` unintentionally.
 
