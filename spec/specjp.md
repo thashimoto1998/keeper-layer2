@@ -35,8 +35,8 @@ CelerLedgerはCelerPayコントラクトの中心で、ほとんどの[on chain 
 
 **PayResolver**
 PayResolverはペイメント紛争解決のロジックを定義する。これは二つの[APIs](https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/IPayResolver.sol) からなる。もしピア同士がオフチェーンで協調的に決済の完了ができなかった時に、CelerNodeにオンチェーンで紛争解決を行わせる。PayResolverはロジックを実行する時に、次のコントラクトのファンクションを外部呼び出しする。
-*To PayRegistry: resolved(紛争解決済みの)トークン量をグローバルペイメントインフォメーションレジストリにセットする。
-*To Conditions: finalized(決済完了済みの)トークン量を計算した時に、condition結果をクエリする。
+1. To PayRegistry: resolved(紛争解決済みの)トークン量をグローバルペイメントインフォメーションレジストリにセットする。
+2. To Conditions: finalized(決済完了済みの)トークン量を計算した時に、condition結果をクエリする。
 
 **Payregistry**
 PayRegistryは全てのペイメントのresolved（紛争解決済みの）トークンを保管するためのグローバルレジストリである。これは誰でもpayment IDによって紐付けられているペイメント結果をセットするために、シンプルな[APIs](https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/IPayRegistry.sol) を提供している。PayRegistryはpayment IDを `payID = Hash(Hash(pay), setterAddress)`として計算する。setterは基本的にPayResolverである。このように、各々のペイメント結果はresolver contract(field 8 of the [ConditionalPay message](https://www.celer.network/docs/celercore/channel/pay_contracts.html#conditional-payment)に特定性があるようにセットされている。ペイメント結果はPayRegistryでfinalized(決済完了済みの)にされると、改竄することができなくなり、可用性が保証される。これにより、決済が保留状態にある全てのチャンネルはレジストリに保管されている結果を参照することにより、オフチェーンまたはオンチェーンで決済を完了することができる。
