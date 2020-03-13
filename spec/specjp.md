@@ -110,7 +110,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 
 **オンチェーンで紛争解決が行われて、不正証明が正しいと証明された後でもCONSUMERかPUBLISHERが協働的でない場合**
 
-![3](https://vectr.com/h_taki/c1TfzbLh5o.jpg?width=700&height=800&select=amymc99GS)
+![3](image/consumer-uncooperative-2.png)
 
 **Settle/Close the payment channel**
 
