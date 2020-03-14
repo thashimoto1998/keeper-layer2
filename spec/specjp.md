@@ -8,7 +8,7 @@ Celer Channelはconditional paymentである。これは以下の３つの要素
 
 **CelerApp**は任意のアプリケーションロジックを表現できるgeneric state channelsである。CelerPayに必要な標準クエリAPIを公開しているため、支払い条件をCelerAppの結果に基づいて設定できる。上の図の破線は、CelerAppがvirtual moduleにできる可能性を示している。アプリコントラクトは開発者が一度だけデプロイして、将来のプレイヤー全員が共有することができる。
 
-**CelerNodes**はCelerPay及びCelerAppsのstate channelプロトコルを実行するエンドポイントである。ノードは、ネットワーク内の別のノードとCelerPayチャンネルを設定することで、state channel networkに参加できる。CelerNodeがネットワークに参加すると、ネットワーク内の他のノードにオフチェーンペイメントを送ることができる。
+**CelerNodes**はCelerPay及びCelerAppsのstate channelプロトコルを実行するエンドポイント。ノードは、ネットワーク内の別のノードとCelerPayチャンネルを設定することで、state channel networkに参加できる。CelerNodeがネットワークに参加すると、ネットワーク内の他のノードにオフチェーンペイメントを送ることができる。
 
 ＊CelerPayとCelerAppは単純なconditional dependency interfaceを通してゆるくつながっている。これにより、CelerPayのユースケースは、state channelのアプリケーションをはるかに超えることができる。これはオンチェーン上にverifiable conditional stateが存在する限り、オンチェーン上で条件付き支払いをCelerPay network経由で行うことができるからである。オンチェーンのオラクルからの結果によって、条件付き支払いを行うことができる。
 
@@ -21,15 +21,15 @@ Celer Channelはconditional paymentである。これは以下の３つの要素
 **Contracts Architecture**
 ![1](image/contract.png)
 
-下部の白い破線のモジュールは、ユーザーオフチェーンのコンポーネントである。それぞれの色付きの長方形は、個々のオンチェーンコントラクトである、青色のモジュールはCelerPayコントラクト（破線で囲まれた者はアップグレード可能である）；グリーンモジュールは任意のcondition contracts；オレンジの矢印はコントラクト間のファンクション外部呼び出し；黒の矢印はCelerNodes(チェーン外のユーザー)からのファンクション外部呼び出しである。
+下部の白い破線のモジュールは、ユーザーオフチェーンのコンポーネントである。それぞれの色付きの長方形は、個々のオンチェーンコントラクト、青色のモジュールはCelerPayコントラクト（破線で囲まれた者はアップグレード可能）；グリーンモジュールは任意のcondition contracts；オレンジの矢印はコントラクト間のファンクション外部呼び出し；黒の矢印はCelerNodes(チェーン外のユーザー)からのファンクション外部呼び出し。
 
 **CelerWallet**
-CelerWalletのコントラクトにより、全てのペイメントチャンネルに対して複数の所有者、複数のトークンのヲウォレットが維持される。CelerWalletは複雑なペイメントチャンネル＊ロジックを使用せずにチャンネルピアのトークンのみを保持する。これはCelerLedgerコントラクトにプログラムされている。このシンプルさのため、ロバストで安全である。ペイメントチャンネルのピア（CelerNodes）はトークンを操作するために直接CelerWalletコントラクトとインタラクトすることはない。ウォレットオペレータがこの操作を行う。
+CelerWalletのコントラクトにより、全てのペイメントチャンネルに対して複数の所有者、複数のトークンのヲウォレットが維持される。CelerWalletは複雑なペイメントチャンネル＊ロジックを使用せずにチャンネルピアのトークンのみを保持する。これはCelerLedgerコントラクトにプログラムされている。このシンプルさのため、ロバストで安全。ペイメントチャンネルのピア（CelerNodes）はトークンを操作するために直接CelerWalletコントラクトとインタラクトしない。ウォレットオペレータがこの操作を行う。
 
 **CelerLedger**
-CelerLedgerはCelerPayコントラクトの中心で、ほとんどの[on chain user operations](https://www.celer.network/docs/celercore/channel/pay_contracts.html#channel-operations)のエントリーポイントである。
-これはCelerPayのオンチェーンステートマシンを定義し、ペイメントチャンネルのコアロジックを維持し、トークンアセットの操作するためのオペレーターとして振る舞い、ユーザー（channel peers)がペイメントチャンネルを管理できるように豊富な[APIs](https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/ICelerLedger.sol)を提供する。CelerLedgerはロジックを実行するために、次の３つのコントラクトのファンクションを外部呼び出しする。：
-*To CelerWallet: トークンをdeposit/withdraw、オペレータ権の転送するためのCelerWalletの操作
+CelerLedgerはCelerPayコントラクトの中心で、ほとんどの[on chain user operations](https://www.celer.network/docs/celercore/channel/pay_contracts.html#channel-operations)のエントリーポイント。
+これはCelerPayのオンチェーンステートマシンを定義し、ペイメントチャンネルのコアロジックを維持し、トークンアセットの操作するためのオペレーターとして振る舞い、ユーザー（channel peers)がペイメントチャンネルを管理できるように豊富な[APIs](https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/ICelerLedger.sol)を提供する。CelerLedgerはロジックを実行するために、次の３つのコントラクトのファンクションを外部呼び出しをする。：
+*To CelerWallet: トークンをdeposit/withdraw、オペレータ権の転送するためのCelerWalletの操作。
 *To EthPool: CelerWalletにETHの転送、シングルトランザクションチャンネルオープンを可能にする。
 *To PayRegistry: チャンネルで紛争解決した時に、resolved(紛争解決済みの)トークン量のクエリを行う。
 
@@ -39,10 +39,10 @@ PayResolverはペイメント紛争解決のロジックを定義する。これ
 2. To Conditions: finalized(決済完了済みの)トークン量を計算した時に、condition結果をクエリする。
 
 **Payregistry**
-PayRegistryは全てのペイメントのresolved（紛争解決済みの）トークンを保管するためのグローバルレジストリである。これは誰でもpayment IDによって紐付けられているペイメント結果をセットするために、シンプルな[APIs](https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/IPayRegistry.sol) を提供している。PayRegistryはpayment IDを `payID = Hash(Hash(pay), setterAddress)`として計算する。setterは基本的にPayResolverである。このように、各々のペイメント結果はresolver contract(field 8 of the [ConditionalPay message](https://www.celer.network/docs/celercore/channel/pay_contracts.html#conditional-payment)に特定性があるようにセットされている。ペイメント結果はPayRegistryでfinalized(決済完了済みの)にされると、改竄することができなくなり、可用性が保証される。これにより、決済が保留状態にある全てのチャンネルはレジストリに保管されている結果を参照することにより、オフチェーンまたはオンチェーンで決済を完了することができる。
+PayRegistryは全てのペイメントのresolved（紛争解決済みの）トークンを保管するためのグローバルレジストリ。これは誰でもpayment IDによって紐付けられているペイメント結果をセットするために、シンプルな[APIs](https://github.com/celer-network/cChannel-eth/blob/master/contracts/lib/interface/IPayRegistry.sol) を提供している。PayRegistryはpayment IDを `payID = Hash(Hash(pay), setterAddress)`として計算する。setterは基本的にPayResolver。このように、各々のペイメント結果はresolver contract(field 8 of the [ConditionalPay message](https://www.celer.network/docs/celercore/channel/pay_contracts.html#conditional-payment)に特定性があるようにセットされている。ペイメント結果はPayRegistryでfinalized(決済完了済みの)にされると、改竄することができなくなり、可用性が保証される。これにより、決済が保留状態にある全てのチャンネルはレジストリに保管されている結果を参照することにより、オフチェーンまたはオンチェーンで決済を完了することができる。
 
 **EthPool**
-EthPoolはERC-20-likeなETHのためのシンプルなETHウォレットコントラクトである。
+EthPoolはERC-20-likeなETHのためのシンプルなETHウォレットコントラクト。
  
 **Conditions**
 ConditionsはCelerPayコントラクトのパートではなく、チャンネル内で紛争解決が行われている時に、PayResolverが`isFinalized()`と`getOutcome()`APIsを通してクエリする時のための外部コントラクトである。Conditionコントラクトは最初にオンチェーンにデプロイされる。
@@ -55,7 +55,7 @@ ConditionsはCelerPayコントラクトのパートではなく、チャンネ�
 ![for-the-first-time](image/for-the-first-time-3.png)
 
 **Depoly**
-DID PUBLISHERはAccessSecretRegistry.solをデプロイする。このスマートコントラクトはオンチェーンオラクルとして利用される。オンチェーンオラクルとはオンチェーンでのデータは耐改竄性が保証されているため、この真正性のあるデータを用いて何らかの処理をオンチェーンで行うこと。このスマートコントラクトの結果に依存するconditional paymentを送信する。この結果は`isFinalized()`と`getOutcome()`である。`isFinalized()`と`getOutcome()`がtrueである時、PUBLISHERSはトークンを受け取ることができる。消費者がデータのアクセスコントロール権を持っていれば、`checkPermissions()`がtrueとなっている。`isFinalized()`と`getOutcome()`と`checkPermissions()`はAccessSecretRegistry.sol内の関数。
+DID PUBLISHERはAccessSecretRegistry.solをデプロイする。このスマートコントラクトはオンチェーンオラクルとして利用される。オンチェーンオラクルとはオンチェーンでのデータは耐改竄性が保証されているため、この真正性のあるデータを用いて何らかの処理をオンチェーンで行うこと。このスマートコントラクトの結果に依存するconditional paymentを送信する。このスマートコントラクトの結果は`isFinalized()`と`getOutcome()`。`isFinalized()`と`getOutcome()`がtrueである時、PUBLISHERSはトークンを受け取ることができる。消費者がデータのアクセスコントロール権を持っていれば、`checkPermissions()`がtrueとなっている。`isFinalized()`と`getOutcome()`と`checkPermissions()`はAccessSecretRegistry.sol内の関数。
 
 **Open Channel**
 CelerLedgerコントラクトは`openChannel()`APIを提供する。このAPIはシングルトランザクションでチャンネルをオープンにすることを可能にする。このAPIは一つのインプットを受け取る。これは両者のチャンネルピアによって署名された、payment channel initializer messageである。CelerLedgerコントラクトが正当なオープンチャンネルリクエストが受け取った時に、次のオペレーションを実行する。
@@ -64,7 +64,7 @@ CelerLedgerコントラクトは`openChannel()`APIを提供する。このAPIは
 3. ブロックチェーンネイティブなトークン（ETH)とトランザクションリクエストが、許可されたトークンプール（e.g. EthPool or ERC20 contracts)からCelerWalletに送られる。CelerWalletでpayment channel initializer messageに記載されているトークン量が両者に分配される。
 
 **Send Conditional Payment**
-conditional paymentを送るということは両者に署名された[simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) を作ることである。新しいエントリーがpending(保留中の)payId list(field 5)に加えられ、関連する他のフィールドがアップデートされる。プロセスの間、一つのラウンドトリップに二つのオフチェーンメッセージ（`CondPayRequest`と`CondPayResponse`)が含まれる。`CondPayRequest`は条件付き支払いを送信または転送したいピアによって送信されるシングルホップメッセージ。主な内容は次の通り。
+conditional paymentを送ることで、両者に署名された[simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) を作る。新しいエントリーがpending(保留中の)payId list(field 5)に加えられ、関連する他のフィールドがアップデートされる。プロセスの間、一つのラウンドトリップに二つのオフチェーンメッセージ（`CondPayRequest`と`CondPayResponse`)が含まれる。`CondPayRequest`は条件付き支払いを送信または転送したいピアによって送信されるシングルホップメッセージ。主な内容は次の通り。
 1. Payment data: 不変な[conditional payment](https://www.celer.network/docs/celercore/channel/pay_contracts.html#conditional-payment)メッセージがpayment sourceにセットされる。
 2. New one-sig stae: 新しい [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state)`peer_from`からの署名を保持する。この新しいstateはより高いsequence numberを持たなければならず、新しいpending(保留中の)payID list (field 5)に新しいconditional payment IDとアップデートされたチャンネルのメタデータ(field 6とfield 7)を持つ。
 3. Base seq: previous sequence number
@@ -84,7 +84,7 @@ conditional paymentを送るということは両者に署名された[simplex c
 2. Error: ある任意のerror reason か sequence number error
 
 **intendSettle(state is key of did)**
-off-chain stateをオンチェーンのアップデートをするために提出、決済をする。オンチェーンで両者に署名されていて、stateが正当であれば、`isFinalized()`,`getOutcome()`,`checkPermissions()`の結果がtrueになる。
+off-chain stateをオンチェーンのアップデートをするために提出、決済確定をする。オンチェーンで両者に署名されていて、stateが正当であれば、`isFinalized()`,`getOutcome()`,`checkPermissions()`の結果がtrueになる。
 
 **Settle Conditional Payment**
 conditonal payment が正しくセットアップされた時、オフチェーンでfinalizedなconditionの結果により協働的に決済を完了することができる。オフチェーンでのconditional paymentの決済完了は新たに両者に署名された[simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) を作ることにより行われる。pending(保留中の) payId list(field 5)のエントリーが削除され、転送されたトークン量(field 4)と他の関連するフィールドがアップデートされる。
