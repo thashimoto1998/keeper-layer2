@@ -32,23 +32,23 @@ interface AccessSecretRegistryInterface extends Interface {
       encode([_did, _didRegistryAddress]: [Arrayish, string]): string;
     }>;
 
+    checkPermissions: TypedFunctionDescription<{
+      encode([_grantee, _did]: [string, Arrayish]): string;
+    }>;
+
+    evaluate: TypedFunctionDescription<{
+      encode([_eval, _did]: [BigNumberish, Arrayish]): string;
+    }>;
+
     getDID: TypedFunctionDescription<{
       encode([_key]: [BigNumberish]): string;
     }>;
 
     getKeyDID: TypedFunctionDescription<{ encode([_did]: [Arrayish]): string }>;
 
-    checkPermissions: TypedFunctionDescription<{
-      encode([_grantee, _documentId]: [string, Arrayish]): string;
-    }>;
-
     getOwner: TypedFunctionDescription<{ encode([]: []): string }>;
 
     getGrantee: TypedFunctionDescription<{ encode([]: []): string }>;
-
-    evaluate: TypedFunctionDescription<{
-      encode([_eval, _did]: [BigNumberish, Arrayish]): string;
-    }>;
   };
 
   events: {
@@ -100,21 +100,21 @@ export class AccessSecretRegistry extends Contract {
       overrides?: TransactionOverrides
     ): Promise<ContractTransaction>;
 
-    getDID(_key: BigNumberish): Promise<string>;
-
-    getKeyDID(_did: Arrayish): Promise<number>;
-
-    checkPermissions(_grantee: string, _documentId: Arrayish): Promise<boolean>;
-
-    getOwner(): Promise<string>;
-
-    getGrantee(): Promise<string>;
+    checkPermissions(_grantee: string, _did: Arrayish): Promise<boolean>;
 
     evaluate(
       _eval: BigNumberish,
       _did: Arrayish,
       overrides?: TransactionOverrides
     ): Promise<ContractTransaction>;
+
+    getDID(_key: BigNumberish): Promise<string>;
+
+    getKeyDID(_did: Arrayish): Promise<number>;
+
+    getOwner(): Promise<string>;
+
+    getGrantee(): Promise<string>;
   };
 
   getSeqNum(): Promise<BigNumber>;
@@ -136,21 +136,21 @@ export class AccessSecretRegistry extends Contract {
     overrides?: TransactionOverrides
   ): Promise<ContractTransaction>;
 
-  getDID(_key: BigNumberish): Promise<string>;
-
-  getKeyDID(_did: Arrayish): Promise<number>;
-
-  checkPermissions(_grantee: string, _documentId: Arrayish): Promise<boolean>;
-
-  getOwner(): Promise<string>;
-
-  getGrantee(): Promise<string>;
+  checkPermissions(_grantee: string, _did: Arrayish): Promise<boolean>;
 
   evaluate(
     _eval: BigNumberish,
     _did: Arrayish,
     overrides?: TransactionOverrides
   ): Promise<ContractTransaction>;
+
+  getDID(_key: BigNumberish): Promise<string>;
+
+  getKeyDID(_did: Arrayish): Promise<number>;
+
+  getOwner(): Promise<string>;
+
+  getGrantee(): Promise<string>;
 
   filters: {
     IntendSettle(seq: null): EventFilter;
@@ -173,19 +173,16 @@ export class AccessSecretRegistry extends Contract {
 
     setDID(_did: Arrayish, _didRegistryAddress: string): Promise<BigNumber>;
 
+    checkPermissions(_grantee: string, _did: Arrayish): Promise<BigNumber>;
+
+    evaluate(_eval: BigNumberish, _did: Arrayish): Promise<BigNumber>;
+
     getDID(_key: BigNumberish): Promise<BigNumber>;
 
     getKeyDID(_did: Arrayish): Promise<BigNumber>;
 
-    checkPermissions(
-      _grantee: string,
-      _documentId: Arrayish
-    ): Promise<BigNumber>;
-
     getOwner(): Promise<BigNumber>;
 
     getGrantee(): Promise<BigNumber>;
-
-    evaluate(_eval: BigNumberish, _did: Arrayish): Promise<BigNumber>;
   };
 }

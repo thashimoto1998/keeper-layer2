@@ -37,6 +37,7 @@ contract('AccessSecretRegistry', async accounts => {
             value1
         );
         instance = await AccessSecretRegistry.new(peers, nonce, timeout, _did1, didRegistry1.address);
+        await didRegistry1.setAccessSecretRegistry(_did1, instance.address, peers[1]);
     });
 
     it('intend first settle (state is 0) should success and outcome shoule true', async () => {
@@ -124,11 +125,12 @@ contract('AccessSecretRegistry', async accounts => {
             providers,
             value2
         );
-
+        
         res = await instance.setDID(_did2, didRegistry2.address, {from: peers[0]});
         const{ event, args } = res.logs[0];
         assert.equal(event, "settedDID");
         assert.equal(args.did, _did2);
+        await didRegistry2.setAccessSecretRegistry(_did2, instance.address, peers[1]);
     });
 
     it('intend settle (state is 1 which key of _did2) should success', async () => {

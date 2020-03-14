@@ -76,6 +76,7 @@ module.exports = async (peers0, peers1, clients, provider) => {
   const owner = await didRegistry.getDIDOwner(_did);
   assert.equal(owner, peers[0]);
   instance = await AccessSecretRegistry.new(peers, nonce, timeout, _did, didRegistry.address);
+  await didRegistry.setAccessSecretRegistry(_did, instance.address, peers[1]);
   seq = 1;
   state = [0];
   stateProof = await pbApp.encodeStateProof(

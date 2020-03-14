@@ -10,7 +10,11 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
     int8 private key;
     mapping (bytes32 => int8) private keyList;
     mapping (int8 => bytes32) private didList;
-    mapping (bytes32 => address) private didRegistryAddressList;
+    mapping (bytes32 => address) private didOwnerList;
+    /**
+     * @notice mapping (did => address of DIDRegistry) didRegistryAddressList
+     */
+    mapping (bytes32 => address) private didRegistryAddressList; 
    
     constructor(
         address[] memory _players,
@@ -22,28 +26,24 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
         public
         SingleSessionBooleanOutcome(_players, _nonce, _timeout)
     {
-        key = 0;
+        didRegistryAddressList[_did] = _didRegistryAddress;
         bool isPlayer0 = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(_players[0], _did);
         bool isPlayer1 = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(_players[1], _did);
-        address thisAddress = address(this);
-        
         require(isPlayer0 == true || isPlayer1 == true, "invalid did owner");
-
-        DIDRegistry(_didRegistryAddress).setAccessSecretRegistry(thisAddress);
 
         if (isPlayer0) {
             owner = _players[0];
             grantee = _players[1];
-
+            didOwnerList[_did] = owner;
         } else {
             owner = _players[1];
             grantee = _players[0];
+            didOwnerList[_did] = owner;
         }
+        key = 0;
         didList[key] = _did;
         keyList[_did] = key;
-        didRegistryAddressList[_did] = _didRegistryAddress;
         key += 1;
-        
     }
 
     event settedDID(
@@ -76,6 +76,7 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
         require(msg.sender == owner || msg.sender == grantee, "msg.sender is not channel peer");
         int8 state = int8(_state[0]);
         require((state < key && state >= 0) || (state == -1) || (state == -2), "invalid state");
+        bytes32 did = didList[state];
 
         if (state == -1) {
             address x = owner;
@@ -87,7 +88,10 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
             appInfo.status = AppStatus.IDLE;
             return true;
         } else {
-            bytes32 did = didList[state];
+            address thisAddress = address(this);
+            address didRegistryAddress = didRegistryAddressList[did];
+            bool settedAddress = DIDRegistry(didRegistryAddress).isAccessSecretRegistry(did, thisAddress, grantee);
+            require(settedAddress == true, "address of AccessSecretRegistry is not setted at DIDRegistry contract");
             documentPermissionsState[did][grantee] = true;
             appInfo.status = AppStatus.FINALIZED;
             return true;
@@ -104,11 +108,42 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
         require(DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(msg.sender, _did), "msg.sender is not didOwner");
         didList[key] = _did;
         keyList[_did] = key;
-        didRegistryAddressList[_did] = _didRegistryAddress;
         key += 1;
-        address thisAddress = address(this);
-        DIDRegistry(_didRegistryAddress).setAccessSecretRegistry(thisAddress);
+        didOwnerList[_did] = owner;
+        didRegistryAddressList[_did] = _didRegistryAddress;
         emit settedDID(_did);
+        return true;
+    }
+
+    /**
+     *  @notice checkPermissions is called by DIDRegistry.sol
+     *  @param _grantee is the address of the granted user of the DID owner or provider
+     *  @param _did refers to the DID in which secret store will issue the decryption keys
+     *  @return true if the access was granted
+     */
+    function checkPermissions(
+        address _grantee,
+        bytes32 _did
+    )
+        external view
+        returns (bool permissionGranted)
+    {
+        return documentPermissionsState[_did][_grantee] == true;
+    }
+
+    /**
+     *   @notice Evaluate data of did
+     *   @param _eval refers to evaluation of data of DID
+     *   @param _did refers to decentralized identifier (a bytes32 length ID).
+     */
+    function evaluate(int8 _eval, bytes32 _did) external returns (bool) {
+        require(_eval == 1 || _eval == -1, "eval is not 1 or -1");
+        require(msg.sender != didOwnerList[_did], "DID owner can not evaluation DID");
+        address _thisAddress = address(this);
+        address _didRegistryAddress = didRegistryAddressList[_did];
+        DIDRegistry(_didRegistryAddress).evaluateDID(_did, _eval, msg.sender, _thisAddress);
+        int eval = DIDRegistry(_didRegistryAddress).getEvaluation();
+        emit evaluated(eval);
         return true;
     }
 
@@ -131,22 +166,6 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
     }
 
     /**
-     *  @notice checkPermissions is called by Parity secret store
-     *  @param _documentId refers to the DID in which secret store will issue the decryption keys
-     *  @param _grantee is the address of the granted user of the DID provider
-     *  @return true if the access was granted
-     */
-    function checkPermissions(
-        address _grantee,
-        bytes32 _documentId
-    )
-        external view
-        returns (bool permissionGranted)
-    {
-        return documentPermissionsState[_documentId][_grantee] == true;
-    }
-
-    /**
      *  @notice Check owner to test.
      */
     function getOwner() external view returns (address) {
@@ -159,22 +178,4 @@ contract AccessSecretRegistry is SingleSessionBooleanOutcome, IAccessSecretRegis
     function getGrantee() external view returns (address) {
         return grantee;
     }
-
-    /**
-     *   @notice Evaluate data of did
-     *   @param _eval refers to evaluation of data of DID
-     *   @param _did refers to decentralized identifier (a bytes32 length ID).
-     */
-    function evaluate(int8 _eval, bytes32 _did) external returns (bool) {
-        require(_eval == 1 || _eval == -1, "eval is not 1 or -1");
-        address _thisAddress = address(this);
-        address _didRegistryAddress = didRegistryAddressList[_did];
-        bool isOwner = DIDRegistry(_didRegistryAddress).isDIDOwnerOrProvider(msg.sender, _did);
-        require(!isOwner, "DID owner can not evaluate DID");
-        DIDRegistry(_didRegistryAddress).evaluateDID(_eval, _thisAddress);
-        int eval = DIDRegistry(_didRegistryAddress).getEvaluation();
-        emit evaluated(eval);
-        return true;
-    }
-
 }

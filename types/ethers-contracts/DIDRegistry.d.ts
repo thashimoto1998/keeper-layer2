@@ -72,13 +72,34 @@ interface DIDRegistryInterface extends Interface {
     }>;
 
     evaluateDID: TypedFunctionDescription<{
-      encode([_eval, _contractAddress]: [BigNumberish, string]): string;
+      encode([_did, _eval, _grantee, _contractAddress]: [
+        Arrayish,
+        BigNumberish,
+        string,
+        string
+      ]): string;
     }>;
 
     getEvaluation: TypedFunctionDescription<{ encode([]: []): string }>;
 
     setAccessSecretRegistry: TypedFunctionDescription<{
-      encode([_contractAddress]: [string]): string;
+      encode([_did, _contractAddress, _grantee]: [
+        Arrayish,
+        string,
+        string
+      ]): string;
+    }>;
+
+    isAccessSecretRegistry: TypedFunctionDescription<{
+      encode([_did, _contractAddress, _grantee]: [
+        Arrayish,
+        string,
+        string
+      ]): string;
+    }>;
+
+    checkPermissions: TypedFunctionDescription<{
+      encode([grantee, did]: [string, Arrayish]): string;
     }>;
   };
 
@@ -212,7 +233,9 @@ export class DIDRegistry extends Contract {
     ): Promise<ContractTransaction>;
 
     evaluateDID(
+      _did: Arrayish,
       _eval: BigNumberish,
+      _grantee: string,
       _contractAddress: string,
       overrides?: TransactionOverrides
     ): Promise<ContractTransaction>;
@@ -220,9 +243,20 @@ export class DIDRegistry extends Contract {
     getEvaluation(): Promise<BigNumber>;
 
     setAccessSecretRegistry(
+      _did: Arrayish,
       _contractAddress: string,
+      _grantee: string,
       overrides?: TransactionOverrides
     ): Promise<ContractTransaction>;
+
+    isAccessSecretRegistry(
+      _did: Arrayish,
+      _contractAddress: string,
+      _grantee: string,
+      overrides?: TransactionOverrides
+    ): Promise<ContractTransaction>;
+
+    checkPermissions(grantee: string, did: Arrayish): Promise<boolean>;
   };
 
   isOwner(): Promise<boolean>;
@@ -297,7 +331,9 @@ export class DIDRegistry extends Contract {
   ): Promise<ContractTransaction>;
 
   evaluateDID(
+    _did: Arrayish,
     _eval: BigNumberish,
+    _grantee: string,
     _contractAddress: string,
     overrides?: TransactionOverrides
   ): Promise<ContractTransaction>;
@@ -305,9 +341,20 @@ export class DIDRegistry extends Contract {
   getEvaluation(): Promise<BigNumber>;
 
   setAccessSecretRegistry(
+    _did: Arrayish,
     _contractAddress: string,
+    _grantee: string,
     overrides?: TransactionOverrides
   ): Promise<ContractTransaction>;
+
+  isAccessSecretRegistry(
+    _did: Arrayish,
+    _contractAddress: string,
+    _grantee: string,
+    overrides?: TransactionOverrides
+  ): Promise<ContractTransaction>;
+
+  checkPermissions(grantee: string, did: Arrayish): Promise<boolean>;
 
   filters: {
     DIDAttributeRegistered(
@@ -374,12 +421,26 @@ export class DIDRegistry extends Contract {
     transferDIDOwnership(_did: Arrayish, _newOwner: string): Promise<BigNumber>;
 
     evaluateDID(
+      _did: Arrayish,
       _eval: BigNumberish,
+      _grantee: string,
       _contractAddress: string
     ): Promise<BigNumber>;
 
     getEvaluation(): Promise<BigNumber>;
 
-    setAccessSecretRegistry(_contractAddress: string): Promise<BigNumber>;
+    setAccessSecretRegistry(
+      _did: Arrayish,
+      _contractAddress: string,
+      _grantee: string
+    ): Promise<BigNumber>;
+
+    isAccessSecretRegistry(
+      _did: Arrayish,
+      _contractAddress: string,
+      _grantee: string
+    ): Promise<BigNumber>;
+
+    checkPermissions(grantee: string, did: Arrayish): Promise<BigNumber>;
   };
 }

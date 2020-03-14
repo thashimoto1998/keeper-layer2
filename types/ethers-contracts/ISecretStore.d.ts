@@ -13,7 +13,7 @@ import {
 interface ISecretStoreInterface extends Interface {
   functions: {
     checkPermissions: TypedFunctionDescription<{
-      encode([user, documentKeyId]: [string, Arrayish]): string;
+      encode([grantee, did]: [string, Arrayish]): string;
     }>;
   };
 
@@ -37,14 +37,14 @@ export class ISecretStore extends Contract {
   interface: ISecretStoreInterface;
 
   functions: {
-    checkPermissions(user: string, documentKeyId: Arrayish): Promise<boolean>;
+    checkPermissions(grantee: string, did: Arrayish): Promise<boolean>;
   };
 
-  checkPermissions(user: string, documentKeyId: Arrayish): Promise<boolean>;
+  checkPermissions(grantee: string, did: Arrayish): Promise<boolean>;
 
   filters: {};
 
   estimate: {
-    checkPermissions(user: string, documentKeyId: Arrayish): Promise<BigNumber>;
+    checkPermissions(grantee: string, did: Arrayish): Promise<BigNumber>;
   };
 }

@@ -7,6 +7,8 @@ import './DIDRegistryLibrary.sol';
 //import "@openzeppelin/contracts/ownership/Ownable.sol";
 import 'openzeppelin-eth/contracts/ownership/Ownable.sol';
 //import "@openzeppelin/upgrades/contracts/Initializable.sol";
+import '../templates/ISecretStore.sol';
+import {AccessSecretRegistry} from './AccessSecretRegistry.sol';
 
 /**
  * @title DID Registry
@@ -15,7 +17,7 @@ import 'openzeppelin-eth/contracts/ownership/Ownable.sol';
  * @dev Implementation of the DID Registry.
  *      https://github.com/oceanprotocol/OEPs/tree/master/7#registry
  */
-contract DIDRegistry is Ownable {
+contract DIDRegistry is Ownable, ISecretStore {
 
     /**
      * @dev The DIDRegistry Library takes care of the basic storage functions.
@@ -28,10 +30,9 @@ contract DIDRegistry is Ownable {
     DIDRegistryLibrary.DIDRegisterList internal didRegisterList;
 
     /**
-     *  @dev mapping of AccessSecretRegisty address
+     * @dev mapping(did => mapping(grantee => AccessSecretRegistryAddress)) accessSecretRegistryList
      */
-    mapping(uint => address) addressAccessSecretRegistry;
-    uint key = 0;
+    mapping(bytes32 => mapping(address => address)) accessSecretRegistryList;
 
     /**
      *  @dev evaluation of data of DID
@@ -320,15 +321,15 @@ contract DIDRegistry is Ownable {
 
     /**
      *  @notice Evaluate of data of DID
+     *  @param _did referes to decentralized identifier (a bytes32 length ID)
      *  @param _eval refers to evaluation of data of DID 
+     *  @param _grantee is the address of the granted user of the DID owner or provider
      *  @param _contractAddress address of AccessSecret
      */
-    function evaluateDID(int8 _eval, address _contractAddress) external returns (bool) { 
-        for (uint i = 0; i < key; i++) {
-            if (addressAccessSecretRegistry[i] == _contractAddress) {
-                 evaluation += _eval;
-                 return true; 
-            }
+    function evaluateDID(bytes32 _did, int8 _eval, address _grantee, address _contractAddress) external returns (bool) { 
+        if (accessSecretRegistryList[_did][_grantee] == _contractAddress) {
+            evaluation += _eval;
+            return true;
         }
         return false;   
     }
@@ -340,9 +341,48 @@ contract DIDRegistry is Ownable {
         return evaluation;
     }
 
-    function setAccessSecretRegistry(address _contractAddress) external {
-        addressAccessSecretRegistry[key] = _contractAddress;
-        key += 1;
+    /**
+     *  @notice Set contract address of AccessSecretRegistry
+     *  @param _did (bytes32)
+     *  @param _contractAddress contract address of AccessSecretRegistry 
+     *  @param _grantee is the address of the grantee 
+     *  @return bool
+     */
+    function setAccessSecretRegistry(bytes32 _did, address _contractAddress, address _grantee) 
+        onlyDIDOwner(_did) external returns (bool) 
+    {
+        accessSecretRegistryList[_did][_grantee] = _contractAddress;
+    }
+
+    /**
+     * @notice Whether address of AccessSecretRegistry is setted in this contract.
+     * @param _did (bytes32)
+     * @param _contractAddress contract address of AccessSecretRegistry
+     * @param _grantee is the address of the grantee
+     * @return bool
+     */
+    function isAccessSecretRegistry(bytes32 _did, address _contractAddress, address _grantee)
+        external returns (bool)
+    {
+        return accessSecretRegistryList[_did][_grantee] == _contractAddress;
+    }
+
+    /**
+    * @notice checkPermissions is called by Parity secret store
+    * @param grantee is the address of the granted user of the DID owner or provider
+    * @param did referes to the DID in which secret sotre will issue the decryption keys
+    * @return true if the access was granted
+    */
+    function checkPermissions(
+        address grantee,
+        bytes32 did
+    )
+        external view
+        returns (bool permissionGranted)
+    {
+        address accessSecretRegistryAddress = accessSecretRegistryList[did][grantee];
+        bool checkPermission = AccessSecretRegistry(accessSecretRegistryAddress).checkPermissions(grantee, did);
+        return checkPermission == true;
     }
 
 }
