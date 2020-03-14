@@ -55,7 +55,7 @@ ConditionsはCelerPayコントラクトのパートではなく、チャンネ�
 ![for-the-first-time](image/for-the-first-time-3.png)
 
 **Depoly**
-DID PUBLISHERはAccessSecretRegistry.solをデプロイする。このスマートコントラクトはオンチェーンオラクルとして利用される。オンチェーンオラクルとはオンチェーンでのデータは耐改竄性が保証されているため、この真正性のあるデータを用いて何らかの処理をオンチェーンで行うこと。このスマートコントラクトの結果に依存するconditional paymentを送信する。この結果は`isFinalized()`と`getOutcome()`である。`isFinalized()`と`getOutcome()`がtrueである時、PUBLISHERSはトークンを受け取ることができる。消費者がデータのアクセスコントロール権を持っていれば、`checkPermissions()`がtrueとなっている。`isFinalized()`と`getOutcome()`と`checkPermissions()`はAccessSecretRegistry.sol内の関数である。
+DID PUBLISHERはAccessSecretRegistry.solをデプロイする。このスマートコントラクトはオンチェーンオラクルとして利用される。オンチェーンオラクルとはオンチェーンでのデータは耐改竄性が保証されているため、この真正性のあるデータを用いて何らかの処理をオンチェーンで行うこと。このスマートコントラクトの結果に依存するconditional paymentを送信する。この結果は`isFinalized()`と`getOutcome()`である。`isFinalized()`と`getOutcome()`がtrueである時、PUBLISHERSはトークンを受け取ることができる。消費者がデータのアクセスコントロール権を持っていれば、`checkPermissions()`がtrueとなっている。`isFinalized()`と`getOutcome()`と`checkPermissions()`はAccessSecretRegistry.sol内の関数。
 
 **Open Channel**
 CelerLedgerコントラクトは`openChannel()`APIを提供する。このAPIはシングルトランザクションでチャンネルをオープンにすることを可能にする。このAPIは一つのインプットを受け取る。これは両者のチャンネルピアによって署名された、payment channel initializer messageである。CelerLedgerコントラクトが正当なオープンチャンネルリクエストが受け取った時に、次のオペレーションを実行する。
@@ -64,19 +64,19 @@ CelerLedgerコントラクトは`openChannel()`APIを提供する。このAPIは
 3. ブロックチェーンネイティブなトークン（ETH)とトランザクションリクエストが、許可されたトークンプール（e.g. EthPool or ERC20 contracts)からCelerWalletに送られる。CelerWalletでpayment channel initializer messageに記載されているトークン量が両者に分配される。
 
 **Send Conditional Payment**
-conditional paymentを送るということは両者に署名された[simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) を作ることである。新しいエントリーがpending(保留中の)payId list(field 5)に加えられ、関連する他のフィールドがアップデートされる。プロセスの間、一つのラウンドトリップに二つのオフチェーンメッセージ（`CondPayRequest`と`CondPayResponse`)が含まれる。`CondPayRequest`は条件付き支払いを送信または転送したいピアによって送信されるシングルホップメッセージである。主な内容は次の通りである。
+conditional paymentを送るということは両者に署名された[simplex channel state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state) を作ることである。新しいエントリーがpending(保留中の)payId list(field 5)に加えられ、関連する他のフィールドがアップデートされる。プロセスの間、一つのラウンドトリップに二つのオフチェーンメッセージ（`CondPayRequest`と`CondPayResponse`)が含まれる。`CondPayRequest`は条件付き支払いを送信または転送したいピアによって送信されるシングルホップメッセージ。主な内容は次の通り。
 1. Payment data: 不変な[conditional payment](https://www.celer.network/docs/celercore/channel/pay_contracts.html#conditional-payment)メッセージがpayment sourceにセットされる。
-2. New one-sig stae: 新しい [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state)`peer_from`からの署名を保持する。この新しいstateはより高いsequence numberを持たなければならず、新しいpending(保留中の)payID list (field 5)に新しいconditional payment IDとアップデートされたチャンネルのメタデータ(field 6とfield 7)を持つべきである。
+2. New one-sig stae: 新しい [simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state)`peer_from`からの署名を保持する。この新しいstateはより高いsequence numberを持たなければならず、新しいpending(保留中の)payID list (field 5)に新しいconditional payment IDとアップデートされたチャンネルのメタデータ(field 6とfield 7)を持つ。
 3. Base seq: previous sequence number
-4. Pay note: `google.protobuf.Any`の形式のpayment note。オフチェーンコミュニケーションで役にたつあらゆる情報を格納できる。
+4. Pay note: `google.protobuf.Any`の形式のpayment note。オフチェーンコミュニケーションで役にたつあらゆる情報を格納する。
 
 **CondPayResponse**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールでの項目からなる。
-1. Co-Signed state（両者に署名されたstate): 最後に両者に署名された[simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state)。もし、リクエストが正当であるならば、`CondPayRequest`の中のstateは同じであるべきである。他の場合、(e.g.パケットロスによる、正当でないsequence number)、受け取ったピアによって格納された最後の両者に署名されたstateが障害回復をするために,`peer_from`に返される。
+1. Co-Signed state（両者に署名されたstate): 最後に両者に署名された[simplex state](https://www.celer.network/docs/celercore/channel/pay_contracts.html#simplex-channel-state)。もし、リクエストが正当であるならば、`CondPayRequest`の中のstateは同じでなければならない。他の場合、(e.g.パケットロスによる、正当でないsequence number)、受け取ったピアによって格納された最後の両者に署名されたstateが障害回復をするために,`peer_from`に返される。
 
 **Send State Proof Request(state is key of did)**
 [StateProof](https://github.com/celer-network/cApps-eth/blob/master/contracts/lib/proto/app.proto)を送ることにより、両者に署名されたstateを作成する。
 これは次の情報により成り立つ。
-1. New one-sig state: `peer_from`から署名された新しいstate。この新しいstateはより高いsequence numberを持たなければならない。stateは`didList(did(bytes32) => key(uint8))`のkeyである。
+1. New one-sig state: `peer_from`から署名された新しいstate。この新しいstateはより高いsequence numberを持たなければならない。stateは`didList(did(bytes32) => key(uint8))`のkey。
 2. seq: previous sequence number
 
 **StateProofResponse**は受け取ったピアがリクエストの全てのデータフィールドを検証してから送ったピアに送り返すメッセージである。レスポンスは次の二つのフィールドからなる。
@@ -106,7 +106,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 
 **Resolve Payment by Condition**
 
-もし受け取ったsettlementメッセージが期待されたものでなかった場合、PUBLISHERはconditionのペイメントがオンチェーンでfinalizedな場合、オンチェーン上の`resolvePaymentByCondtions()`を呼び出すことで紛争解決をすることができる。`resolvePaymentByConditions()`APIはインプットとして二つの情報を受け取る。1) 全てのconditional payment data , 2)ペイメントに関連つけられている全てのhash preimages PayResolverは全てのhash preimagesを検証し、conditionsの結果をクエリし、計算し、ペイメント結果をPayRegistryにセットする。 PUBLISHERは決済完了を申し込むため、CONSUMERに`PaymentSettleProof`を送信しなければならない。　`PaymentSettleProof`は決済完了プロセスの初期化をするために使用される。オンチェーンでペイメントの紛争解決が行われ、不正証明が正しいと証明された後に、CONSUMERが協働的になった場合、CONSUMERは正当な`PaumentSettleRequest`を送り、PUBLISHERは`PaymentSettleResponse`を返すことになる。
+もし受け取ったsettlementメッセージが期待されたものでなかった場合、PUBLISHERはconditionのペイメントがオンチェーンでfinalizedな場合、オンチェーン上の`resolvePaymentByCondtions()`を呼び出すことで紛争解決をすることができる。`resolvePaymentByConditions()`APIはインプットとして二つの情報を受け取る。1) 全てのconditional payment data , 2)ペイメントに関連つけられている全てのhash preimages PayResolverは全てのhash preimagesを検証し、conditionsの結果をクエリし、計算し、ペイメント結果をPayRegistryにセットする。 PUBLISHERは決済完了を申し込むため、CONSUMERに`PaymentSettleProof`を送信しなければならない。　`PaymentSettleProof`は決済完了プロセスの初期化をするために使用される。オンチェーンでペイメントの紛争解決が行われ、不正証明が正しいと証明された後に、CONSUMERが協働的になった場合、CONSUMERは正当な`PaumentSettleRequest`を送り、PUBLISHERは`PaymentSettleResponse`を返す。
 
 **オンチェーンで紛争解決が行われて、不正証明が正しいと証明された後でもCONSUMERかPUBLISHERが協働的でない場合**
 
@@ -121,7 +121,7 @@ conditonal payment が正しくセットアップされた時、オフチェー�
 
 ![4](image/another-did-2.png)
 
-REQUIREMENT: conditional ペイメントアプリケーションのセキュリティーリスクはconditionの`isFinalized()`と`getOutcome()`に依存するため、これらを意図せずアップデートするべきではない。
+REQUIREMENT: conditional ペイメントアプリケーションのセキュリティーリスクはconditionの`isFinalized()`と`getOutcome()`に依存するため、これらを意図せずアップデートしてはいけない。
 
 Set another DID.
 PUBLISHERはオンチェーン上の `setDID()`を呼ぶことで他のデータのDIDを登録する。
@@ -133,7 +133,7 @@ CONSUMERが`intendSettle()`(stae is -2)で呼び出した時、AccessSecretRegis
 
 ![5](image/swap-2.png)
 
-REQUIREMENT: conditional ペイメントアプリケーションのセキュリティーリスクはconditionの`isFinalized()`と`getOutcome()`に依存するため、これらを意図せずアップデートするべきではない。
+REQUIREMENT: conditional ペイメントアプリケーションのセキュリティーリスクはconditionの`isFinalized()`と`getOutcome()`に依存するため、これらを意図せずアップデートしてはいけない。
 
 Send State Proof Request (state is -1)
 CONSUMERが`intendSettle()`(stae is -1)で呼び出した時、AccessSecretRegistryコントラクト上のポジションであるownerとgranteeが入れ替わる。
