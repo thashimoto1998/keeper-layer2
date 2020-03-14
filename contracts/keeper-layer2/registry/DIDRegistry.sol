@@ -346,7 +346,7 @@ contract DIDRegistry is Ownable, ISecretStore {
     }
 
     /**
-     * @notice Whether address of AccessSecretRegistry is setted in this contract.
+     * @notice Whether address of AccessSecretRegistry is setted at this contract.
      * @param _did (bytes32)
      * @param _contractAddress contract address of AccessSecretRegistry
      * @param _grantee is the address of the grantee
