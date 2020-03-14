@@ -1,7 +1,4 @@
 pragma solidity >=0.5.0 <0.6.0;
-// Copyright BigchainDB GmbH and Ocean Protocol contributors
-// SPDX-License-Identifier: (Apache-2.0 AND CC-BY-4.0)
-// Code is Apache-2.0 and docs are CC-BY-4.0
 
 import './DIDRegistryLibrary.sol';
 //import "@openzeppelin/contracts/ownership/Ownable.sol";
@@ -10,13 +7,7 @@ import 'openzeppelin-eth/contracts/ownership/Ownable.sol';
 import '../templates/ISecretStore.sol';
 import {AccessSecretRegistry} from './AccessSecretRegistry.sol';
 
-/**
- * @title DID Registry
- * @author Ocean Protocol Team
- *
- * @dev Implementation of the DID Registry.
- *      https://github.com/oceanprotocol/OEPs/tree/master/7#registry
- */
+
 contract DIDRegistry is Ownable, ISecretStore {
 
     /**
