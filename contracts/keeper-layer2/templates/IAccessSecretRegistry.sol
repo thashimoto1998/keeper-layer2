@@ -27,7 +27,7 @@ interface IAccessSecretRegistry {
     function getKeyDID(bytes32 _did) external view returns (int8);
 
     /**
-    * @notice checkPermissions is called by Parity secret store
+    * @notice checkPermissions is called by DID Registry contract.
     */
     function checkPermissions(
         address user,
