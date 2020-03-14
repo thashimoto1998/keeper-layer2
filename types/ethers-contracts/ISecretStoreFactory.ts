@@ -21,12 +21,12 @@ const _abi = [
     inputs: [
       {
         internalType: "address",
-        name: "user",
+        name: "grantee",
         type: "address"
       },
       {
         internalType: "bytes32",
-        name: "documentKeyId",
+        name: "did",
         type: "bytes32"
       }
     ],
