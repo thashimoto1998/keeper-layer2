@@ -23,7 +23,11 @@ contract('UnitTest', async accounts => {
    
     const _did2 = constants.did[1];
     const checksum2 = constants.checksum[1];
-    const value2 = 'https://exmaple.com/did/ocean/test-attr-example2.txt'
+    const value2 = 'https://exmaple.com/did/ocean/test-attr-example2.txt';
+
+    const _did3 = constants.did[2];
+    const checksum3 = constants.checksum[2];
+    const value3 = 'https://exmaple.com/did/ocean/test-attr-example3.txt';
 
     it('intend first settle (state is 0 should success and checkPermissions from secret store node true', async () => {
         const didRegistryLibrary1 = await DIDRegistryLibrary.new();
@@ -119,4 +123,28 @@ contract('UnitTest', async accounts => {
         }
        assert.fail("address of AccessSecretRegistry is not setted at DIDRegistry contract");
     });
+
+    it('Set address of AccessSecretRegistry from grantee should fail', async () => {
+        const didRegistryLibrary3 = await DIDRegistryLibrary.new();
+        await DIDRegistry.link('DIDRegistryLibrary', didRegistryLibrary3.address);
+        const didRegistry3 = await DIDRegistry.new();
+        await didRegistry3.initialize(peers[0]);
+        await didRegistry3.registerAttribute(
+            _did3,
+            checksum3,
+            providers,
+            value3
+        );
+        instance = await AccessSecretRegistry.new(peers, nonce, timeout, _did3, didRegistry3.address);
+        try {
+            await didRegistry3.setAccessSecretRegistry(_did3, instance.address, peers[1],{from: peers[1]});
+        } catch (e) {
+            assert.isAbove(
+                e.message.search('VM Exception while processing transaction'),
+                 -1
+            );
+            return;
+        }
+        assert.fail("Invalid DID owner");
+    })
 });
