@@ -1,6 +1,7 @@
 ## Specification: オフチェーンでのデータアクセスコントロール権売買の合意形成アルゴリズム
 
 **System Architecture**
+
 Celer Channelはconditional paymentである。これは以下の３つの要素からなっている。CelerPay, CelerApp, CelerNode。
 
 ![1](image/Architecture.png)
