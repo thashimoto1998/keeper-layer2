@@ -56,7 +56,7 @@ ConditionsはCelerPayコントラクトのパートではなく、チャンネ�
 ![for-the-first-time](image/for-the-first-time-3.png)
 
 **Depoly**
-DID PUBLISHERはAccessSecretRegistry.solをデプロイする。このスマートコントラクトはオンチェーンオラクルとして利用される。オンチェーンオラクルとはオンチェーンでのデータは耐改竄性が保証されているため、この真正性のあるデータを用いて何らかの処理をオンチェーンで行うこと。このスマートコントラクトの結果に依存するconditional paymentを送信する。このスマートコントラクトの結果は`isFinalized()`と`getOutcome()`。`isFinalized()`と`getOutcome()`がtrueである時、PUBLISHERSはトークンを受け取ることができる。消費者がデータのアクセスコントロール権を持っていれば、`checkPermissions()`がtrueとなっている。`isFinalized()`と`getOutcome()`と`checkPermissions()`はAccessSecretRegistry.sol内の関数。
+DID PUBLISHERは![AccessSecretRegistry.sol](https://github.com/thashimoto1998/keeper-layer2/blob/master/contracts/keeper-layer2/registry/AccessSecretRegistry.sol)をデプロイする。このスマートコントラクトはオンチェーンオラクルとして利用される。オンチェーンオラクルとはオンチェーンでのデータは耐改竄性が保証されているため、この真正性のあるデータを用いて何らかの処理をオンチェーンで行うこと。このスマートコントラクトの結果に依存するconditional paymentを送信する。このスマートコントラクトの結果は`isFinalized()`と`getOutcome()`。`isFinalized()`と`getOutcome()`がtrueである時、PUBLISHERSはトークンを受け取ることができる。消費者がデータのアクセスコントロール権を持っていれば、`checkPermissions()`がtrueとなっている。`isFinalized()`と`getOutcome()`と`checkPermissions()`はAccessSecretRegistry.sol内の関数。
 
 **Open Channel**
 CelerLedgerコントラクトは`openChannel()`APIを提供する。このAPIはシングルトランザクションでチャンネルをオープンにすることを可能にする。このAPIは一つのインプットを受け取る。これは両者のチャンネルピアによって署名された、payment channel initializer messageである。CelerLedgerコントラクトが正当なオープンチャンネルリクエストが受け取った時に、次のオペレーションを実行する。
