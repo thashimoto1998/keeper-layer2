@@ -58,7 +58,7 @@ This section describes detail flow.
 ![for-the-first-time](image/for-the-first-time-3.png)
 	
 **Deploy**
-DID PUBLISHERS deploy AccessSecretRegistry.sol. This contract is used for on-chain oracle. Sending a conditional payment with dependency on an outcome from this smart contract. Outcome is `isFinalized()` and `getOutcome()`. When `IsFinalized()` and `getOutcome()` is true, PUBLISHERS can get token. Access agreement outcome is `checkPermissions()`. When `checkPermissions()` is true, CONSUMERS can access document .
+DID PUBLISHERS deploy ![AccessSecretRegistry.sol](https://github.com/thashimoto1998/keeper-layer2/blob/master/contracts/keeper-layer2/registry/AccessSecretRegistry.sol). This contract is used for on-chain oracle. Sending a conditional payment with dependency on an outcome from this smart contract. Outcome is `isFinalized()` and `getOutcome()`. When `IsFinalized()` and `getOutcome()` is true, PUBLISHERS can get token. Access agreement outcome is `checkPermissions()`. When `checkPermissions()` is true, CONSUMERS can access document . 
 
 
 **Open Channel**
