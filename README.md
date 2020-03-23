@@ -1,7 +1,6 @@
 # Scalable decentralized data market protocol
 
-This protocol implement by substrate. -> 
-
+This protocol implement by substrate. -> (https://github.com/thashimoto1998/substrate-pallet-DIDOffchainTrade)
 
 # Test
 1. Install node v10: https://nodejs.org.
