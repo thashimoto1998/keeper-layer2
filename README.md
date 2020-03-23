@@ -1,4 +1,7 @@
-# Scalable decentralized data market
+# Scalable decentralized data market protocol
+
+This protocol implement by substrate. -> 
+
 
 # Test
 1. Install node v10: https://nodejs.org.
