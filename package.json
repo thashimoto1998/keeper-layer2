@@ -21,7 +21,7 @@
     "celer"
   ],
   "dependencies": {
-    "@openzeppelin/contracts": "^2.4.0",
+    "@openzeppelin/contracts": "^4.4.2",
     "@openzeppelin/upgrades": "^2.6.0",
     "@types/google-protobuf": "^3.7.1",
     "chai": "^4.2.0",
