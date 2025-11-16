@@ -37,7 +37,7 @@
     "zos-lib": "^2.4.2"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^9.39.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-node": "^8.0.1",
@@ -45,7 +45,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "ganache-cli": "^6.7.0",
     "npx": "^10.2.0",
-    "solidity-coverage": "^0.5.11",
+    "solidity-coverage": "^0.8.16",
     "solium": "^1.2.4",
     "truffle": "^5.0.24",
     "typechain": "^1.0.4",
